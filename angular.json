@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Front-end": {
+    "clientes-app-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,11 +23,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/front-end",
+            "outputPath": "dist/clientes-app-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -37,7 +38,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -51,8 +53,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -67,12 +69,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "Front-end:build:production"
+              "buildTarget": "clientes-app-frontend:build:production"
             },
             "development": {
-              "buildTarget": "Front-end:build:development"
+              "buildTarget": "clientes-app-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +90,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -104,6 +110,6 @@
     }
   },
   "cli": {
-    "analytics": "598d9c8e-3bac-4477-b575-df082da5e4b9"
+    "analytics": "9e7ab75d-95d0-49c6-8794-53644a36b684"
   }
 }
