@@ -1,0 +1,7 @@
+<div *ngIf="facultad">
+  <h3>{{ facultad.nombre }}</h3>
+  <p>Descripcion: {{ facultad.descripcion }}</p>
+  <p>Id curso: {{ facultad.id_curso }}</p>
+  <button (click)="deleteFacultad(facultad)" class="btn btn-danger">Eliminar</button>
+</div>
+

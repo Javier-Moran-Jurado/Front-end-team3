@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OvaDetalleComponent } from './ova-detalle.component';
+import { FacultadesComponent } from './facultades.component';
 
-describe('OvaDetalleComponent', () => {
-  let component: OvaDetalleComponent;
-  let fixture: ComponentFixture<OvaDetalleComponent>;
+describe('FacultadesComponent', () => {
+  let component: FacultadesComponent;
+  let fixture: ComponentFixture<FacultadesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OvaDetalleComponent]
+      declarations: [FacultadesComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(OvaDetalleComponent);
+    fixture = TestBed.createComponent(FacultadesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

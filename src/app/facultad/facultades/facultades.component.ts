@@ -1,32 +1,34 @@
 import {Component, OnInit} from '@angular/core';
-import {Ova} from '../model/ova';
-import {OvaService} from '../service/ova.service';
+import {Facultad} from '../model/facultad';
+import {FacultadService} from '../service/facultad.service';
 import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
-import {OvaFormComponent} from '../ova-form/ova-form.component';
+import { FacultadFormComponent } from '../facultad-form/facultad-form.component';
+
+
 
 @Component({
-  selector: 'app-ovas',
-  templateUrl: './ovas.component.html',
+  selector: 'app-facultades',
+  templateUrl: './facultades.component.html',
   standalone: false,
-  styleUrl: './ovas.component.css'
+  styleUrl: './facultades.component.css'
 })
-export class OvasComponent implements OnInit {
-  ovaArr: {ovas: Ova[]} = {ovas:[]};
+export class FacultadesComponent implements OnInit {
+  facultadArr: {facultades: Facultad[]} = {facultades:[]};
   faEdit = faEdit;
   faTrash = faTrash;
   faUserPlus = faUserPlus;
 
 
   constructor(
-    private ovaService: OvaService
+    private facultadService: FacultadService
   ) {}
 
   ngOnInit(): void {
-    this.ovaService.getOvas().subscribe(data => this.ovaArr = data);
+    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
   }
 
-  confirmDelete(ova: Ova): void {
+  confirmDelete(facultad: Facultad): void {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'No podrás revertir esta acción',
@@ -36,22 +38,22 @@ export class OvasComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.ovaService.deleteOva(ova).subscribe(() => {
-          this.loadOvas();
-          Swal.fire('Eliminado!', 'El ova ha sido eliminado.', 'success');
+        this.facultadService.deleteFacultad(facultad).subscribe(() => {
+          this.loadFacultades();
+          Swal.fire('Eliminado!', 'El facultad ha sido eliminado.', 'success');
         });
       }
     });
   }
 
 
-  editOva(ova: Ova): void {
+  editFacultad(facultad: Facultad): void {
     Swal.fire({
-      title: 'Editar Ova',
+      title: 'Editar Facultad',
       html: `
-        <input type="text" id="nombre" class="swal2-input" placeholder="Nombre" value="${ova.nombre}">
-      <input type="text" id="descripcion" class="swal2-input" placeholder="Apellido" value="${ova.descripcion}">
-      <input type="id_curso" id="id_curso" class="swal2-input" placeholder="Email" value="${ova.id_curso}">
+        <input type="text" id="nombre" class="swal2-input" placeholder="Nombre" value="${facultad.nombre}">
+      <input type="text" id="descripcion" class="swal2-input" placeholder="Apellido" value="${facultad.descripcion}">
+      <input type="id_curso" id="id_curso" class="swal2-input" placeholder="Email" value="${facultad.id_curso}">
       `,
       showCancelButton: true,
       confirmButtonText: 'Actualizar',
@@ -63,22 +65,22 @@ export class OvasComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        ova.nombre = result.value!.nombre;
-        ova.descripcion = result.value!.descripcion;
-        ova.id_curso = result.value!.id_curso;
-        this.ovaService.updateOva(ova).subscribe(() => {
-          Swal.fire('Actualizado!', 'El ova ha sido actualizado.', 'success');
+        facultad.nombre = result.value!.nombre;
+        facultad.descripcion = result.value!.descripcion;
+        facultad.id_curso = result.value!.id_curso;
+        this.facultadService.updateFacultad(facultad).subscribe(() => {
+          Swal.fire('Actualizado!', 'El facultad ha sido actualizado.', 'success');
         });
       }
     });
   }
 
-  addOva(): void {
+  addFacultad(): void {
     // Cargar regiones desde el backend antes de mostrar el modal
 
       // Mostrar el formulario en SweetAlert2
       Swal.fire({
-        title: 'Añadir Ova',
+        title: 'Añadir Facultad',
         html: `
           <input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
           <input type="text" id="descripcion" class="swal2-input" placeholder="Descripcion">
@@ -103,24 +105,24 @@ export class OvasComponent implements OnInit {
         }
       }).then((result) => {
         if (result.isConfirmed) {
-          const nuevoOva: Ova = {
+          const nuevoFacultad: Facultad = {
             nombre: result.value!.nombre,
             descripcion: result.value!.descripcion,
             id_curso: result.value!.id_curso,
           };
 
-          // Guardar el ova usando el servicio
-          this.ovaService.createOva(nuevoOva).subscribe(() => {
-            this.loadOvas(); // Recargar la lista de ovas
-            Swal.fire('¡Creado!', 'El ova ha sido creado exitosamente.', 'success');
+          // Guardar el facultad usando el servicio
+          this.facultadService.createFacultad(nuevoFacultad).subscribe(() => {
+            this.loadFacultades(); // Recargar la lista de facultades
+            Swal.fire('¡Creado!', 'El facultad ha sido creado exitosamente.', 'success');
           });
         }
       });
   }
 
 
-  private loadOvas() {
-    console.log("cargando ovas");
-    this.ovaService.getOvas().subscribe(data => this.ovaArr = data);
+  private loadFacultades() {
+    console.log("cargando facultades");
+    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
   }
 }

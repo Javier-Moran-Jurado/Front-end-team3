@@ -1,4 +1,4 @@
-export class Ova {
+export class Facultad {
   id?: number;
   nombre: string = '';
   descripcion: string = '';

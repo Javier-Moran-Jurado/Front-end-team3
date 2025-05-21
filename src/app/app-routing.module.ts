@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/ova', pathMatch: 'full' },
-  { path: 'ova', loadChildren: () => import('./ova/ova.module').then(m => m.OvaModule) }
+  { path: '', redirectTo: '/facultad', pathMatch: 'full' },
+  { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) }
 ];
 
 @NgModule({
