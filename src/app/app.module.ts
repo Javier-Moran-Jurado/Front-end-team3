@@ -24,7 +24,7 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap'; // 👈 importa
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgbAccordionModule // 👈 y agrégalo aquí
+    NgbAccordionModule
   ],
   exports: [RouterModule],
   providers: [
