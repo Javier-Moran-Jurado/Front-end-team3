@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 2px solid #ccc;
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+nav a {
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+nav a:hover {
+  background: #a0ffb5;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 2px 12px rgba(160, 255, 181, 0.3);
+  text-decoration: none !important;
+}
+
+main {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+h2 {
+  color: #666;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: #003366;
+  margin: 0 0 20px;
+}
+
+.descripcion {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.sub {
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+  font-size: 1.1rem;
+}
+
+footer {
+  background-color: #dadada;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.social-icons {
+  margin: 15px 0;
+  font-size: 1.4rem;
+}
+
+.social-icons i {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #003366;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: transparent;
+  color: #003366;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .acciones {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
