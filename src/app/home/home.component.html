@@ -1,3 +1,64 @@
-<h1>PAGINA HOME!</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Objeto Virtual de Aprendizaje</title>
+  <
 
-<button (click)="ovas()">Ir a Ovas</button>
+  <!-- Font Awesome para íconos -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/home.component.css">
+
+</head>
+<body>
+
+  <header>
+      <nav>
+        <a routerLink="/inicio"><i class="fas fa-home"></i> Inicio</a>
+        <a routerLink="/home-ova"><i class="fas fa-book"></i> Ir a Ovas</a>
+        <a routerLink="/informacion"><i class="fas fa-info-circle"></i> Información</a>
+        <a routerLink="/usuario"><i class="fas fa-user"></i> Usuario</a>
+      </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenido</h2>
+    <h1>Objeto virtual de aprendizaje</h1>
+    <p class="descripcion">
+      Herramienta digital interactiva diseñada especialmente para apoyar y enriquecer el proceso de formación académica de los estudiantes de la Unidad Central del Valle del Cauca (UCEVA).
+    </p>
+    <p class="sub">Desarrollada por los estudiantes de V semestre de ingeniería de sistemas</p>
+
+    <div class="acciones">
+      <div>Explora</div>
+      <div>Aprende</div>
+      <div>Investiga</div>
+      <div>Consulta</div>
+    </div>
+  </main>
+<footer style="color: #444444">
+  <p>
+    Calle 4 No. 10-30, Tuluá, Valle del Cauca<br>
+    Tel: (602) 224 2202<br>
+    Email: <a href="mailto:contacto@uceva.edu.co">contacto&#64;uceva.edu.co</a>
+  </p>
+
+  <div class="social-icons">
+    <i class="fas fa-envelope"></i>
+    <i class="fab fa-youtube"></i>
+    <i class="fab fa-linkedin"></i>
+    <i class="fab fa-x-twitter"></i>
+    <i class="fab fa-tiktok"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook"></i>
+  </div>
+
+  <p>
+    © 2025 UCEVA – Todos los derechos reservados ·
+    <a href="#">Política de privacidad</a> ·
+    <a href="#">Términos de uso</a>
+  </p>
+</footer>
+</body>
+</html>

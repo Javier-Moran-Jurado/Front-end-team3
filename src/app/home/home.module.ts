@@ -13,7 +13,7 @@ import {provideHttpClient} from '@angular/common/http';
   ],
   providers: [
     provideHttpClient()
-    ]
+  ]
 })
 export class HomeModule {
 }
