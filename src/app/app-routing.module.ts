@@ -13,7 +13,12 @@ const routes: Routes = [
   { path: 'ova/detalle/:id', component: OvaDetalleComponent },
   /*{path: 'home', loadChildren: () =>
       import('./home/home.module').then(m => m.HomeModule)}*/
-  {path: '**', component: PageNoFoundComponent}
+  {path: '**', component: PageNoFoundComponent},
+  {
+    path: 'home-ova',
+    loadChildren: () =>
+      import('./home-ova/home-ova.module').then((m) => m.HomeOvaModule)
+  }
 ];
 
 @NgModule({
