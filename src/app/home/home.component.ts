@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit{
   constructor(private router: Router) {
   }
   ovas() {
-    this.router.navigate(['/ova']);
+    this.router.navigate(['/home-ova']);
   }
 
   ngOnInit(): void {

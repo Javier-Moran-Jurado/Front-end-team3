@@ -23,6 +23,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "outputPath": "dist/clientes-app-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -39,9 +42,10 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
-            "scripts": []
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -112,4 +116,7 @@
   "cli": {
     "analytics": "9e7ab75d-95d0-49c6-8794-53644a36b684"
   }
+
+
 }
+

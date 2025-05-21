@@ -1,0 +1,16 @@
+.accordion-button:not(.collapsed) {
+  background-color: #e9ecef;
+}
+
+.ova-item {
+  cursor: pointer;
+}
+
+.ova-item:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+}
