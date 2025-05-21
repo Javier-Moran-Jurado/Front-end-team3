@@ -1,0 +1,23 @@
+footer {
+  background-color: #dadada;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.social-icons {
+  margin: 15px 0;
+  font-size: 1.4rem;
+}
+a {
+  color: #003366;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: transparent;
+  color: #003366;
+}

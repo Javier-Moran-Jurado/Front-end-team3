@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import {Router, RouterModule} from '@angular/router';
 import {provideHttpClient} from '@angular/common/http';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
+import { HeaderComponent } from './template/header/header.component';
+import { FooterComponent } from './template/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNoFoundComponent
+    PageNoFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
