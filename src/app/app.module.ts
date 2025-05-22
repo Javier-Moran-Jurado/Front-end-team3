@@ -27,7 +27,6 @@ import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.compo
   imports: [
     BrowserModule,
     AppRoutingModule
-
   ],
   exports: [RouterModule],
   providers: [
