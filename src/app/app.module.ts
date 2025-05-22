@@ -23,7 +23,6 @@ import {LoginComponent} from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule
-
   ],
   exports: [RouterModule],
   providers: [
