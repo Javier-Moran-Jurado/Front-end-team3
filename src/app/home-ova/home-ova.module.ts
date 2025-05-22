@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeOvaComponent } from './home-ova.component';
 import { RouterModule } from '@angular/router';
 import {HomeOvaRoutingModule} from './home-ova-routing.module';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [HomeOvaComponent],
@@ -10,6 +11,9 @@ import {HomeOvaRoutingModule} from './home-ova-routing.module';
     CommonModule,
     RouterModule,
     HomeOvaRoutingModule// necesario si usas rutas
-  ], // opcional, útil si vas a usar el componente en otro módulo
+  ],
+  providers:[
+    provideHttpClient()
+  ]// opcional, útil si vas a usar el componente en otro módulo
 })
 export class HomeOvaModule { }

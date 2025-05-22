@@ -12,11 +12,13 @@ import { FooterComponent } from './template/footer/footer.component';
 import {LoginComponent} from './login/login.component';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
+import {HomeOvaComponent} from './home-ova/home-ova.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HomeOvaComponent,
     FullLayoutComponent,
     EmptyLayoutComponent,
     PageNoFoundComponent,
