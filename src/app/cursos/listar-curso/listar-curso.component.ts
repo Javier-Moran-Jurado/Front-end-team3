@@ -198,8 +198,8 @@ export class ListarCursoComponent implements OnInit {
   ];
 
   // Variables para paginación
-  paginaActual = 0; 
-  itemsPorPagina = 10; 
+  paginaActual = 0;
+  itemsPorPagina = 5; // Número de elementos por página
   totalPaginas = 0;
   totalElementos = 0;
   paginasVisibles: number[] = [];
