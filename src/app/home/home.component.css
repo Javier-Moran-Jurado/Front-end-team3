@@ -1,8 +1,9 @@
 body {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
   color: #333;
+  overflow-x: hidden;
+
 }
 
 main {
@@ -40,9 +41,14 @@ h1 {
   flex-wrap: wrap;
   gap: 30px;
   font-weight: bold;
-  margin-top: 30px;
   font-size: 1.1rem;
+
+  max-width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 
 .social-icons i {
   margin: 0 10px;
@@ -63,10 +69,5 @@ h1 {
   nav {
     flex-direction: column;
     gap: 15px;
-  }
-
-  acciones {
-    flex-direction: column;
-    gap: 20px;
   }
 }

@@ -27,7 +27,7 @@ nav a {
 }
 
 nav a:hover {
-  background: #a0ffb5;
+  background: #dadada;
   color: black;
   transform: scale(1.05);
   box-shadow: 0 2px 12px rgba(160, 255, 181, 0.3);
