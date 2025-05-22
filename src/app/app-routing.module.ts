@@ -21,6 +21,8 @@ const routes: Routes = [
     component: FullLayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'home-ova', component: HomeOvaComponent }
+
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
