@@ -1,0 +1,56 @@
+.menu-cursos-info {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+
+}
+
+.menu-cursos-info h2 {
+    color: #1D3354; 
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 25px;
+    font-weight: bold; 
+    padding-bottom: 15px;
+    border-bottom: 2px solid #559CAD; 
+}
+
+.menu-cursos-info p {
+    color: #1D3354; 
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu-cursos-info ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.menu-cursos-info ul li a {
+    background-color: #559CAD; 
+    color: #F2F2F2; 
+    padding: 15px 25px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 180px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    border: none;
+    font-size: 16px;
+}
+
+.menu-cursos-info ul li a:hover {
+    background-color: #1D3354;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
