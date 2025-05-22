@@ -24,7 +24,7 @@ interface Curso {
 export class ListarCursoComponent implements OnInit {
   // Estado de la tabla
   tablaContraida = false;
-  
+  Math = Math;
   // Datos de prueba mock
   private cursosMock: Curso[] = [
     {
@@ -138,19 +138,75 @@ export class ListarCursoComponent implements OnInit {
       modalidad: 'Virtual',
       nombre: 'Economía Internacional',
       numeroCreditos: 5
+    },
+    {
+      id: 9,
+      activo: true,
+      cuposDisponibles: 10,
+      descripcion: 'Curso avanzado de inteligencia artificial',
+      duracion: 75,
+      fechaCreacion: new Date('2023-05-01'),
+      horario: 'Lunes y Miércoles 18:00-20:00',
+      idDocente: 109,
+      idSemestre: 202302,
+      modalidad: 'Híbrido',
+      nombre: 'Inteligencia Artificial',
+      numeroCreditos: 4
+    },
+    {
+      id: 10,
+      activo: true,
+      cuposDisponibles: 12,
+      descripcion: 'Técnicas avanzadas de marketing digital',
+      duracion: 65,
+      fechaCreacion: new Date('2023-06-15'),
+      horario: 'Martes y Jueves 14:00-16:00',
+      idDocente: 110,
+      idSemestre: 202301,
+      modalidad: 'Virtual',
+      nombre: 'Marketing Digital',
+      numeroCreditos: 3
+    },
+    {
+      id: 11,
+      activo: true,
+      cuposDisponibles: 8,
+      descripcion: 'Curso de introducción a la ciberseguridad',
+      duracion: 50,
+      fechaCreacion: new Date('2023-07-20'),
+      horario: 'Viernes 10:00-14:00',
+      idDocente: 111,
+      idSemestre: 202302,
+      modalidad: 'Presencial',
+      nombre: 'Ciberseguridad',
+      numeroCreditos: 4
+    },
+    {
+      id: 12,
+      activo: true,
+      cuposDisponibles: 20,
+      descripcion: 'Curso de fundamentos de la programación',
+      duracion: 40,
+      fechaCreacion: new Date('2023-08-10'),
+      horario: 'Lunes y Miércoles 14:00-16:00',
+      idDocente: 112,
+      idSemestre: 202301,
+      modalidad: 'Híbrido',
+      nombre: 'Programación Básica',
+      numeroCreditos: 3
     }
   ];
 
   // Variables para paginación
-  paginaActual = 0;
-  itemsPorPagina = 4;
-  totalPaginas = Math.ceil(this.cursosMock.length / this.itemsPorPagina);
+  paginaActual = 0; 
+  itemsPorPagina = 10; 
+  totalPaginas = 0;
+  totalElementos = 0;
   paginasVisibles: number[] = [];
   cursosPagina: Curso[] = [];
 
   ngOnInit() {
-    this.actualizarDatosPagina();
-    this.actualizarPaginasVisibles();
+    this.inicializarPaginacion();
   }
 
   // Función para contraer/expandir la tabla
@@ -158,7 +214,7 @@ export class ListarCursoComponent implements OnInit {
     this.tablaContraida = !this.tablaContraida;
   }
 
-  // Funciones de paginación
+  // Funciones de paginación corregidas
   paginaAnterior() {
     if (this.paginaActual > 0) {
       this.paginaActual--;
@@ -183,7 +239,14 @@ export class ListarCursoComponent implements OnInit {
     }
   }
 
-  // Funciones auxiliares
+  // Funciones auxiliares corregidas
+  private inicializarPaginacion() {
+    this.totalElementos = this.cursosMock.length;
+    this.totalPaginas = Math.ceil(this.totalElementos / this.itemsPorPagina);
+    this.actualizarDatosPagina();
+    this.actualizarPaginasVisibles();
+  }
+
   private actualizarDatosPagina() {
     const inicio = this.paginaActual * this.itemsPorPagina;
     const fin = inicio + this.itemsPorPagina;
@@ -192,39 +255,42 @@ export class ListarCursoComponent implements OnInit {
 
   private actualizarPaginasVisibles() {
     this.paginasVisibles = [];
-    const paginasMostrar = 5; // Número total de páginas a mostrar (2 antes + actual + 2 después)
+    const paginasAMostrar = 5; // Mostrar máximo 5 páginas
+    
     let inicio = Math.max(0, this.paginaActual - 2);
     let fin = Math.min(this.totalPaginas - 1, this.paginaActual + 2);
 
-    // Ajustar cuando estamos cerca del inicio o final
+    // Ajustar cuando estamos cerca del inicio
     if (this.paginaActual <= 2) {
-      fin = Math.min(paginasMostrar - 1, this.totalPaginas - 1);
-    } else if (this.paginaActual >= this.totalPaginas - 3) {
-      inicio = Math.max(0, this.totalPaginas - paginasMostrar);
+      fin = Math.min(paginasAMostrar - 1, this.totalPaginas - 1);
+    }
+    // Ajustar cuando estamos cerca del final
+    else if (this.paginaActual >= this.totalPaginas - 3) {
+      inicio = Math.max(0, this.totalPaginas - paginasAMostrar);
     }
 
+    // Generar array de páginas visibles
     for (let i = inicio; i <= fin; i++) {
       this.paginasVisibles.push(i);
     }
   }
 
-  // Funciones para acciones
+  // Funciones para acciones (se mantienen igual)
   verCurso(id: number) {
     console.log('Ver curso con ID:', id);
-    // Aquí puedes implementar la lógica para ver detalles
   }
 
   editarCurso(id: number) {
     console.log('Editar curso con ID:', id);
-    // Aquí puedes implementar la lógica para editar
   }
 
   eliminarCurso(id: number) {
     if (confirm('¿Está seguro de eliminar este curso?')) {
       this.cursosMock = this.cursosMock.filter(curso => curso.id !== id);
-      this.totalPaginas = Math.ceil(this.cursosMock.length / this.itemsPorPagina);
+      this.totalElementos = this.cursosMock.length;
+      this.totalPaginas = Math.ceil(this.totalElementos / this.itemsPorPagina);
       
-      // Ajustar la página actual si es necesario
+      // Ajustar página actual si es necesario
       if (this.paginaActual >= this.totalPaginas) {
         this.paginaActual = Math.max(0, this.totalPaginas - 1);
       }
