@@ -3,18 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import {Router, RouterModule} from '@angular/router';
+import {provideHttpClient} from '@angular/common/http';
+import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
+import { HeaderComponent } from './template/header/header.component';
+import { FooterComponent } from './template/footer/footer.component';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    PageNoFoundComponent,
+    HeaderComponent,
+    FooterComponent,
     LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+
   ],
-  providers: [],
+  exports: [RouterModule],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
