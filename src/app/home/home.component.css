@@ -8,8 +8,7 @@ body {
 header {
   background-color: #fff;
   border-bottom: 2px solid #ccc;
-  padding: 20px 0;
-}
+  }
 
 nav {
   display: flex;
@@ -82,28 +81,32 @@ h1 {
   font-size: 1.1rem;
 }
 
-footer {
-  background-color: #dadada;
-  padding: 30px 20px;
+.footer-custom {
+  background-color: #d9d9d9; /* gris claro */
   text-align: center;
-  font-size: 0.95rem;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  border-top: 2px solid #ffffff; /* línea azul arriba */
+  border-bottom: 2px solid #ffffff; /* línea azul abajo */
+}
+
+.footer-custom a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.footer-custom .social-icons {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.footer-custom .footer-links {
+  font-size: 13px;
   color: #444;
-}
-
-.social-icons {
-  margin: 15px 0;
-  font-size: 1.4rem;
-}
-
-.social-icons i {
-  margin: 0 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.social-icons i:hover {
-  transform: scale(1.2);
-  color: #003366;
 }
 
 a {
