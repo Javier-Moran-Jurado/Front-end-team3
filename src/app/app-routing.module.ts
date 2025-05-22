@@ -5,13 +5,15 @@ import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.compo
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
+import {HomeOvaComponent} from './home-ova/home-ova.component';
 
 const routes: Routes = [
-  {
-    path: '',
+
+  { path: '',
     component: EmptyLayoutComponent,
     children: [
-      { path: 'login', component: LoginComponent }
+      {path: '', redirectTo: '/login', pathMatch: "full"},
+      {path: 'login', component: LoginComponent }
     ]
   },
   {
@@ -22,7 +24,7 @@ const routes: Routes = [
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
-  { path: '**', component: PageNoFoundComponent }
+  { path: '', component: PageNoFoundComponent}
 ];
 
 @NgModule({

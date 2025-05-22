@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LoginRoutingModule } from './login-routing.module';
+import {provideHttpClient} from '@angular/common/http';
 
 
 @NgModule({
@@ -9,6 +10,9 @@ import { LoginRoutingModule } from './login-routing.module';
   imports: [
     CommonModule,
     LoginRoutingModule
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class LoginModule { }
