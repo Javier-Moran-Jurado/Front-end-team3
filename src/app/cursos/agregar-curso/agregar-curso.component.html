@@ -1,1 +1,77 @@
-<p>agregar-curso works!</p>
+<div class="form-container">  
+  <div class="form-section">
+    <h2>Agregar Curso</h2>
+    
+    <div class="form-grid">
+
+        <div class="form-group">
+        <label for="nombre">Nombre del Curso</label>
+        <input type="text" id="nombre">
+        </div>
+
+        <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+        <label for="duracion">Duración (horas)</label>
+        <input type="number" id="duracion">
+        </div>
+
+        <div class="form-group">
+        <label for="fechaCreacion">Fecha de Creación</label>
+        <input type="date" id="fechaCreacion">
+        </div>
+
+      <div class="form-group">
+        <label for="activo">Activo</label>
+        <select id="activo">
+          <option value="true">Sí</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="cuposDisponibles">Cupos Disponibles</label>
+        <input type="number" id="cuposDisponibles">
+      </div>
+      
+    
+      
+      <div class="form-group">
+        <label for="horario">Horario</label>
+        <input type="text" id="horario" placeholder="Ej: Lunes 10:00-12:00">
+      </div>
+      
+      <div class="form-group">
+        <label for="idDocente">ID Docente</label>
+        <input type="text" id="idDocente">
+      </div>
+      
+      <div class="form-group">
+        <label for="idSemestre">ID Semestre</label>
+        <input type="text" id="idSemestre">
+      </div>
+      
+      <div class="form-group">
+        <label for="modalidad">Modalidad</label>
+        <select id="modalidad">
+          <option value="presencial">Presencial</option>
+          <option value="virtual">Virtual</option>
+          <option value="hibrido">Híbrido</option>
+        </select>
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="numeroCreditos">Número de Créditos</label>
+        <input type="number" id="numeroCreditos">
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <button class="btn-submit">Guardar Cambios</button>
+    </div>
+  </div>
+</div>
