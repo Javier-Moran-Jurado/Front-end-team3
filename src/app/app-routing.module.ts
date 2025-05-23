@@ -23,6 +23,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent }
 
+
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },

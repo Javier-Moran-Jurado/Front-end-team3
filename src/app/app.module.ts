@@ -13,6 +13,7 @@ import {LoginComponent} from './login/login.component';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
+import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
     PageNoFoundComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    LibLagrangeComponent
   ],
   imports: [
     BrowserModule,
