@@ -1,24 +1,37 @@
-.container {
-  max-width: 800px;
+.custom-card {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  border: none;
 }
 
-.card-header {
-  font-size: 1.2rem;
-  font-weight: bold;
+.custom-header {
+  background-color: #a6a6a6;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.25rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
-.list-group-item {
-  transition: background-color 0.3s;
-}
-
-.list-group-item:hover {
-  background-color: #f8f9fa;
-}
-
-.btn-warning {
+.btn-success {
+  background-color: #2ecc71;
+  border-color: #27ae60;
   color: white;
 }
 
-.rounded-circle {
-  object-fit: cover;
+.btn-danger {
+  background-color: #e74c3c;
+  border-color: #c0392b;
+  color: white;
+}
+
+.btn-outline-dark {
+  background-color: white;
+  border-color: #7f8c8d;
+  color: #2c3e50;
+}
+
+.ms-4 {
+  margin-left: 2rem;
 }
