@@ -3,10 +3,13 @@ import { Programa } from '../model/programa';
 import { ProgramaService } from '../service/programa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-programa-detalle',
   templateUrl: './programa-detalle.component.html',
+  standalone: true,
+  imports: [CommonModule],
   styleUrls: ['./programa-detalle.component.css']
 })
 export class ProgramaDetalleComponent implements OnInit {

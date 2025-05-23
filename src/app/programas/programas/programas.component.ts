@@ -11,7 +11,7 @@ import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './programas.component.css'
 })
 export class ProgramasComponent implements OnInit {
-  public programas: { programas: Programa[] } = { programas: [] };
+  public programas: Programa[] = [];
 
   faEdit = faEdit;
   faTrash = faTrash;
