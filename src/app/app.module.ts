@@ -13,6 +13,13 @@ import {LoginComponent} from './login/login.component';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
+import { InformacionComponent } from './informacion/informacion.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook
+} from '@fortawesome/free-brands-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -24,11 +31,14 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
     PageNoFoundComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    InformacionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FaIconComponent,
+    FontAwesomeModule
   ],
   exports: [RouterModule],
   providers: [
@@ -36,4 +46,16 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faEnvelope,
+      faYoutube,
+      faLinkedin,
+      faXTwitter,
+      faTiktok,
+      faInstagram,
+      faFacebook
+    );
+  }
+}

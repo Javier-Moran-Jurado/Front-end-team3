@@ -1,0 +1,79 @@
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.active {
+  background-color: #1d4ed8;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+.developers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dev-card {
+  text-align: center;
+  width: 150px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+.img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+/* Contenedor principal (centrado y en columna) */
+.contenedor-texto-imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Centra horizontalmente */
+  gap: 16px;            /* Espacio entre texto e imagen */
+  padding: 20px;
+  text-align: center;    /* Centra el texto (por si ocupa más de una línea) */
+}
+
+/* Estilo del texto */
+.texto-centrado {
+  margin: 0;            /* Elimina márgenes por defecto del <p> */
+  font-size: 1.1rem;    /* Tamaño opcional */
+  color: #333;          /* Color opcional */
+}
+
+/* Estilo de la imagen */
+.imagen-centrada {
+  max-width: 200px;     /* Ajusta el tamaño (cambia a 50% si prefieres porcentaje) */
+  height: auto;         /* Mantiene la proporción */
+  border-radius: 8px;   /* Bordes redondeados (opcional) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave (opcional) */
+}

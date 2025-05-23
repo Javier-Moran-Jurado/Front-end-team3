@@ -1,0 +1,31 @@
+<h2 class="title">Info de los desarrolladores</h2>
+
+<div class="buttons">
+  <button
+    *ngFor="let key of ['team1', 'team2', 'team3', 'team4', 'team5']"
+    (click)="selectTeam(key)"
+    [class.active]="selectedTeam === key">
+    {{ key | titlecase }}
+  </button>
+</div>
+
+<div class="developers">
+  <ng-container *ngIf="selectedTeam; else descripcionGeneral">
+    <div *ngFor="let dev of developers" class="dev-card">
+      <img [src]="dev.img" [alt]="dev.name" class="avatar" />
+      <h3>{{ dev.name }}</h3>
+      <p>{{ dev.role }}</p>
+    </div>
+  </ng-container>
+
+  <ng-template #descripcionGeneral>
+    <div class="contenedor-texto-imagen">
+      <p class="texto-centrado">Selecciona un equipo para ver su información detallada.</p>
+      <img
+        src="assets/images/profesor/profesor.jpg"
+        alt="Profesor"
+        class="imagen-centrada"
+      >
+    </div>
+  </ng-template>
+</div>
