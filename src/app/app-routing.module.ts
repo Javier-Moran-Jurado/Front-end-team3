@@ -5,6 +5,8 @@ import {HomeComponent} from './home/home.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
+import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
+import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
 
