@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: curso_springboot
+      POSTGRES_USER: devdb
+      POSTGRES_PASSWORD: a1b2c3d4
+    ports:
+      - "5432:5432"
+    networks:
+      - red-backend-app
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devdb -d curso_springboot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  programa-service:
+    image: sebastianhenaogamboa/programa-service:latest
+    container_name: programa-app
+    ports:
+      - "8082:8082"
+      - "8083:8083"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Coincide exactamente con los nombres en application.properties
+      DB_HOST: jdbc:postgresql://postgres:5432/curso_springboot
+      DB_USER: devdb
+      DB_PASS: a1b2c3d4
+      JPA_DDL: create-drop
+    networks:
+      - red-backend-app
+    restart: unless-stopped
+
+networks:
+  red-backend-app:
+    driver: bridge
+
+volumes:
+  pg_data:
