@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class ProgramaService {
-  private apiUrl = `${environment.apiBaseUrl}/programas`;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

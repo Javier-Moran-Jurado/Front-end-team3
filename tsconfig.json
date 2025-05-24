@@ -4,6 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -23,10 +24,16 @@
       "ES2022",
       "dom"
     ],
+    "types": [
+      "@angular/localize",
+      "jasmine"
+    ],
     "typeRoots": [
-      "node_modules/@types",
-      "src/typings.d.ts"  // Añade esta línea si no existe
-    ]
+      "node_modules/@types"
+    ],
+    "paths": {
+      "@angular/localize": ["node_modules/@angular/localize"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
