@@ -39,10 +39,24 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "bootstrap"
+            ]
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -54,19 +68,27 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/app/programas/environments/environment.ts",
+                  "with": "src/app/programas/environments/environment.prod.ts"
+                }
+              ],
               "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "extractLicenses": false
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "Front-end:build:production"
@@ -95,7 +117,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
@@ -104,6 +127,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "33bb4022-fafe-4495-ba31-f0c8561e1894"
+=======
+    "analytics": "2bcbabda-547c-48aa-9881-a91c9e9ee45a"
+>>>>>>> temp-rescate
   }
 }
