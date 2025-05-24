@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Programa } from '../model/programa';
-import { ProgramaService } from '../service/programa.service';
+import { Programa } from './model/programa';
+import { ProgramaService } from './service/programa.service';
 import Swal from 'sweetalert2';
 import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-programas',
   standalone: false,
-  templateUrl: './programas.component.html',
-  styleUrl: './programas.component.css'
+  templateUrl: './programas/programas.component.html',
+  styleUrl: './programas/programas.component.css'
 })
 export class ProgramasComponent implements OnInit {
   public programas: Programa[] = [];
@@ -103,7 +103,7 @@ export class ProgramasComponent implements OnInit {
         programa.idFacultad = result.value!.idFacultad;
         programa.activo = result.value!.activo;
 
-        this.programaService.updatePrograma(programa).subscribe(() => {
+        this.programaService.updatePrograma(programa.id, programa).subscribe(() => {
           this.loadProgramas();
           Swal.fire('¡Actualizado!', 'El programa ha sido actualizado.', 'success');
         });
@@ -121,7 +121,7 @@ export class ProgramasComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then(result => {
       if (result.isConfirmed) {
-        this.programaService.deletePrograma(programa).subscribe(() => {
+        this.programaService.deletePrograma(programa.id).subscribe(() => {
           this.loadProgramas();
           Swal.fire('Eliminado!', 'El programa ha sido eliminado.', 'success');
         });

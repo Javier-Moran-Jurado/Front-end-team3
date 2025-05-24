@@ -1,42 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Programa} from '../model/programa';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Programa } from '../model/programa';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProgramaService {
-  private apiUrl = '/api/v1/programa-service/programas';
+  private apiUrl = `${environment.apiBaseUrl}/programas`;
 
+  constructor(private http: HttpClient) {}
 
-  constructor(private  http: HttpClient) { }
+  getProgramas(): Observable<Programa[]> {
+    return this.http.get<Programa[]>(this.apiUrl);
+  }
 
-  getPrograma(id: number | string): Observable<Programa> {
+  getPrograma(id: number): Observable<Programa> {
     return this.http.get<Programa>(`${this.apiUrl}/${id}`);
   }
 
-  getProgramas(): Observable<Programa[]> {
-    return this.http.get<{ programas: Programa[] }>(this.apiUrl)
-      .pipe(
-        map(response => response.programas)
-      );
-  }
-
-  // Crear un nuevo programa
   createPrograma(programa: Programa): Observable<Programa> {
     return this.http.post<Programa>(this.apiUrl, programa);
   }
 
-  // Actualizar un programa existente
-  updatePrograma(programa: Programa): Observable<Programa> {
-    return this.http.put<Programa>(`${this.apiUrl}/${programa.id}`, programa);
+  updatePrograma(id: number, programa: Programa): Observable<Programa> {
+    return this.http.put<Programa>(`${this.apiUrl}/${id}`, programa);
   }
 
-  // Eliminar un programa por ID
-  deletePrograma(programa: Programa): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${programa.id}`);
+  deletePrograma(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
 }

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class ProgramasFormComponent {
   @Input() programa: Programa = {
     id: 0,
+    nombre: '',
     activo: true,
     duracion: 0,
     idCoordinador: 0,

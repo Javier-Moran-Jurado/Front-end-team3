@@ -1,29 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Programa } from '../model/programa';
 import { ProgramaService } from '../service/programa.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-programa-detalle',
   templateUrl: './programa-detalle.component.html',
-  standalone: true,
-  imports: [CommonModule],
   styleUrls: ['./programa-detalle.component.css']
 })
 export class ProgramaDetalleComponent implements OnInit {
+  @Input() programaId!: number;
   programa!: Programa;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private programaService: ProgramaService
+    private programaService: ProgramaService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.programaService.getPrograma(id).subscribe(data =>this.programa = data);{}
+    if (this.programaId) {
+      this.loadPrograma(this.programaId);
+    }
+  }
+
+  private loadPrograma(id: number): void {
+    this.programaService.getPrograma(id).subscribe({
+      next: (data) => this.programa = data,
+      error: () => this.router.navigate(['/programas'])
+    });
   }
 
   deletePrograma(programa: Programa): void {
@@ -37,7 +43,7 @@ export class ProgramaDetalleComponent implements OnInit {
       confirmButtonText: 'Sí, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.programaService.deletePrograma(programa).subscribe(() => {
+        this.programaService.deletePrograma(programa.id).subscribe(() => {
           Swal.fire('¡Eliminado!', 'El programa ha sido eliminado.', 'success');
           this.router.navigate(['/programas']);
         });
