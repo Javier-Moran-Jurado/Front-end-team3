@@ -127,10 +127,6 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
-    "analytics": "33bb4022-fafe-4495-ba31-f0c8561e1894"
-=======
     "analytics": "2bcbabda-547c-48aa-9881-a91c9e9ee45a"
->>>>>>> temp-rescate
   }
 }
