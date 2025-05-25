@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Escítala Espartana</h2>
+
+  <div class="form-group">
+    <label for="mensaje">Mensaje</label>
+    <input type="text" id="mensaje" [(ngModel)]="mensaje" class="input" />
+
+    <div class="fila-input">
+      <label for="filas">N° Filas</label>
+      <input type="number" id="filas" [(ngModel)]="filas" class="input small-input" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="resultado">Resultado:</label>
+    <input type="text" id="resultado" [value]="resultado" class="input" readonly />
+  </div>
+
+  <div class="button-group">
+    <button (click)="codificar()" class="btn">Codificar</button>
+    <button (click)="descodificar()" class="btn">Descodificar</button>
+  </div>
+</div>
