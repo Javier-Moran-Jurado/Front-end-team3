@@ -4,9 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
-  imports: [
-    ReactiveFormsModule
-  ],
+
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
