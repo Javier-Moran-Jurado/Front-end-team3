@@ -26,8 +26,10 @@ const routes: Routes = [
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
-      { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) }
+      { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }
+
     ]
   },
 

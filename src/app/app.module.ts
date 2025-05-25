@@ -35,8 +35,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    InformacionComponent,
-    UsuarioComponent
+    InformacionComponent
   ],
   imports: [
     BrowserModule,
