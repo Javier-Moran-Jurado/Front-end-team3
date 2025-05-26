@@ -1,7 +1,7 @@
 services:
-  ova-service:
-    image: nicoguti0625/ova-service:latest
-    container_name: ova-service
+  facultad-service:
+    image: angela011/facultad-service:latest
+    container_name: facultad-service
     restart: unless-stopped
     depends_on:
       - db
