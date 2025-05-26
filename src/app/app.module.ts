@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {Router, RouterModule} from '@angular/router';
-import {provideHttpClient} from '@angular/common/http';
+import {HttpClientModule, provideHttpClient} from '@angular/common/http';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
@@ -14,6 +14,7 @@ import { FullLayoutComponent } from './template/full-layout/full-layout.componen
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   exports: [RouterModule],
   providers: [
