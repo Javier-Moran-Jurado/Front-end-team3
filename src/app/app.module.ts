@@ -22,6 +22,7 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import { AcordeonComponent } from './template/acordeon/acordeon.component';
 import { OvaTemplateComponent } from './template/ova-template/ova-template.component';
+import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { OvaTemplateComponent } from './template/ova-template/ova-template.compo
     PageNoFoundComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    LibLagrangeComponent,
     LoginComponent,
     InformacionComponent,
     AcordeonComponent,

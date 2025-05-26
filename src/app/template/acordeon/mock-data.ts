@@ -24,18 +24,18 @@ export interface Facultad {
 export const FACULTADES: Facultad[] = [
   {
     id: 1,
-    nombre: 'Facultad 1',
+    nombre: 'Facultad Ingenieria',
     programas: [
       {
         id: 1,
-        nombre: 'Programa 1',
+        nombre: 'Ing. Sistemas',
         cursos: [
           {
             id: 1,
-            nombre: 'Curso 1',
+            nombre: 'Analisis numerico',
             ovas: [
-              { id: 1, nombre: 'OVA 1' },
-              { id: 2, nombre: 'OVA 2' },
+              { id: 1, nombre: 'Interpolacion de lagrange' },
+              { id: 2, nombre: 'Interpolacion de newton' },
               { id: 3, nombre: 'OVA 3' }
             ]
           },
