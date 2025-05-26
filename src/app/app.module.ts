@@ -21,8 +21,9 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { LibCostosXpComponent } from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +36,16 @@ import { UsuarioComponent } from './usuario/usuario.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    InformacionComponent
+    InformacionComponent,
+    LibCostosXpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FaIconComponent,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [

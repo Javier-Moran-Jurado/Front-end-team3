@@ -7,6 +7,7 @@ import {InformacionComponent} from './informacion/informacion.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
+import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
 
 const routes: Routes = [
 
@@ -28,8 +29,8 @@ const routes: Routes = [
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
       { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
-      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }
-
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      {path: 'lib-costosxp', component: LibCostosXpComponent}
     ]
   },
 
