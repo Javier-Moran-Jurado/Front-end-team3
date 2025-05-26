@@ -10,7 +10,7 @@ import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escita
 import {LibInversaComponent} from './librerias/matematicas-discretas/lib-inversa/lib-inversa.component';
 import {
   LibSoprioridadesComponent
-} from './librerias/matematicas-discretas/lib-soprioridades/lib-soprioridades.component';
+} from './librerias/sistemas-operativos/lib-soprioridades/lib-soprioridades.component';
 
 const routes: Routes = [
 
@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-inversa', component: LibInversaComponent},
-      {path: 'lib-soprioridades', component: LibSoprioridadesComponent}
+      { path: 'lib-soprioridades', component: LibSoprioridadesComponent}
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
