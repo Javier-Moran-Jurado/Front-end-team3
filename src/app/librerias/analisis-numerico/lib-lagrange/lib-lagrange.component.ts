@@ -42,7 +42,7 @@ export class LibLagrangeComponent {
     const xParam = xArray.join(',');
     const yParam = yArray.join(',');
 
-    const url = `/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}`;
+    const url = `http://34.74.83.192/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {

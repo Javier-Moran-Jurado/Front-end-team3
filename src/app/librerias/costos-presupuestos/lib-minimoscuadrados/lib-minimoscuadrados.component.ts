@@ -30,7 +30,7 @@ export class LibMinimoscuadradosComponent {
 
     const x = this.xValues.split(',').map(Number).join(',');
     const y = this.yValues.split(',').map(Number).join(',');
-    const url = `/api/costos/minimos-cuadrados/calcular-pendiente/${x}/${y}`;
+    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/calcular-pendiente/${x}/${y}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {
@@ -49,7 +49,7 @@ export class LibMinimoscuadradosComponent {
 
     const x = this.xValues.split(',').map(Number).join(',');
     const y = this.yValues.split(',').map(Number).join(',');
-    const url = `/api/costos/minimos-cuadrados/calcular-ordenada/${x}/${y}/${this.pendiente}`;
+    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/calcular-ordenada/${x}/${y}/${this.pendiente}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {
@@ -71,7 +71,7 @@ export class LibMinimoscuadradosComponent {
     }
 
     const x = this.xForecast.split(',').map(Number).join(',');
-    const url = `/api/costos/minimos-cuadrados/pronosticar/${x}/${this.pendiente}/${this.ordenada}`;
+    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/pronosticar/${x}/${this.pendiente}/${this.ordenada}`;
 
     this.http.get<number[]>(url).subscribe({
       next: res => {
