@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OvaFormComponent } from './ova-form.component';
+import { FacultadFormComponent } from './facultad-form.component';
 
-describe('OvaFormComponent', () => {
-  let component: OvaFormComponent;
-  let fixture: ComponentFixture<OvaFormComponent>;
+describe('FacultadFormComponent', () => {
+  let component: FacultadFormComponent;
+  let fixture: ComponentFixture<FacultadFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OvaFormComponent]
+      declarations: [FacultadFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OvaFormComponent);
+    fixture = TestBed.createComponent(FacultadFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

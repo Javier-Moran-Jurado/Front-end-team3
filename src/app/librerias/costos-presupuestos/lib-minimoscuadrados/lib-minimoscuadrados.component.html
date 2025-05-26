@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Mínimos Cuadrados</h2>
+
+  <div class="form-group">
+    <label for="xValues">Valores de X (separados por comas)</label>
+    <input
+      type="text"
+      id="xValues"
+      [(ngModel)]="xValues"
+      class="form-control"
+      placeholder="Ejemplo: 1, 2, 3, 4"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="yValues">Valores de Y (separados por comas)</label>
+    <input
+      type="text"
+      id="yValues"
+      [(ngModel)]="yValues"
+      class="form-control"
+      placeholder="Ejemplo: 10, 20, 30, 40"
+    />
+  </div>
+
+  <!-- NUEVO CAMPO: Meses a pronosticar -->
+  <div class="form-group">
+    <label for="xForecast">Meses a pronosticar (valores de X)</label>
+    <input
+      type="text"
+      id="xForecast"
+      [(ngModel)]="xForecast"
+      class="form-control"
+      placeholder="Ejemplo: 5, 6, 7"
+    />
+  </div>
+
+  <div class="botones">
+    <button class="btn btn-primary" (click)="calcularPendiente()">Calcular Pendiente</button>
+    <button class="btn btn-primary" (click)="calcularOrdenada()">Calcular Ordenada</button>
+    <button class="btn btn-success" (click)="pronosticar()">Pronosticar</button>
+    <button class="btn btn-danger" (click)="limpiar()">Limpiar</button>
+  </div>
+
+  <div *ngIf="pendiente !== null" class="resultado">
+    <strong>Pendiente:</strong> {{ pendiente }}
+  </div>
+
+  <div *ngIf="ordenada !== null" class="resultado">
+    <strong>Ordenada:</strong> {{ ordenada }}
+  </div>
+
+  <div *ngIf="resultado" class="resultado">
+    <strong>Pronóstico:</strong> {{ resultado }}
+  </div>
+</div>

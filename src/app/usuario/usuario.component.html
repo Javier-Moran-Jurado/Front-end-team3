@@ -1,0 +1,54 @@
+<div class="main-page">
+
+  <!-- Formulario -->
+  <section class="form-section">
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="user-form">
+
+      <h2 class="form-title">
+        Formulario de usuario
+        <span class="zigzag-line"></span>
+      </h2>
+
+      <!-- Nombre -->
+      <div class="input-group">
+        <i class="icon fas fa-user"></i>
+        <input type="text" placeholder="Nombre completo" formControlName="nombre">
+      </div>
+      <div class="error" *ngIf="usuarioForm.get('nombre')?.touched && usuarioForm.get('nombre')?.invalid">
+        El nombre es obligatorio.
+      </div>
+
+      <!-- Correo -->
+      <div class="input-group">
+        <i class="icon fas fa-envelope"></i>
+        <input type="email" placeholder="Correo electrónico" formControlName="correo">
+      </div>
+      <div class="error" *ngIf="usuarioForm.get('correo')?.touched && usuarioForm.get('correo')?.invalid">
+        <div *ngIf="usuarioForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+        <div *ngIf="usuarioForm.get('correo')?.errors?.['email']">Formato inválido.</div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="input-group">
+        <i class="icon fas fa-lock"></i>
+        <input type="password" placeholder="Contraseña" formControlName="contrasena">
+      </div>
+      <div class="error" *ngIf="usuarioForm.get('contrasena')?.touched && usuarioForm.get('contrasena')?.invalid">
+        <div *ngIf="usuarioForm.get('contrasena')?.errors?.['required']">Contraseña requerida.</div>
+        <div *ngIf="usuarioForm.get('contrasena')?.errors?.['minlength']">Mínimo 6 caracteres.</div>
+      </div>
+
+      <!-- Confirmar contraseña -->
+      <div class="input-group">
+        <i class="icon fas fa-lock"></i>
+        <input type="password" placeholder="Confirmar contraseña" formControlName="confirmarContrasena">
+      </div>
+      <div class="error" *ngIf="usuarioForm.hasError('noCoinciden') && usuarioForm.get('confirmarContrasena')?.touched">
+        Las contraseñas no coinciden.
+      </div>
+
+      <!-- Botón -->
+      <button type="submit">Crear cuenta</button>
+    </form>
+  </section>
+</div>

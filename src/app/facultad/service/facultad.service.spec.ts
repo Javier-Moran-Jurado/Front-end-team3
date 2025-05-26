@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OvaService } from './ova.service';
+import { FacultadService } from './facultad.service';
 
-describe('OvaService', () => {
-  let service: OvaService;
+describe('FacultadService', () => {
+  let service: FacultadService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OvaService);
+    service = TestBed.inject(FacultadService);
   });
 
   it('should be created', () => {
