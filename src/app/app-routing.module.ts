@@ -8,6 +8,7 @@ import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
+import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,6 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'informacion', component: InformacionComponent }
 
-
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
@@ -34,6 +34,8 @@ const routes: Routes = [
     component: OvaTemplateComponent,
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
+      { path: 'lib-lagrange', component: LibLagrangeComponent },
+      { path: 'lib-newton', component: LibLagrangeComponent }
     ]
   },
   { path: '', component: PageNoFoundComponent}
