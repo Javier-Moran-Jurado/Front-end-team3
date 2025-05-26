@@ -8,6 +8,9 @@ import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {
+  LibMinimoscuadradosComponent
+} from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
 
 const routes: Routes = [
 
@@ -25,6 +28,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
+      { path: 'lib-minimoscuadrados', component: LibMinimoscuadradosComponent},
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},

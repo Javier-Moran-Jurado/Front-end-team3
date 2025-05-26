@@ -24,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {FormsModule} from '@angular/forms';
+import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {FormsModule} from '@angular/forms';
     FooterComponent,
     LoginComponent,
     InformacionComponent,
-    LibLagrangeComponent
+    LibLagrangeComponent,
+    LibMinimoscuadradosComponent
   ],
   imports: [
     BrowserModule,
