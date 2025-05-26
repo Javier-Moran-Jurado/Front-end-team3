@@ -23,16 +23,17 @@ export class LibCostos5Component {
   }
 
   operar(): void {
-    console.log("Datos enviados:", this.request);
+    console.log('Request enviado:', this.request);
     this.costosService.calcularCostos(this.request).subscribe({
       next: (res) => {
-        console.log("Respuesta recibida:", res);
+        console.log('Respuesta recibida:', res);
         this.resultado = res;
       },
       error: (err) => {
-        console.error("Error en la petición:", err);
-        this.resultado = {error: 'No se pudo calcular.'};
+        console.error('Error:', err);
+        this.resultado = { error: 'No se pudo calcular.' };
       }
     });
   }
+
 }
