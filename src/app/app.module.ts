@@ -20,6 +20,8 @@ import {faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
+import { AcordeonComponent } from './template/acordeon/acordeon.component';
+import { OvaTemplateComponent } from './template/ova-template/ova-template.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {FaIconComponent} from '@fortawesome/angular-fontawesome';
     FooterComponent,
     LoginComponent,
     InformacionComponent,
+    AcordeonComponent,
+    OvaTemplateComponent,
   ],
   imports: [
     BrowserModule,
