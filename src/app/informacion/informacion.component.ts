@@ -1,8 +1,16 @@
 import { Component } from '@angular/core';
+import {NgForOf, NgIf, NgOptimizedImage, TitleCasePipe} from '@angular/common';
 
 @Component({
   selector: 'app-infomacion',
   templateUrl: './informacion.component.html',
+  standalone: true,
+  imports: [
+    TitleCasePipe,
+    NgIf,
+    NgForOf,
+    NgOptimizedImage
+  ],
   styleUrls: ['./informacion.component.css']
 })
 export class InformacionComponent {

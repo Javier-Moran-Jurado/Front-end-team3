@@ -14,8 +14,11 @@ import { FullLayoutComponent } from './template/full-layout/full-layout.componen
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
+import {FaIconComponent, FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {faFacebook, faInstagram, faLinkedin, faTiktok, faXTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,7 @@ import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/li
     FaIconComponent,
     FontAwesomeModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, HeaderComponent, FooterComponent],
   providers: [
     provideHttpClient()
   ],

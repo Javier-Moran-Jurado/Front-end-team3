@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import {FormsModule} from '@angular/forms';
+import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-lib-minimoscuadrados',
-  templateUrl: './lib-minimoscuadrados.component.html',
-  styleUrls: ['./lib-minimoscuadrados.component.css']
+  imports: [
+    FormsModule,
+    NgIf
+  ],
+  selector: `app-lib-minimoscuadrados`,
+  standalone: true,
+  styleUrls: ['./lib-minimoscuadrados.component.css'],
+  templateUrl: './lib-minimoscuadrados.component.html'
 })
 export class LibMinimoscuadradosComponent {
   xValues: string = '';
