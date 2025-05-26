@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LibInversaComponent } from './lib-inversa.component';
 
 const routes: Routes = [
-  { path: '', component: LibInversaComponent },
+  { path: '', component: LibInversaComponent }
 ];
 
 @NgModule({

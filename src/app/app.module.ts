@@ -16,6 +16,8 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibEscitalaComponent } from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {FormsModule} from '@angular/forms';
 import { LibInversaComponent } from './librerias/matematicas-discretas/lib-inversa/lib-inversa.component';
+import { LibSoprioridadesComponent } from './librerias/matematicas-discretas/lib-soprioridades/lib-soprioridades.component';
+import {LibInversaModule} from './librerias/matematicas-discretas/lib-inversa/lib-inversa.module';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,15 @@ import { LibInversaComponent } from './librerias/matematicas-discretas/lib-inver
     FooterComponent,
     LoginComponent,
     LibEscitalaComponent,
-    LibInversaComponent
+    LibInversaComponent,
+    LibSoprioridadesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LibInversaModule
   ],
   exports: [RouterModule],
   providers: [

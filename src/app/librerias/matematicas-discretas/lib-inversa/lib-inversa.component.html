@@ -3,19 +3,24 @@
 
   <div class="input-section">
     <div class="input-group">
-      <label class="input-label" for="numeroA">Numero A</label>
-      <input type="number" id="numeroA" class="input-field" placeholder="">
+      <label class="input-label" for="numeroA">Número A</label>
+      <input type="number" id="numeroA" class="input-field"
+             [(ngModel)]="numeroA" placeholder="Ingrese A">
     </div>
     <div class="input-group">
-      <label class="input-label" for="numeroB">Numero B</label>
-      <input type="number" id="numeroB" class="input-field" placeholder="">
+      <label class="input-label" for="numeroB">Número B</label>
+      <input type="number" id="numeroB" class="input-field"
+             [(ngModel)]="numeroB" placeholder="Ingrese B">
     </div>
   </div>
 
-  <button class="operate-button">Operar</button>
+  <button class="operate-button" (click)="calcularInverso()">Calcular Inverso</button>
 
   <div class="result-section">
     <div class="result-label">Resultado</div>
-    <div class="result-display" id="resultado"></div>
+    <div class="result-display">
+      <div *ngIf="resultado">{{ resultado }}</div>
+      <div *ngIf="error" class="error-message">{{ error }}</div>
+    </div>
   </div>
 </div>

@@ -16,15 +16,6 @@ services:
     networks:
       - mynetwork
 
-  inverso-jni:
-    image: sebastianhenaogamboa/inverso-jni:latest
-    container_name: inverso-jni
-    restart: unless-stopped
-    ports:
-      - "8090:8080"
-    networks:
-      - mynetwork
-
   db:
     image: postgres:latest
     container_name: db

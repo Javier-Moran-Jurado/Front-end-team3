@@ -8,6 +8,9 @@ import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {LibInversaComponent} from './librerias/matematicas-discretas/lib-inversa/lib-inversa.component';
+import {
+  LibSoprioridadesComponent
+} from './librerias/matematicas-discretas/lib-soprioridades/lib-soprioridades.component';
 
 const routes: Routes = [
 
@@ -25,7 +28,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
-      { path: 'lib-inversa', component: LibInversaComponent}
+      { path: 'lib-inversa', component: LibInversaComponent},
+      {path: 'lib-soprioridades', component: LibSoprioridadesComponent}
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },

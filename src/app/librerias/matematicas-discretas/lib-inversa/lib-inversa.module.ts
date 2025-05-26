@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LibInversaRoutingModule } from './lib-inversa-routing.module';
-import { LibInversaComponent } from './lib-inversa.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
+
 
 @NgModule({
-  declarations: [LibInversaComponent],
+  declarations: [], // Intencionalmente vacío (igual que LibEscitala)
   imports: [
     CommonModule,
-    LibInversaRoutingModule,
-    HttpClientModule
+    LibInversaRoutingModule
+  ],
+  providers: [
+    provideHttpClient() // Provee HttpClient igual que LibEscitala
   ]
 })
 export class LibInversaModule { }

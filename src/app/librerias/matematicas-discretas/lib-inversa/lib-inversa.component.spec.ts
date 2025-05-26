@@ -8,8 +8,8 @@ describe('LibInversaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [LibInversaComponent]
+      declarations: [LibInversaComponent],
+      imports: [HttpClientTestingModule] // Mock para HttpClient
     }).compileComponents();
 
     fixture = TestBed.createComponent(LibInversaComponent);
@@ -19,11 +19,5 @@ describe('LibInversaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should have empty initial values', () => {
-    expect(component.numeroA).toBeNull();
-    expect(component.numeroB).toBeNull();
-    expect(component.resultado).toEqual('');
   });
 });

@@ -10,19 +10,26 @@ export class LibInversaComponent {
   numeroA: number | null = null;
   numeroB: number | null = null;
   resultado: string = '';
+  error: string = '';
 
   constructor(private http: HttpClient) {}
 
   calcularInverso() {
-    if (this.numeroA === null || this.numeroB === null) {
-      this.resultado = 'Por favor ingrese ambos números';
-      return;
-    }
-
     const url = `/api/inversojni-service/inverso/${this.numeroA}/${this.numeroB}`;
-    this.http.get(url, { responseType: 'text' }).subscribe(
-      res => this.resultado = res,
-      err => this.resultado = 'Error al calcular el inverso. Asegúrese que los números son válidos.'
-    );
+
+    this.http.get(url, { responseType: 'text' }).subscribe({
+      next: (res) => {
+        try {
+          const response = JSON.parse(res);
+          this.resultado = response.inverso; // Solo muestra el valor inverso
+        } catch {
+          this.resultado = res; // Si ya es solo el número
+        }
+      },
+      error: (err) => {
+        this.error = 'Error al calcular';
+      }
+    });
   }
+
 }
