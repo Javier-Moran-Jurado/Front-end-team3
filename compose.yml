@@ -16,6 +16,12 @@ services:
     networks:
       - mynetwork
 
+  lib-costos5:
+        image: 'juandiiego2111/costos-jni:latest'
+        ports:
+          - '8083:8080'
+        networks:
+          - red-backend-app
   db:
     image: postgres:latest
     container_name: db

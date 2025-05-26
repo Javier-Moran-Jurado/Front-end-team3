@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
+import {LibCostos5Component} from './librerias/costos-presupuestos/lib-costos5/lib-costos5.component';
 
 const routes: Routes = [
 
@@ -23,12 +24,14 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-escitala', component:LibEscitalaComponent}
+      { path: 'lib-escitala', component:LibEscitalaComponent},
+      { path:  'lib-costos5',  component:LibCostos5Component}
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
   { path: '', component: PageNoFoundComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
