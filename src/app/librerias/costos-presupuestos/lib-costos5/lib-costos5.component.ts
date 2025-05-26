@@ -31,9 +31,9 @@ export class LibCostos5Component {
       },
       error: (err) => {
         console.error('Error:', err);
-        this.resultado = { error: 'No se pudo calcular.' };
+        this.resultado = {error: 'No se pudo calcular.'};
       }
     });
   }
-
 }
+

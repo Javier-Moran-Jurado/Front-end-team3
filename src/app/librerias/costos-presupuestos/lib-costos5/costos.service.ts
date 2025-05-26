@@ -9,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class CostosService {
 
-  private apiUrl = 'http://localhost:8083/api/costos-jni/calcular';
+  private apiUrl = '/api/costos-jni/calcular';
 
   constructor(private http: HttpClient) {
   }
