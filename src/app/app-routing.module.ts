@@ -26,7 +26,6 @@ const routes: Routes = [
     component: FullLayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'home-ova', component: HomeOvaComponent },
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
