@@ -14,7 +14,7 @@ export class LibEscitalaComponent {
   constructor(private http: HttpClient) {}
 
   codificar() {
-    const url = `/api/SpartanScytale/codificar/${this.filas}/${encodeURIComponent(this.mensaje)}`;
+    const url = `htttp://api.chacaleo.joptionpane.software/api/SpartanScytale/codificar/${this.filas}/${encodeURIComponent(this.mensaje)}`;
     this.http.get(url, { responseType: 'text' }).subscribe(
       res => this.resultado = res,
       err => this.resultado = 'Error al codificar.'
@@ -22,7 +22,7 @@ export class LibEscitalaComponent {
   }
 
   descodificar() {
-    const url = `/api/SpartanScytale/descodificar/${this.filas}/${encodeURIComponent(this.mensaje)}`;
+    const url = `http://api.chacaleo.joptionpane.software/api/SpartanScytale/descodificar/${this.filas}/${encodeURIComponent(this.mensaje)}`;
     this.http.get(url, { responseType: 'text' }).subscribe(
       res => this.resultado = res,
       err => this.resultado = 'Error al descodificar.'
