@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LibSoprioridadesComponent } from './lib-soprioridades.component';
 
 describe('LibSoprioridadesComponent', () => {
@@ -8,9 +8,9 @@ describe('LibSoprioridadesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LibSoprioridadesComponent]
-    })
-    .compileComponents();
+      declarations: [LibSoprioridadesComponent],
+      imports: [HttpClientTestingModule] // ✅ mockeamos HttpClient
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LibSoprioridadesComponent);
     component = fixture.componentInstance;

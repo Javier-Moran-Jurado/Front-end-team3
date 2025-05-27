@@ -5,13 +5,13 @@ import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [], // Intencionalmente vacío (igual que LibEscitala)
+  declarations: [],
   imports: [
     CommonModule,
     LibInversaRoutingModule
   ],
   providers: [
-    provideHttpClient() // Provee HttpClient igual que LibEscitala
+    provideHttpClient()
   ]
 })
 export class LibInversaModule { }

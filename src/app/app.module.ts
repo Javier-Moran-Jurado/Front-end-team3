@@ -16,8 +16,8 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibEscitalaComponent } from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {FormsModule} from '@angular/forms';
 import { LibInversaComponent } from './librerias/matematicas-discretas/lib-inversa/lib-inversa.component';
-import { LibSoprioridadesComponent } from './librerias/matematicas-discretas/lib-soprioridades/lib-soprioridades.component';
 import {LibInversaModule} from './librerias/matematicas-discretas/lib-inversa/lib-inversa.module';
+import { LibSoprioridadesComponent } from './librerias/sistemas-operativos/lib-soprioridades/lib-soprioridades.component';
 
 @NgModule({
   declarations: [
