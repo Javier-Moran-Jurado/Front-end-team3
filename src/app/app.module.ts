@@ -14,6 +14,7 @@ import { FullLayoutComponent } from './template/full-layout/full-layout.componen
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import { LibRoundRobinComponent } from './librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
 import {FaIconComponent, FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -31,7 +32,8 @@ import {faFacebook, faInstagram, faLinkedin, faTiktok, faXTwitter, faYoutube} fr
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LibLagrangeComponent
+    LibLagrangeComponent,
+    LibRoundRobinComponent
   ],
   imports: [
     BrowserModule,
