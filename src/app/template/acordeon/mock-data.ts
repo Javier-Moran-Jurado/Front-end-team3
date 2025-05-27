@@ -1,6 +1,7 @@
 export interface Ova {
   id: number;
   nombre: string;
+  url?: string;
 }
 
 export interface Curso {
@@ -34,8 +35,8 @@ export const FACULTADES: Facultad[] = [
             id: 1,
             nombre: 'Analisis numerico',
             ovas: [
-              { id: 1, nombre: 'Interpolacion de lagrange' },
-              { id: 2, nombre: 'Interpolacion de newton' },
+              { id: 1, nombre: 'Interpolacion de lagrange', url:'/lib-lagrange' },
+              { id: 2, nombre: 'Interpolacion de newton', url:'/lib-newton' },
               { id: 3, nombre: 'OVA 3' }
             ]
           },

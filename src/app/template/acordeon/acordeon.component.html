@@ -33,8 +33,9 @@
                          [attr.data-bs-parent]="'#accordionAsignaturas' + f + '-' + p">
                       <div class="accordion-body">
                         <div class="d-flex flex-wrap gap-2">
-                          <button *ngFor="let ova of asignatura.ovas" class="btn btn-primary btn-sm">
-                            OVA
+                          <button (click)="ova.url && navegar(ova.url)"
+                                  [disabled]="!ova.url" *ngFor="let ova of asignatura.ovas" class="btn btn-primary btn-sm">
+                            {{ ova.nombre }}
                           </button>
                         </div>
                       </div>

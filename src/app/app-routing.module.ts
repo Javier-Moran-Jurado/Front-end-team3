@@ -9,6 +9,7 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {OvasComponent} from './ova/ovas/ovas.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,8 @@ const routes: Routes = [
     component: EmptyLayoutComponent,
     children: [
       {path: '', redirectTo: '/login', pathMatch: "full"},
-      {path: 'login', component: LoginComponent }
+      {path: 'login', component: LoginComponent },
+      {path: 'ova', component: OvasComponent }
     ]
   },
   {

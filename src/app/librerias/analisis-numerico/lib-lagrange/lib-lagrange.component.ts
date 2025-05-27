@@ -51,12 +51,12 @@ export class LibLagrangeComponent {
 
     let url =
       this.path === 'lib-lagrange' ? `/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}` :
-                                    `/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
+                                    `http://34.46.118.150/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
     this.http.get<number>(url).subscribe({
       next: res => {
         Swal.fire({
           icon: 'success',
-          title: `Interpolación de ${this.path === 'lib-lagrange' ? 'Lagrange' : 'Newton'}`,
+          title: `Interpolación de ${this.metodoInterpolacion}`,
           text: `Resultado: ${res}`,
           confirmButtonText: 'Aceptar'
         });
@@ -79,5 +79,8 @@ export class LibLagrangeComponent {
     this.yValues = '';
     this.evalPoint = '';
     this.error = '';
+  }
+  get metodoInterpolacion(): string {
+    return this.path === 'lib-lagrange' ? 'Lagrange' : 'Newton';
   }
 }

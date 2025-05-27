@@ -1,11 +1,12 @@
 .container {
   max-width: 600px;
-  margin: 3rem auto;
+  margin: 3rem auto; /* Centra horizontalmente y da espacio vertical */
   padding: 3rem 2rem;
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
+  align-items: center;
 }
 
 h2 {
@@ -18,6 +19,7 @@ h2 {
   margin-bottom: 2rem;
   position: relative;
   text-align: left;
+
 }
 
 label {

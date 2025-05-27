@@ -24,6 +24,8 @@ import { AcordeonComponent } from './template/acordeon/acordeon.component';
 import { OvaTemplateComponent } from './template/ova-template/ova-template.component';
 import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {OvasComponent} from './ova/ovas/ovas.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import {FormsModule} from '@angular/forms';
     InformacionComponent,
     AcordeonComponent,
     OvaTemplateComponent,
+    OvasComponent
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     FaIconComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule
   ],
   exports: [RouterModule],
   providers: [
