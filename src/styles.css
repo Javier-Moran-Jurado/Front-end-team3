@@ -9,6 +9,8 @@ body, html {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 header, main, footer {
