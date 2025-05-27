@@ -25,6 +25,8 @@ import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
+import {AcordeonComponent} from './template/acordeon/acordeon.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/l
     LibLagrangeComponent,
     LoginComponent,
     InformacionComponent,
+    OvaTemplateComponent,
+    AcordeonComponent
   ],
   imports: [
     BrowserModule,
