@@ -1,0 +1,53 @@
+<div class="accordion" id="accordionFacultades">
+  <div class="accordion-item" *ngFor="let facultad of facultades; let f = index">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#facultad' + f" aria-expanded="false">
+        {{ facultad.nombre }}
+      </button>
+    </h2>
+    <div [id]="'facultad' + f" class="accordion-collapse collapse" data-bs-parent="#accordionFacultades">
+      <div class="accordion-body">
+
+        <div class="accordion" [id]="'accordionProgramas' + f">
+          <div class="accordion-item" *ngFor="let programa of facultad.programas; let p = index">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      [attr.data-bs-target]="'#programa' + f + '-' + p" aria-expanded="false">
+                {{ programa.nombre }}
+              </button>
+            </h2>
+            <div [id]="'programa' + f + '-' + p" class="accordion-collapse collapse"
+                 [attr.data-bs-parent]="'#accordionProgramas' + f">
+              <div class="accordion-body">
+
+                <div class="accordion" [id]="'accordionAsignaturas' + f + '-' + p">
+                  <div class="accordion-item" *ngFor="let asignatura of programa.cursos; let a = index">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                              [attr.data-bs-target]="'#asignatura' + f + '-' + p + '-' + a" aria-expanded="false">
+                        {{ asignatura.nombre }}
+                      </button>
+                    </h2>
+                    <div [id]="'asignatura' + f + '-' + p + '-' + a" class="accordion-collapse collapse"
+                         [attr.data-bs-parent]="'#accordionAsignaturas' + f + '-' + p">
+                      <div class="accordion-body">
+                        <div class="d-flex flex-wrap gap-2">
+                          <button *ngFor="let ova of asignatura.ovas" class="btn btn-primary btn-sm">
+                            OVA
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
