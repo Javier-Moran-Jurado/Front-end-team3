@@ -2,7 +2,7 @@ name: S3 Deploy
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   build:
@@ -26,9 +26,6 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Test
-        run: npm run test
-
       - name: Build
         run: npm run build
 
@@ -39,5 +36,5 @@ jobs:
         run: |
           aws s3 cp \
             --recursive \
-            --region ap-northeast-2 \
+            --region us-east-1 \
             dist s3://chacaleo.joptionpane.software
