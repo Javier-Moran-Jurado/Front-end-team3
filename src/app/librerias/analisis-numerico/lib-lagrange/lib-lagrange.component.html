@@ -1,0 +1,28 @@
+
+<div class="container">
+  <h2>Interpolación de {{ metodoInterpolacion }}</h2>
+
+  <div class="form-group">
+    <label for="xValues">Valores de X</label>
+    <input id="xValues" [(ngModel)]="xValues" type="text" class="input" placeholder="Ej: 1,2,3" />
+  </div>
+
+  <div class="form-group">
+    <label for="yValues">Valores de Y</label>
+    <input id="yValues" [(ngModel)]="yValues" type="text" class="input" placeholder="Ej: 2,4,6" />
+  </div>
+
+  <div class="form-group">
+    <label for="evalPoint">Punto a evaluar</label>
+    <input id="evalPoint" [(ngModel)]="evalPoint" type="number" class="input" placeholder="Ej: 2.5"  />
+  </div>
+
+  <div class="button-group">
+    <button (click)="calcular()" class="btn">Calcular</button>
+    <button (click)="limpiar()" class="btn">Limpiar</button>
+  </div>
+
+  <div *ngIf="error" style="color: red; margin-top: 10px;">
+    {{ error }}
+  </div>
+</div>
