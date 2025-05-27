@@ -23,7 +23,7 @@ export class LibCostosXpComponent {
       unidades: this.unidades
     };
 
-    this.http.post('/api/v1/libcostos-service/calcularCostoProduccion', payload)
+    this.http.post('http://api.chacaleo.joptionpane.software/api/v1/libcostos-service/calcularCostoProduccion', payload)
       .subscribe((res: any) => {
         this.resultado = res;
       });
