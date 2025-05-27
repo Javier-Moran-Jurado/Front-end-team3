@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './home/home.component';
 import {Router, RouterModule} from '@angular/router';
 import {HttpClientModule, provideHttpClient} from '@angular/common/http';
@@ -20,12 +21,10 @@ import {faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
-import { AcordeonComponent } from './template/acordeon/acordeon.component';
-import { OvaTemplateComponent } from './template/ova-template/ova-template.component';
-import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
-import {FormsModule} from '@angular/forms';
-import {CommonModule} from '@angular/common';
-import {OvasComponent} from './ova/ovas/ovas.component';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UsuarioComponent } from './usuario/usuario.component';
+import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 
 @NgModule({
   declarations: [
@@ -41,21 +40,15 @@ import {OvasComponent} from './ova/ovas/ovas.component';
     LibLagrangeComponent,
     LoginComponent,
     InformacionComponent,
-    AcordeonComponent,
-    OvaTemplateComponent,
-    OvasComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     FaIconComponent,
-    FontAwesomeModule,
-    CommonModule
+    FontAwesomeModule
   ],
   exports: [RouterModule],
   providers: [

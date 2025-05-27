@@ -22,16 +22,3 @@
 .rounded-circle {
   object-fit: cover;
 }
-:root {
-  --header-height: 64px;
-}
-
-.header-fixed {
-  height: var(--header-height);
-}
-
-.main-wrapper {
-  margin-top: var(--header-height);
-  min-height: calc(100vh - var(--header-height));
-}
-
