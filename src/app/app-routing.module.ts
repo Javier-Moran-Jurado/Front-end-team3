@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
+import {LibSoSJComponent} from './librerias/sistemas-operativos/lib-so-sjf/lib-so-sjf.component';
 
 const routes: Routes = [
 
@@ -23,7 +24,8 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-escitala', component:LibEscitalaComponent}
+      { path: 'lib-escitala', component:LibEscitalaComponent},
+      { path: 'lib-sjf', component:LibSoSJComponent}
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },

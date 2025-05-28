@@ -1,0 +1,129 @@
+.container-sjf {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-sjf {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.tabla-procesos {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabla-procesos th {
+  background-color: #393d45;
+  color: white;
+  text-align: center;
+}
+
+.tabla-procesos td {
+  vertical-align: middle;
+}
+
+.form-control {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.resultado {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-agregar {
+  background-color: #198754;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-ejecutar {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-agregar:hover, .btn-ejecutar:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.select-algoritmo {
+  max-width: 250px;
+}
+
+.grid-container {
+  background-color: #ffffff;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fila {
+  display: flex;
+  gap: 1px;
+}
+
+.titulo-diagrama {
+  text-align: center;
+  font-size: 20px;
+  justify-content:center;
+  font-weight: bold;
+}
+
+#diagrama {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Cada "fila" va una debajo de la otra */
+  gap: 3px;
+}
+
+.grid-item {
+  width: 30px;
+  height: 30px;
+}
+
+.eje-x {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 23px;
+}
+
+.fila-eje-x {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: start;
+}
+.eje-y {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10px;
+}
+
+/* Colores dinámicos para cada tipo de proceso */
+.p0 {
+  background-color: #ECEFF1;
+}
+.p1 { background-color: #607D8B; }
+.p2 {
+  background-color: #4CAF50;
+}
+
