@@ -53,7 +53,8 @@ import {AcordeonComponent} from './template/acordeon/acordeon.component';
     HttpClientModule,
     AppRoutingModule,
     FaIconComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
   providers: [
