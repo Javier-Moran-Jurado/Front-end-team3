@@ -1,0 +1,75 @@
+<div class="page-wrapper">
+  <div class="card-container">
+    <h2>Calculadora de Costos</h2>
+
+    <div class="costos-grid">
+      <div class="form-section">
+        <div class="input-group">
+          <label for="costoFijo">Costo Fijo</label>
+          <input id="costoFijo" name="costoFijo" type="number" [(ngModel)]="request.costoFijo" />
+        </div>
+
+        <div class="input-group">
+          <label for="costoVariable">Costo Variable</label>
+          <input id="costoVariable" name="costoVariable" type="number" [(ngModel)]="request.costoVariable" />
+        </div>
+
+        <div class="input-group">
+          <label for="costoIndirecto">Costo Indirecto</label>
+          <input id="costoIndirecto" name="costoIndirecto" type="number" [(ngModel)]="request.costoIndirecto" />
+        </div>
+
+        <div class="input-group">
+          <label for="unidades">Unidades Producidas</label>
+          <input id="unidades" name="unidades" type="number" [(ngModel)]="request.unidades" />
+        </div>
+
+        <div class="input-group">
+          <label for="ganancia">Porcentaje de Ganancia</label>
+          <input id="ganancia" name="margenGananciaPorcentaje" type="number" [(ngModel)]="request.margenGananciaPorcentaje" />
+        </div>
+
+        <button (click)="operar()">Operar</button>
+      </div>
+
+      <div class="resultado-grid" *ngIf="resultado">
+        <div class="resultado-item">
+          <strong>Costo Fijo:</strong>
+          <span>{{ resultado?.costo_fijo }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Costo Variable:</strong>
+          <span>{{ resultado?.costo_variable }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Costo Indirecto:</strong>
+          <span>{{ resultado?.costo_indirecto }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Unidades:</strong>
+          <span>{{ resultado?.unidades }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Porcentaje de Ganancia:</strong>
+          <span>{{ resultado?.porcentaje_ganancia }}%</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Costo Total:</strong>
+          <span>{{ resultado?.costo_total }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Costo Unitario:</strong>
+          <span>{{ resultado?.costo_unitario }}</span>
+        </div>
+        <div class="resultado-item">
+          <strong>Margen de Ganancia:</strong>
+          <span>{{ resultado?.margen_ganancia }}</span>
+        </div>
+        <div class="resultado-item precio-final">
+          <strong>Precio de Venta:</strong>
+          <span>{{ resultado?.precio_venta }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
