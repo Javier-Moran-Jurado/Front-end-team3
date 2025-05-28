@@ -43,7 +43,8 @@ import {AcordeonComponent} from './template/acordeon/acordeon.component';
     LoginComponent,
     InformacionComponent,
     OvaTemplateComponent,
-    AcordeonComponent
+    AcordeonComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserModule,

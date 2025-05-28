@@ -49,9 +49,9 @@ export class LibLagrangeComponent {
     const yParam = yArray.join(',');
 
 
-    let url =
-      this.path === 'lib-lagrange' ? `,/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}` :
-                                    `http://34.46.118.150/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
+    let url =git
+      this.path === 'lib-lagrange' ? `http://api.mewings.joptionpane.software/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}` :
+                                    `http://api.chacaleo.joptionpane.software/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
     this.http.get<number>(url).subscribe({
       next: res => {
         Swal.fire({
