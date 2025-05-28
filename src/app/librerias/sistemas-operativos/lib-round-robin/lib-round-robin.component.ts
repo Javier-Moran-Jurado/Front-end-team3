@@ -1,4 +1,3 @@
-// src/app/librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component.ts
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
@@ -24,7 +23,6 @@ export class RoundRobinComponent {
 
   calcular() {
     this.error = '';
-
     if (
       this.cantidadProcesos === undefined ||
       this.quantum === undefined ||
@@ -36,11 +34,11 @@ export class RoundRobinComponent {
       return;
     }
 
-    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x));
-    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x));
+    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x.trim()));
+    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x.trim()));
     const ids: string[] = this.idProcesos.split(',').map((id: string) => id.trim());
     const prioridades: number[] = this.prioridad
-      ? this.prioridad.split(',').map((x: string) => Number(x))
+      ? this.prioridad.split(',').map((x: string) => Number(x.trim()))
       : Array(ids.length).fill(0);
 
     if (
@@ -51,12 +49,10 @@ export class RoundRobinComponent {
       this.error = `Debe ingresar exactamente ${this.cantidadProcesos} valores en cada campo`;
       return;
     }
-
     if (llegadas.some(isNaN) || rafagas.some(isNaN) || prioridades.some(isNaN)) {
       this.error = 'Todos los valores numéricos deben ser válidos';
       return;
     }
-
     if (llegadas.some(t => t < 0) || rafagas.some(t => t <= 0) || prioridades.some(p => p < 0)) {
       this.error = 'Los tiempos de llegada deben ser ≥ 0 y ráfagas > 0';
       return;
@@ -79,17 +75,18 @@ export class RoundRobinComponent {
   }
 
   private obtenerProcesosDesdeInputs(): any[] {
-    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x));
-    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x));
+    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x.trim()));
+    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x.trim()));
     const ids: string[] = this.idProcesos.split(',').map((id: string) => id.trim());
-    const prioridades: number[] = this.prioridad ? this.prioridad.split(',').map((x: string) => Number(x)) : Array(ids.length).fill(0);
+    const prioridades: number[] = this.prioridad
+      ? this.prioridad.split(',').map((x: string) => Number(x.trim()))
+      : Array(ids.length).fill(0);
     return ids.map((id: string, i: number) => ({
       id,
       llegada: llegadas[i],
       rafaga: rafagas[i],
       prioridad: prioridades[i],
       tiempoFin: 0,
-      tiempoRetorno: 0,
       tiempoEspera: 0,
       tiempoInicio: 0
     }));
@@ -97,21 +94,23 @@ export class RoundRobinComponent {
 
   private procesarRespuestaAPI(res: any) {
     console.log('Respuesta de la API:', res);
+    // Se guarda el arreglo de inputs para usarlos como fallback en caso de faltar algún valor
+    const procesosInputs = this.obtenerProcesosDesdeInputs();
+
     if (!res || !res.Procesos) {
       this.error = 'La API no devolvió los datos esperados';
-      this.procesos = this.obtenerProcesosDesdeInputs();
+      this.procesos = procesosInputs;
       this.diagrama = [[0, 0, 0, 0, 0]];
       return;
     }
-    this.procesos = Object.keys(res.Procesos).map((key: string) => {
+    this.procesos = Object.keys(res.Procesos).map((key: string, i: number) => {
       const p = res.Procesos[key];
       return {
         id: key,
-        llegada: p.llegada,
-        rafaga: p.rafaga,
-        prioridad: p.prioridad || 0,
+        llegada: p.llegada !== undefined ? p.llegada : procesosInputs[i].llegada,
+        rafaga: p.rafaga !== undefined ? p.rafaga : procesosInputs[i].rafaga,
+        prioridad: p.prioridad !== undefined ? p.prioridad : procesosInputs[i].prioridad,
         tiempoFin: p.tiempo_sistema ? p.tiempo_sistema : 0,
-        tiempoRetorno: p.tiempo_retorno,
         tiempoEspera: p.tiempo_espera,
         tiempoInicio: 0
       };
@@ -124,8 +123,7 @@ export class RoundRobinComponent {
 
   private manejarErrorAPI(err: any) {
     console.error('Error en la API:', err);
-    this.error =
-      err.error?.message || 'Error al procesar la solicitud. Verifica los datos e intenta nuevamente.';
+    this.error = err.error?.message || 'Error al procesar la solicitud. Verifica los datos e intenta nuevamente.';
     this.procesos = [];
     this.diagrama = [];
   }
@@ -155,7 +153,6 @@ export class RoundRobinComponent {
               <th class="text-center">Ráfaga</th>
               <th class="text-center">Prioridad</th>
               <th class="text-center">Finalización</th>
-              <th class="text-center">Retorno</th>
               <th class="text-center">Espera</th>
             </tr>
           </thead>
@@ -167,7 +164,6 @@ export class RoundRobinComponent {
                 <td class="text-center">${proceso.rafaga}</td>
                 <td class="text-center">${proceso.prioridad}</td>
                 <td class="text-center">${proceso.tiempoFin}</td>
-                <td class="text-center">${proceso.tiempoRetorno}</td>
                 <td class="text-center">${proceso.tiempoEspera}</td>
               </tr>
             `).join('')}
@@ -189,7 +185,7 @@ export class RoundRobinComponent {
             ${this.diagrama.map((fila: number[], index: number) => `
               <div class="d-flex align-items-center mb-1">
                 <div class="font-weight-bold text-nowrap mr-2" style="width: 40px;">
-                  ${this.procesos[index]?.id || 'P' + (index + 1)}:
+                  ${this.procesos[index]?.id || ('P' + (index + 1))}:
                 </div>
                 <div class="d-flex">
                   ${fila.map((estado: number, tiempo: number) => {
@@ -197,9 +193,9 @@ export class RoundRobinComponent {
       if (estado === 1) { clase = 'bg-warning'; }
       if (estado === 2) { clase = 'bg-success text-white'; }
       return `<div class="border gantt-cell ${clase} text-center" style="width: ${anchoCelda}px; height: 25px; line-height: 25px; font-size: 10px;"
-                      title="Proceso ${this.procesos[index]?.id || 'P' + (index + 1)}, Tiempo ${tiempo}: ${this.obtenerEstadoTexto(estado)}">
-                      ${tiempo === 0 || tiempo === fila.length - 1 || tiempo % 5 === 0 ? tiempo : ''}
-                    </div>`;
+                            title="Proceso ${this.procesos[index]?.id || ('P' + (index + 1))}, Tiempo ${tiempo}: ${this.obtenerEstadoTexto(estado)}">
+                              ${tiempo === 0 || tiempo === fila.length - 1 || tiempo % 5 === 0 ? tiempo : ''}
+                            </div>`;
     }).join('')}
                 </div>
               </div>
