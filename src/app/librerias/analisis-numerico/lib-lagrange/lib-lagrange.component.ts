@@ -50,8 +50,8 @@ export class LibLagrangeComponent {
 
 
     let url =
-      this.path === 'lib-lagrange' ? `,/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}` :
-                                    `http://34.46.118.150/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
+      this.path === 'lib-lagrange' ? `/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}` :
+                                    `http://chacaleo.joptionpane.software.s3-website-us-east-1.amazonaws.com/api/analisis-service/interpolar/${value}/${xParam}/${yParam}`;
     this.http.get<number>(url).subscribe({
       next: res => {
         Swal.fire({
