@@ -1,31 +1,30 @@
-import {Component, OnInit} from '@angular/core';
-import {Facultad} from '../model/facultad';
-import {FacultadService} from '../service/facultad.service';
+import { Component, OnInit } from '@angular/core';
+import { Facultad } from '../model/facultad';
+import { FacultadService } from '../service/facultad.service';
 import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
-import { FacultadFormComponent } from '../facultad-form/facultad-form.component';
-
-
 
 @Component({
   selector: 'app-facultades',
   templateUrl: './facultades.component.html',
-  standalone: false,
-  styleUrl: './facultades.component.css'
+  styleUrls: ['./facultades.component.css']
 })
 export class FacultadesComponent implements OnInit {
-  facultadArr: {facultades: Facultad[]} = {facultades:[]};
+  facultadArr: { facultades: Facultad[] } = { facultades: [] };
+  // Lista hardcodeada de decanos (puedes cambiarla)
+  decanos = [
+    { id: 1, nombre: 'Juan', apellido: 'Pérez' },
+    { id: 2, nombre: 'María', apellido: 'Gómez' },
+    { id: 3, nombre: 'Carlos', apellido: 'López' }
+  ];
   faEdit = faEdit;
   faTrash = faTrash;
   faUserPlus = faUserPlus;
 
-
-  constructor(
-    private facultadService: FacultadService
-  ) {}
+  constructor(private facultadService: FacultadService) {}
 
   ngOnInit(): void {
-    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
+    this.loadFacultades();
   }
 
   confirmDelete(facultad: Facultad): void {
@@ -40,89 +39,101 @@ export class FacultadesComponent implements OnInit {
       if (result.isConfirmed) {
         this.facultadService.deleteFacultad(facultad).subscribe(() => {
           this.loadFacultades();
-          Swal.fire('Eliminado!', 'El facultad ha sido eliminado.', 'success');
+          Swal.fire('Eliminado!', 'La facultad ha sido eliminada.', 'success');
         });
       }
     });
   }
 
-
   editFacultad(facultad: Facultad): void {
+    const options = this.decanos.map(d =>
+      `<option value="${d.id}" ${d.id === facultad.id_decano ? 'selected' : ''}>
+        ${d.nombre} ${d.apellido} (ID: ${d.id})
+      </option>`
+    ).join('');
+
     Swal.fire({
       title: 'Editar Facultad',
       html: `
-        <input type="text" id="nombre" class="swal2-input" placeholder="Nombre" value="${facultad.nombre}">
-      <input type="text" id="descripcion" class="swal2-input" placeholder="Apellido" value="${facultad.descripcion}">
-      <input type="id_curso" id="id_curso" class="swal2-input" placeholder="Email" value="${facultad.id_curso}">
+        <input type="text" id="nombre" class="swal2-input" value="${facultad.nombre}">
+        <select id="id_decano" class="swal2-select">
+          ${options}
+        </select>
       `,
       showCancelButton: true,
       confirmButtonText: 'Actualizar',
       preConfirm: () => {
-        const nombre = (<HTMLInputElement>Swal.getPopup()!.querySelector('#nombre')).value;
-        const descripcion = (<HTMLInputElement>Swal.getPopup()!.querySelector('#descripcion')).value;
-        const id_curso = (<HTMLInputElement>Swal.getPopup()!.querySelector('#id_curso')).value;
-        return { nombre, descripcion, id_curso };
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+        const id_decano = (document.getElementById('id_decano') as HTMLSelectElement).value;
+
+        if (!nombre || !id_decano) {
+          Swal.showValidationMessage('Todos los campos son obligatorios');
+          return;
+        }
+
+        return { nombre, id_decano: Number(id_decano) };
       }
     }).then((result) => {
       if (result.isConfirmed) {
         facultad.nombre = result.value!.nombre;
-        facultad.descripcion = result.value!.descripcion;
-        facultad.id_curso = result.value!.id_curso;
+        facultad.id_decano = result.value!.id_decano;
         this.facultadService.updateFacultad(facultad).subscribe(() => {
-          Swal.fire('Actualizado!', 'El facultad ha sido actualizado.', 'success');
+          this.loadFacultades();
+          Swal.fire('Actualizado!', 'La facultad ha sido actualizada.', 'success');
         });
       }
     });
   }
 
   addFacultad(): void {
-    // Cargar regiones desde el backend antes de mostrar el modal
+    const options = this.decanos.map(d =>
+      `<option value="${d.id}">${d.nombre} ${d.apellido} (ID: ${d.id})</option>`
+    ).join('');
 
-      // Mostrar el formulario en SweetAlert2
-      Swal.fire({
-        title: 'Añadir Facultad',
-        html: `
-          <input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
-          <input type="text" id="descripcion" class="swal2-input" placeholder="Descripcion">
-          <input type="number" id="id_curso" class="swal2-input" placeholder="Id curso">
-        `,
-        focusConfirm: false,
-        preConfirm: () => {
-          const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
-          const descripcion = (document.getElementById('descripcion') as HTMLInputElement).value;
-          const id_curso = (document.getElementById('id_curso') as HTMLInputElement).value;
+    Swal.fire({
+      title: 'Añadir Facultad',
+      html: `
+        <input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
+        <select id="id_decano" class="swal2-select">
+          <option value="" selected disabled>Seleccione decano</option>
+          ${options}
+        </select>
+      `,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      preConfirm: () => {
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value.trim();
+        const id_decano = (document.getElementById('id_decano') as HTMLSelectElement).value;
 
-          if (!nombre || !descripcion || !id_curso) {
-            Swal.showValidationMessage('Todos los campos son obligatorios');
-            return;
+        if (!nombre || !id_decano) {
+          Swal.showValidationMessage('Todos los campos son obligatorios');
+          return;
+        }
+        return { nombre, id_decano: Number(id_decano) };
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const nuevoFacultad: Facultad = {
+          nombre: result.value!.nombre,
+          id_decano: result.value!.id_decano
+        };
+
+        this.facultadService.createFacultad(nuevoFacultad).subscribe({
+          next: () => {
+            this.loadFacultades();
+            Swal.fire('¡Éxito!', 'Facultad creada.', 'success');
+          },
+          error: (err) => {
+            Swal.fire('Error', err.error?.message || 'Error al crear', 'error');
           }
-
-          return {
-            nombre,
-            descripcion,
-            id_curso,
-          };
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const nuevoFacultad: Facultad = {
-            nombre: result.value!.nombre,
-            descripcion: result.value!.descripcion,
-            id_curso: result.value!.id_curso,
-          };
-
-          // Guardar el facultad usando el servicio
-          this.facultadService.createFacultad(nuevoFacultad).subscribe(() => {
-            this.loadFacultades(); // Recargar la lista de facultades
-            Swal.fire('¡Creado!', 'El facultad ha sido creado exitosamente.', 'success');
-          });
-        }
-      });
+        });
+      }
+    });
   }
 
 
   private loadFacultades() {
-    console.log("cargando facultades");
+    console.log("Cargando facultades...");
     this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
   }
 }

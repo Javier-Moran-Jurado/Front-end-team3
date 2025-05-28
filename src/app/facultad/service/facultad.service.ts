@@ -7,7 +7,7 @@ import {Facultad} from '../model/facultad';
   providedIn: 'root'
 })
 export class FacultadService {
-  private apiUrl = '/api/v1/facultad-service/facultades';
+  private apiUrl = 'http://34.74.83.192/api/v1/facultad-service/facultades';
 
   constructor(private http: HttpClient) {}
 
