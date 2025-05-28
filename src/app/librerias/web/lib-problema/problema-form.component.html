@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <!-- Alertas de éxito/error -->
+  <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Problema creado correctamente. Redirigiendo...
+    <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+  </div>
+
+  <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ errorMessage }}
+    <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
+  </div>
+
+  <h2>Formulario de Problema</h2>
+
+  <form [formGroup]="problemaForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre del problema</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre"
+             [ngClass]="{ 'is-invalid': submitted && f['nombre']?.errors }">
+      <div *ngIf="submitted && f['nombre']?.errors" class="invalid-feedback">
+        <div *ngIf="f['nombre'].errors?.['required']">El nombre es requerido</div>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción</label>
+      <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="5"
+                [ngClass]="{ 'is-invalid': submitted && f['descripcion']?.errors }"
+                maxlength="5000"></textarea>
+      <div *ngIf="submitted && f['descripcion']?.errors" class="invalid-feedback">
+        <div *ngIf="f['descripcion'].errors?.['required']">La descripción es requerida</div>
+        <div *ngIf="f['descripcion'].errors?.['maxlength']">La descripción no puede exceder 5000 caracteres</div>
+      </div>
+      <small class="text-muted">{{ (f['descripcion']?.value?.length || 0) }}/5000 caracteres</small>
+    </div>
+
+    <!-- Inputs -->
+    <div class="mb-3">
+      <label for="inputs" class="form-label">Inputs (separar por dos saltos de línea si hay múltiples)</label>
+      <textarea class="form-control" id="inputs" formControlName="inputs" rows="8"
+                [ngClass]="{ 'is-invalid': submitted && f['inputs']?.errors }"
+                maxlength="15000"></textarea>
+      <div *ngIf="submitted && f['inputs']?.errors" class="invalid-feedback">
+        <div *ngIf="f['inputs'].errors?.['maxlength']">Los inputs no pueden exceder 15000 caracteres</div>
+        <div *ngIf="f['inputs'].errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
+      </div>
+      <small class="text-muted">{{ (f['inputs']?.value?.length || 0) }}/15000 caracteres</small>
+    </div>
+
+    <!-- Outputs -->
+    <div class="mb-3">
+      <label for="outputs" class="form-label">Outputs (separar por dos saltos de línea si hay múltiples)</label>
+      <textarea class="form-control" id="outputs" formControlName="outputs" rows="8"
+                [ngClass]="{ 'is-invalid': submitted && f['outputs']?.errors }"
+                maxlength="15000" required></textarea>
+      <div *ngIf="submitted && f['outputs']?.errors" class="invalid-feedback">
+        <div *ngIf="f['outputs'].errors?.['required']">Los outputs son requeridos</div>
+        <div *ngIf="f['outputs'].errors?.['maxlength']">Los outputs no pueden exceder 15000 caracteres</div>
+        <div *ngIf="f['outputs'].errors?.['minlength']">Debe haber al menos un output</div>
+        <div *ngIf="f['outputs'].errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
+      </div>
+      <small class="text-muted">{{ (f['outputs']?.value?.length || 0) }}/15000 caracteres</small>
+    </div>
+
+    <!-- Tiempo límite -->
+    <div class="mb-3">
+      <label for="tiempo" class="form-label">Tiempo límite (ms)</label>
+      <input type="number" class="form-control" id="tiempo" formControlName="tiempo"
+             [ngClass]="{ 'is-invalid': submitted && f['tiempo']?.errors }">
+      <div *ngIf="submitted && f['tiempo']?.errors" class="invalid-feedback">
+        <div *ngIf="f['tiempo'].errors?.['required']">El tiempo límite es requerido</div>
+        <div *ngIf="f['tiempo'].errors?.['min']">El tiempo debe ser mayor a 0</div>
+      </div>
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary" [disabled]="loading">
+      <span *ngIf="!loading">Guardar</span>
+      <span *ngIf="loading">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Guardando...
+      </span>
+    </button>
+  </form>
+</div>

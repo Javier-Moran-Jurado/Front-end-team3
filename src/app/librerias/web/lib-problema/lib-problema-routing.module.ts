@@ -7,4 +7,7 @@ const routes: Routes = [];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LibCrearproblemaRoutingModule { }
+export class LibProblemaRoutingModule { }
+
+export class ProblemaFormComponentRoutingModule {
+}
