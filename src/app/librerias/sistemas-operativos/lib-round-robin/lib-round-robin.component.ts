@@ -1,3 +1,4 @@
+// src/app/librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component.ts
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
@@ -35,11 +36,11 @@ export class RoundRobinComponent {
       return;
     }
 
-    const llegadas = this.tiempoLlegada.split(',').map(Number);
-    const rafagas = this.tiempoRafaga.split(',').map(Number);
-    const ids = this.idProcesos.split(',').map(id => id.trim());
-    const prioridades = this.prioridad
-      ? this.prioridad.split(',').map(Number)
+    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x));
+    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x));
+    const ids: string[] = this.idProcesos.split(',').map((id: string) => id.trim());
+    const prioridades: number[] = this.prioridad
+      ? this.prioridad.split(',').map((x: string) => Number(x))
       : Array(ids.length).fill(0);
 
     if (
@@ -61,7 +62,7 @@ export class RoundRobinComponent {
       return;
     }
 
-    const procesosDTO = ids.map((id, i) => ({
+    const procesosDTO = ids.map((id: string, i: number) => ({
       id,
       llegada: llegadas[i],
       rafaga: rafagas[i],
@@ -72,31 +73,38 @@ export class RoundRobinComponent {
     console.log('Llamando a la API:', url, procesosDTO);
 
     this.http.post<any>(url, procesosDTO).subscribe({
-      next: (res) => this.procesarRespuestaAPI(res),
-      error: (err) => this.manejarErrorAPI(err)
+      next: (res: any) => this.procesarRespuestaAPI(res),
+      error: (err: any) => this.manejarErrorAPI(err)
     });
+  }
+
+  private obtenerProcesosDesdeInputs(): any[] {
+    const llegadas: number[] = this.tiempoLlegada.split(',').map((x: string) => Number(x));
+    const rafagas: number[] = this.tiempoRafaga.split(',').map((x: string) => Number(x));
+    const ids: string[] = this.idProcesos.split(',').map((id: string) => id.trim());
+    const prioridades: number[] = this.prioridad ? this.prioridad.split(',').map((x: string) => Number(x)) : Array(ids.length).fill(0);
+    return ids.map((id: string, i: number) => ({
+      id,
+      llegada: llegadas[i],
+      rafaga: rafagas[i],
+      prioridad: prioridades[i],
+      tiempoFin: 0,
+      tiempoRetorno: 0,
+      tiempoEspera: 0,
+      tiempoInicio: 0
+    }));
   }
 
   private procesarRespuestaAPI(res: any) {
     console.log('Respuesta de la API:', res);
-    if (!res || !res.procesos) {
+    if (!res || !res.Procesos) {
       this.error = 'La API no devolvió los datos esperados';
-      // En caso de error se muestran valores por defecto
-      this.procesos = [{
-        id: 'P1',
-        llegada: 0,
-        rafaga: 0,
-        prioridad: 0,
-        tiempoFin: 0,
-        tiempoRetorno: 0,
-        tiempoEspera: 0,
-        tiempoInicio: 0
-      }];
+      this.procesos = this.obtenerProcesosDesdeInputs();
       this.diagrama = [[0, 0, 0, 0, 0]];
       return;
     }
-    this.procesos = res.procesos ? Object.keys(res.procesos).map(key => {
-      const p = res.procesos[key];
+    this.procesos = Object.keys(res.Procesos).map((key: string) => {
+      const p = res.Procesos[key];
       return {
         id: key,
         llegada: p.llegada,
@@ -107,7 +115,7 @@ export class RoundRobinComponent {
         tiempoEspera: p.tiempo_espera,
         tiempoInicio: 0
       };
-    }) : [];
+    });
     this.diagrama = Array.isArray(res.Diagrama) ? res.Diagrama : [];
     this.error = '';
     this.cdr.detectChanges();
@@ -116,7 +124,8 @@ export class RoundRobinComponent {
 
   private manejarErrorAPI(err: any) {
     console.error('Error en la API:', err);
-    this.error = err.error?.message || 'Error al procesar la solicitud. Verifica los datos e intenta nuevamente.';
+    this.error =
+      err.error?.message || 'Error al procesar la solicitud. Verifica los datos e intenta nuevamente.';
     this.procesos = [];
     this.diagrama = [];
   }
@@ -151,7 +160,7 @@ export class RoundRobinComponent {
             </tr>
           </thead>
           <tbody>
-            ${this.procesos.map(proceso => `
+            ${this.procesos.map((proceso: any) => `
               <tr>
                 <td class="text-center">${proceso.id}</td>
                 <td class="text-center">${proceso.llegada}</td>
@@ -166,9 +175,10 @@ export class RoundRobinComponent {
         </table>
       </div>
     `;
+
     const maxAnchoDiagrama = 800;
-    const tiempoTotal = this.diagrama[0]?.length || 20;
-    const anchoCelda = Math.min(25, maxAnchoDiagrama / tiempoTotal);
+    const tiempoTotal: number = this.diagrama[0]?.length || 20;
+    const anchoCelda: number = Math.min(25, maxAnchoDiagrama / tiempoTotal);
 
     const diagramaHTML = `
       <div class="border rounded p-3 bg-light mb-3">
@@ -176,23 +186,26 @@ export class RoundRobinComponent {
         <small class="text-muted d-block mb-2">Verde: Ejecución | Amarillo: Espera | Blanco: Inactivo</small>
         <div style="overflow-x: auto;">
           <div style="min-width: ${tiempoTotal * anchoCelda}px;">
-            ${this.diagrama.map((fila, index) => `
+            ${this.diagrama.map((fila: number[], index: number) => `
               <div class="d-flex align-items-center mb-1">
-                <div class="font-weight-bold text-nowrap mr-2" style="width: 40px;">${this.procesos[index]?.id || 'P' + (index + 1)}:</div>
+                <div class="font-weight-bold text-nowrap mr-2" style="width: 40px;">
+                  ${this.procesos[index]?.id || 'P' + (index + 1)}:
+                </div>
                 <div class="d-flex">
-                  ${fila.map((estado, tiempo) => {
+                  ${fila.map((estado: number, tiempo: number) => {
       let clase = '';
-      if (estado === 1) clase = 'bg-warning';
-      if (estado === 2) clase = 'bg-success text-white';
-      return `<div class="border gantt-cell ${clase} text-center" style="width: ${anchoCelda}px; height: 25px; line-height: 25px; font-size: 10px;" title="Proceso ${this.procesos[index]?.id || 'P' + (index + 1)}, Tiempo ${tiempo}: ${this.obtenerEstadoTexto(estado)}">
-                              ${tiempo === 0 || tiempo === fila.length - 1 || tiempo % 5 === 0 ? tiempo : ''}
-                            </div>`;
+      if (estado === 1) { clase = 'bg-warning'; }
+      if (estado === 2) { clase = 'bg-success text-white'; }
+      return `<div class="border gantt-cell ${clase} text-center" style="width: ${anchoCelda}px; height: 25px; line-height: 25px; font-size: 10px;"
+                      title="Proceso ${this.procesos[index]?.id || 'P' + (index + 1)}, Tiempo ${tiempo}: ${this.obtenerEstadoTexto(estado)}">
+                      ${tiempo === 0 || tiempo === fila.length - 1 || tiempo % 5 === 0 ? tiempo : ''}
+                    </div>`;
     }).join('')}
                 </div>
               </div>
             `).join('')}
             <div class="d-flex ml-5 mt-1">
-              ${Array.from({ length: tiempoTotal }, (_, i) => `
+              ${Array.from({ length: tiempoTotal }, (_: any, i: number) => `
                 <div class="text-center" style="width: ${anchoCelda}px; font-size: 10px;">
                   ${i % 5 === 0 ? i : ''}
                 </div>
@@ -202,6 +215,7 @@ export class RoundRobinComponent {
         </div>
       </div>
     `;
+
     const jsonHTML = `
       <div class="mt-3">
         <h6 class="font-weight-bold">Datos en formato JSON</h6>
@@ -210,6 +224,7 @@ ${JSON.stringify({ Procesos: this.procesos, Diagrama: this.diagrama }, null, 2)}
         </pre>
       </div>
     `;
+
     Swal.fire({
       title: 'Resultados del Round Robin',
       html: tablaHTML + diagramaHTML + jsonHTML,
