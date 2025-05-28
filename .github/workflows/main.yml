@@ -2,7 +2,7 @@ name: S3 Deploy
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build:
@@ -39,4 +39,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region us-east-1 \
-            dist s3://chacaleo.joptionpane.software
+            dist/clientes-app-frontend s3://chacaleo.joptionpane.software
