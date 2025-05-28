@@ -7,7 +7,9 @@ import {LibLagrangeComponent} from './lib-lagrange.component';
 
 
 @NgModule({
+  declarations: [
 
+  ],
   imports: [
     CommonModule,
     FormsModule,
