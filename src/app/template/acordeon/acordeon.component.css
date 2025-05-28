@@ -1,0 +1,140 @@
+/* ========================
+   CONTENEDOR PRINCIPAL - ANCHO FIJO
+   ======================== */
+#accordionFacultades {
+  height: 90vh;
+  width: 380px;
+  min-width: 380px;
+  max-width: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  font-size: 1.05rem;
+  box-sizing: border-box;
+  position: relative;
+  border-right: 1px solid #e5e7eb;
+  background-color: #f8f9fa; /* Fondo general */
+}
+
+/* ========================
+   COLORES POR NIVEL DEL ACORDEÓN
+   ======================== */
+
+/* Nivel 1 - Facultad (Azul) */
+#accordionFacultades > .accordion-item {
+  border-left: 4px solid #1e88e5;
+  margin-bottom: 0.5rem;
+}
+
+#accordionFacultades > .accordion-item > h2 .accordion-button {
+  background-color: #e3f2fd; /* Azul claro */
+  color: #0d47a1;
+  font-weight: 700;
+  border-bottom: 1px solid #bbdefb;
+}
+
+/* Nivel 2 - Programa (Verde) */
+#accordionFacultades .accordion .accordion-item {
+  border-left: 4px solid #43a047;
+  margin-bottom: 0.4rem;
+}
+
+#accordionFacultades [id^="programa"] > .accordion-button {
+  background-color: #e8f5e9; /* Verde claro */
+  color: #1b5e20;
+  font-weight: 600;
+  border-bottom: 1px solid #c8e6c9;
+}
+
+/* Nivel 3 - Asignatura (Amarillo/Naranja) */
+#accordionFacultades .accordion .accordion .accordion-item {
+  border-left: 4px solid #fb8c00;
+  margin-bottom: 0.3rem;
+}
+
+#accordionFacultades [id^="asignatura"] > .accordion-button {
+  background-color: #fff3e0; /* Naranja claro */
+  color: #e65100;
+  font-weight: 500;
+  border-bottom: 1px solid #ffe0b2;
+}
+
+/* Nivel 4 - OVAs (Morado) */
+#accordionFacultades .accordion-body .btn {
+  background-color: #f3e5f5; /* Morado claro */
+  color: #4a148c;
+  border-left: 4px solid #8e24aa;
+}
+
+#accordionFacultades .accordion-body .btn:hover {
+  background-color: #e1bee7;
+  transform: translateY(-1px);
+}
+
+/* ========================
+   ESTRUCTURA Y DISPOSICIÓN
+   ======================== */
+.accordion-button {
+  white-space: normal;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.accordion-body {
+  padding: 0.8rem 0.5rem;
+  background-color: #ffffff;
+}
+
+/* Contenedor de botones OVA */
+#accordionFacultades .d-flex {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem 0;
+}
+
+/* Botones OVA - uno por línea */
+#accordionFacultades .btn {
+  width: 90%;
+  max-width: 90%;
+  margin: 0.2rem 0;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  padding: 0.6rem;
+  border-radius: 4px;
+}
+
+/* ========================
+   EFECTOS VISUALES
+   ======================== */
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+  background-color: rgba(0,0,0,0.03);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Flecha del acordeón */
+.accordion-button::after {
+  background-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+}
+
+/* Scrollbar */
+#accordionFacultades::-webkit-scrollbar {
+  width: 6px;
+}
+
+#accordionFacultades::-webkit-scrollbar-thumb {
+  background-color: #b0bec5;
+  border-radius: 3px;
+}

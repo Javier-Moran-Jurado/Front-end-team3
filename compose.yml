@@ -1,22 +1,20 @@
 services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres-db
-    environment:
-      POSTGRES_DB: curso_springboot
-      POSTGRES_USER: devdb
-      POSTGRES_PASSWORD: a1b2c3d4
+  facultad-service:
+    image: angela011/facultad-service:latest
+    container_name: facultad-service
+    restart: unless-stopped
+    depends_on:
+      - db
     ports:
-      - "5432:5432"
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - DB_USER=userdb
+      - DB_PASS=passdb
+      - JPA_DDL=create-drop
+      - DB_HOST=jdbc:postgresql://db:5432/curso_springboot
     networks:
-      - red-backend-app
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U devdb -d curso_springboot"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    volumes:
-      - pg_data:/var/lib/postgresql/data
+      - mynetwork
 
   programa-service:
     image: kemelo/programa-service:latest
@@ -37,8 +35,23 @@ services:
       - red-backend-app
     restart: unless-stopped
 
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: curso_springboot
+      POSTGRES_USER: userdb
+      POSTGRES_PASSWORD: passdb
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+
 networks:
-  red-backend-app:
+  mynetwork:
     driver: bridge
 
 volumes:

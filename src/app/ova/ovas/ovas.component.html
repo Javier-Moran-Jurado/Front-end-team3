@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div class="card custom-card">
+    <div class="card-header d-flex justify-content-between align-items-center custom-header">
+      <h4 class="m-0">Ovas</h4>
+    </div>
+
+    <div class="card-body p-0">
+      <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+        <span class="fw-bold">Ovas Registrados</span>
+        <button class="btn btn-outline-dark btn-sm" (click)="addOva()">
+          Añadir Ova
+        </button>
+      </div>
+
+      <div class="p-3" *ngFor="let ova of ovaArr.ovas">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="ms-4">
+            <div class="fw-bold">{{ ova.nombre }}</div>
+            <div class="text-muted small">{{ ova.descripcion }}</div>
+            <div class="text-muted small">ID Curso: {{ ova.id_curso }}</div>
+          </div>
+          <div>
+            <button class="btn btn-success btn-sm me-2" (click)="editOva(ova)">
+              <i class="fas fa-pen-to-square me-1"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="confirmDelete(ova)">
+              <i class="fas fa-trash-alt me-1"></i> Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

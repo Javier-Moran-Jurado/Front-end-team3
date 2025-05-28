@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProgramaService {
-  private apiUrl = '/api/v1/programa-service/programas';
+  private apiUrl = 'http://localhost:8082/api/v1/programa-service/programas';
 
 
   constructor(private  http: HttpClient) { }
