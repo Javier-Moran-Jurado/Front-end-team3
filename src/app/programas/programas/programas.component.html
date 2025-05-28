@@ -1,34 +1,47 @@
 <div class="container mt-4">
-  <h2 class="text-center mb-4">Lista de Programas</h2>
-
-  <div class="card shadow-sm">
-    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-      <span>Programas Registrados</span>
-      <button class="btn btn-light btn-sm" (click)="addPrograma()">
-        <fa-icon [icon]="faUserPlus"></fa-icon> Añadir Programa
-      </button>
+  <div class="programas-card">
+    <div class="programas-header">
+      <h2 class="programas-title">Programas</h2>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let programa of programas">
-        <div>
-          <h5 class="mb-0">ID: {{ programa.id }}</h5>
-          <small class="text-muted">
-            Duración: {{ programa.duracion }} meses |
-            Coordinador: {{ programa.idCoordinador }} |
-            Facultad: {{ programa.idFacultad }} |
-            Estado: {{ programa.activo ? 'Activo' : 'Inactivo' }}
-          </small>
+
+    <div class="programas-content">
+      <div class="programas-content-header">
+        <span class="programas-registered">Programas Registrados</span>
+        <button class="btn-add-programa" (click)="addPrograma()">
+          <fa-icon [icon]="faUserPlus"></fa-icon>
+          Añadir Programa
+        </button>
+      </div>
+
+      <div class="programas-list">
+        <div class="programa-item" *ngFor="let programa of programas">
+          <div class="programa-info">
+            <div class="programa-name">
+              ID: {{ programa.id }} - {{ programa.nombre }}
+            </div>
+            <div class="programa-details text-muted">
+              {{ programa.descripcion }}<br>
+              Nivel Académico: {{ programa.nivelAcademico }} |
+              Créditos: {{ programa.numeroCreditos }} |
+              Perfil de Egreso: {{ programa.perfilEgreso }}<br>
+              Duración: {{ programa.duracion }} meses |
+              Coordinador: {{ programa.idCoordinador }} |
+              Facultad: {{ programa.idFacultad }} |
+              Estado: {{ programa.activo ? 'Activo' : 'Inactivo' }}
+            </div>
+          </div>
+          <div class="programa-actions">
+            <button class="btn-edit" (click)="editPrograma(programa)">
+              <fa-icon [icon]="faEdit"></fa-icon>
+              Editar
+            </button>
+            <button class="btn-delete" (click)="confirmDelete(programa)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+              Eliminar
+            </button>
+          </div>
         </div>
-        <div>
-          <button class="btn btn-sm btn-warning me-2" (click)="editPrograma(programa)">
-            <fa-icon [icon]="faEdit"></fa-icon> Editar
-          </button>
-          <button class="btn btn-sm btn-danger" (click)="confirmDelete(programa)">
-            <fa-icon [icon]="faTrash"></fa-icon> Eliminar
-          </button>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </div>

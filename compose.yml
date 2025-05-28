@@ -19,7 +19,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   programa-service:
-    image: sebastianhenaogamboa/programa-service:latest
+    image: kemelo/programa-service:latest
     container_name: programa-app
     ports:
       - "8082:8082"

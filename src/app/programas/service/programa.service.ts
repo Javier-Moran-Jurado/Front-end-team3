@@ -31,12 +31,14 @@ export class ProgramaService {
 
   // Actualizar un programa existente
   updatePrograma(programa: Programa): Observable<Programa> {
-    return this.http.put<Programa>(`${this.apiUrl}/${programa.id}`, programa);
+    return this.http.put<Programa>(this.apiUrl, programa);
   }
 
   // Eliminar un programa por ID
   deletePrograma(programa: Programa): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${programa.id}`);
+    return this.http.request<void>('delete', this.apiUrl, {
+      body: programa
+    });
   }
 
 }
