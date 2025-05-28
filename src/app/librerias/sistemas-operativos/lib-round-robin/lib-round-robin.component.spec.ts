@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { LibRoundRobinComponent } from './lib-round-robin.component';
+import { RoundRobinComponent } from './lib-round-robin.component';
 
-describe('LibRoundRobinComponent', () => {
-  let component: LibRoundRobinComponent;
-  let fixture: ComponentFixture<LibRoundRobinComponent>;
+describe('RoundRobinComponent', () => {
+  let component: RoundRobinComponent;
+  let fixture: ComponentFixture<RoundRobinComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LibRoundRobinComponent],
+      declarations: [RoundRobinComponent],
       imports: [FormsModule, HttpClientTestingModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LibRoundRobinComponent);
+    fixture = TestBed.createComponent(RoundRobinComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,10 +9,11 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
-import { LibRoundRobinComponent } from './librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component';
+import { RoundRobinComponent } from './librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component';
 import {
   LibMinimoscuadradosComponent
 } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
+
 
 const routes: Routes = [
 
@@ -29,7 +30,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-round-robin', component : LibRoundRobinComponent },
+      { path: 'lib-round-robin', component : RoundRobinComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-minimoscuadrados', component: LibMinimoscuadradosComponent},
       { path: 'home-ova', component: HomeOvaComponent },

@@ -3,61 +3,46 @@
 
   <div class="form-group">
     <label for="cantidadProcesos">Cantidad de Procesos</label>
-    <input id="cantidadProcesos" [(ngModel)]="cantidadProcesos" type="number" class="input" placeholder="Ej: 5" />
+    <input id="cantidadProcesos" [(ngModel)]="cantidadProcesos" type="number" class="form-control" placeholder="Ej: 5" />
   </div>
 
   <div class="form-group">
     <label for="quantum">Quantum</label>
-    <input id="quantum" [(ngModel)]="quantum" type="number" class="input" placeholder="Ej: 2" />
+    <input id="quantum" [(ngModel)]="quantum" type="number" class="form-control" placeholder="Ej: 2" />
   </div>
 
   <div class="form-group">
     <label for="tiempoLlegada">Tiempo de Llegada</label>
-    <input id="tiempoLlegada" [(ngModel)]="tiempoLlegada" type="text" class="input" placeholder="Ej: 0,1,2,3,4" />
+    <input id="tiempoLlegada" [(ngModel)]="tiempoLlegada" type="text" class="form-control" placeholder="Ej: 0,1,2,3,4" />
   </div>
 
   <div class="form-group">
     <label for="tiempoRafaga">Tiempo de Ráfaga</label>
-    <input id="tiempoRafaga" [(ngModel)]="tiempoRafaga" type="text" class="input" placeholder="Ej: 5,3,8,6,2" />
+    <input id="tiempoRafaga" [(ngModel)]="tiempoRafaga" type="text" class="form-control" placeholder="Ej: 5,3,8,6,2" />
   </div>
 
   <div class="form-group">
     <label for="idProcesos">ID de los Procesos</label>
-    <input id="idProcesos" [(ngModel)]="idProcesos" type="text" class="input" placeholder="Ej: P1,P2,P3,P4,P5" />
+    <input id="idProcesos" [(ngModel)]="idProcesos" type="text" class="form-control" placeholder="Ej: P1,P2,P3,P4,P5" />
   </div>
 
-  <div class="button-group">
-    <button (click)="calcular()" class="btn">Calcular</button>
-    <button (click)="limpiar()" class="btn">Limpiar</button>
+  <div class="form-group">
+    <label for="prioridad">Prioridad</label>
+    <input id="prioridad" [(ngModel)]="prioridad" type="text" class="form-control" placeholder="Ej: 1,2,3,4,5" />
   </div>
 
-  <div *ngIf="procesos.length > 0" class="result-container">
-    <h3>Resultados</h3>
-    <table class="result-table">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Tiempo de Llegada</th>
-        <th>Tiempo de Ráfaga</th>
-        <th>Tiempo de Finalización</th>
-        <th>Tiempo de Retorno</th>
-        <th>Tiempo de Espera</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let proceso of procesos">
-        <td>{{ proceso.id }}</td>
-        <td>{{ proceso.tiempoLlegada }}</td>
-        <td>{{ proceso.tiempoRafaga }}</td>
-        <td>{{ proceso.tiempoFin }}</td>
-        <td>{{ proceso.tiempoRetorno }}</td>
-        <td>{{ proceso.tiempoEspera }}</td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="button-group mt-3">
+    <button (click)="calcular()" class="btn btn-primary mr-2">Calcular</button>
+    <button (click)="limpiar()" class="btn btn-secondary">Limpiar</button>
   </div>
 
-  <div *ngIf="error" style="color: red; margin-top: 10px;">
+  <div *ngIf="error" class="alert alert-danger mt-3">
     {{ error }}
+  </div>
+
+  <div *ngIf="procesos.length > 0" class="mt-4">
+    <button (click)="mostrarResultados()" class="btn btn-info mb-3">
+      Mostrar Resultados Detallados
+    </button>
   </div>
 </div>
