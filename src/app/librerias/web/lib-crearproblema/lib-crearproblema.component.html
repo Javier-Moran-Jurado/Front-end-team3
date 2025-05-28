@@ -1,0 +1,40 @@
+<div class="evaluador-container">
+  <h2>Crear  Problemas</h2>
+
+  <form>
+    <div class="form-group">
+      <label for="nombre">Nombre del problema:</label>
+      <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" />
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" [(ngModel)]="descripcion" name="descripcion" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="inputs">Entradas:</label>
+      <textarea id="inputs" [(ngModel)]="inputs" name="inputs" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="outputs">Salidas esperadas:</label>
+      <textarea id="outputs" [(ngModel)]="outputs" name="outputs" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tiempo">Tiempo límite (ms por caso):</label>
+      <input type="number" id="tiempo" [(ngModel)]="tiempo" name="tiempo" min="1" />
+    </div>
+
+    <div class="button-group">
+      <button type="button" (click)="crearProblema()">Crear Problema</button>
+      <button type="button" class="limpiar" (click)="limpiar()">Limpiar</button>
+    </div>
+  </form>
+
+  <div class="resultado" *ngIf="resultado">
+    <h3>Resultado de la evaluación:</h3>
+    <pre>{{ resultado }}</pre>
+  </div>
+</div>
