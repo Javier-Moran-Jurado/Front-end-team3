@@ -1,0 +1,15 @@
+<div class="contenedor">
+    <h2>Ejecutor de Comandos Git</h2>
+
+    <label for="comando">Comando:</label>
+    <textarea id="comando" [(ngModel)]="comando" placeholder="Ejemplo: git status"></textarea>
+
+    <button (click)="ejecutarComando()">Ejecutar</button>
+
+    <label for="resultado">Resultado:</label>
+    <textarea id="resultado" [value]="resultado" readonly></textarea>
+
+    <div class="github-logo">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+    </div>
+</div>

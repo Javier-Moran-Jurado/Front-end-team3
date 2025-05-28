@@ -15,6 +15,7 @@ import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.compo
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibEscitalaComponent } from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {FormsModule} from '@angular/forms';
+import { LibGitcmdComponent } from './librerias/ambiente-web/lib-gitcmd/lib-gitcmd.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LibEscitalaComponent
+    LibEscitalaComponent,
+    LibGitcmdComponent
   ],
   imports: [
     BrowserModule,
