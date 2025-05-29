@@ -8,6 +8,7 @@ import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {LibGitcmdComponent} from './librerias/ambiente-web/lib-gitcmd/lib-gitcmd.component';
+import {LibCompilerComponent} from './librerias/arquitectura-computadores/lib-compiler/lib-compiler.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
-      { path: 'lib-gitcmd', component: LibGitcmdComponent}
+      { path: 'lib-gitcmd', component: LibGitcmdComponent},
+      { path: 'lib-compiler', component: LibCompilerComponent}
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
     ]
   },
