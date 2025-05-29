@@ -38,7 +38,7 @@ const routes: Routes = [
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
       { path: 'lib-compiler', component: LibCompilerComponent},
       { path: 'lib-so-sjf', component:LibSoSJComponent},
-      { path: 'lib-biseccion', component: LibBiseccionComponent}
+      { path: 'lib-biseccion', loadChildren: () => import('./librerias/analisis-numerico/lib-biseccion/lib-biseccion.module').then(m => m.LibBiseccionModule)}
     ]
   },
   {
