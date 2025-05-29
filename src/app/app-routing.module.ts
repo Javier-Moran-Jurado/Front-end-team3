@@ -34,16 +34,16 @@ const routes: Routes = [
     path: '',
     component: FullLayoutComponent,
     children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'informacion', component: InformacionComponent },
-      { path: '', component: PageNoFoundComponent},
-      { path: '', redirectTo: '/facultad', pathMatch: 'full' },
-      { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
+      {path: 'home', component: HomeComponent},
+      {path: 'informacion', component: InformacionComponent},
+      {path: '', component: PageNoFoundComponent},
+      {path: '', redirectTo: '/facultad', pathMatch: 'full'},
+      {path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule)},
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
-      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
-      { path: 'programa', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule) },
-      ]
-    },
+      {path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)},
+      {path: 'programa', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule)},
+    ]
+  },
       {path:'**', component: PageNoFoundComponent}
 
     ];
