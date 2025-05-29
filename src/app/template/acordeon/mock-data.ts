@@ -36,6 +36,7 @@ export const FACULTADES: Facultad[] = [
             nombre: 'Analisis numerico',
             ovas: [
               { id: 1, nombre: 'Interpolación de Newton', url:'/lib-newton' },
+              { id: 2, nombre: 'Método de Bisección', url:'/lib-biseccion' },
             ]
           },
           {
@@ -50,6 +51,13 @@ export const FACULTADES: Facultad[] = [
             nombre: 'Arquitectura de Computadores',
             ovas: [
               { id: 1, nombre: 'Compilador de Codigo', url: '/lib-compiler' }
+            ]
+          },
+          {
+            id: 6,
+            nombre: 'Sistemas Operativos',
+            ovas: [
+              { id: 6, nombre: 'Algoritmo de gestion de procesos sjf', url: '/lib-so-sjf' }
             ]
           },
           {
