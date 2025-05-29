@@ -1,43 +1,20 @@
-/* Nivel 1: Facultad */
-#accordionFacultades > .accordion-item > .accordion-header > .accordion-button {
-  font-size: 1.2rem;
+.welcome-message {
+  text-align: center;
+  margin-top: 100px;
+  color: #333;
 }
 
-/* Nivel 2: Programa */
-#accordionFacultades .accordion-collapse .accordion > .accordion-item > .accordion-header > .accordion-button {
-  font-size: 1rem;
+.welcome-message h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-/* Nivel 3: Asignatura */
-#accordionFacultades .accordion-collapse .accordion .accordion-collapse .accordion > .accordion-item > .accordion-header > .accordion-button {
-  font-size: 0.85rem;
-}
-#accordionFacultades {
-  width: 25vw;         /* 1/4 del ancho de la pantalla */
-  float: left;         /* Se alinea a la izquierda */
-  height: 100vh;       /* Altura completa de la ventana */
-  overflow-y: auto;    /* Scroll si hay mucho contenido */
-  border-right: 1px solid #ddd; /* Línea de separación opcional */
-  padding-right: 1rem; /* Espacio interior opcional */
-}
-/* Quita bordes de los items */
-.accordion-item {
-  border: none;
+.welcome-message p {
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 
-/* Quita bordes del botón del header */
-.accordion-button {
-  border: none;
-  box-shadow: none !important;
-}
-
-/* Opcional: evita que aparezca un borde azul al expandir */
-.accordion-button:not(.collapsed) {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-/* Quita borde alrededor del contenido expandido */
-.accordion-collapse {
-  border: none;
+.welcome-message img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }

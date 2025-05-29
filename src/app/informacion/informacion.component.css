@@ -1,0 +1,172 @@
+/* Estructura principal */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header y botones (sin cambios) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.info-button {
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.info-button:hover {
+  background: #0d8bf2;
+  transform: translateY(-2px);
+}
+
+/* Grid de tarjetas unificado */
+.team-view {
+  display: flex;
+  justify-content: center;   /* Centra todas las tarjetas */
+  flex-wrap: wrap;           /* Permite que bajen si no caben */
+  gap: 20px;
+}
+
+
+.professors-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  justify-items: center; /* Centrado horizontal */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+/* Estilo base para todas las tarjetas */
+.dev-card,
+.professor-card {
+  width: 200px; /* Ancho fijo */
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dev-card:hover,
+.professor-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Avatar/Imagen común */
+.member-avatar,
+.professor-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px;
+  border: 3px solid #f0f0f0;
+}
+
+/* Texto común */
+.member-info h3,
+.professor-card p {
+  margin: 0 0 5px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.role {
+  color: #830c0c;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Títulos */
+.title,
+.default-view h3 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #3498db;
+}
+
+/* Botones de equipo */
+.team-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.team-button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.team-button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+.team-button.active {
+  background: #2ecc71;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-view,
+  .professors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .member-avatar,
+  .professor-avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .team-button {
+    padding: 8px 15px;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "clientes-app-frontend",
+  "name": "front-end",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,7 +19,9 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@fortawesome/angular-fontawesome": "^0.15.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@ng-bootstrap/ng-bootstrap": "^17.0.1",
@@ -27,7 +29,7 @@
     "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.13.1",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.21.2",
+    "sweetalert2": "^11.22.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
@@ -44,5 +46,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
+
   }
 }

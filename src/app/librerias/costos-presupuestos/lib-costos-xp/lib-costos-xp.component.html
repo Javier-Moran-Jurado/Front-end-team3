@@ -1,0 +1,36 @@
+<div class="main-container">
+  <!-- Panel Izquierdo: Procesos -->
+  <div class="panel procesos-container">
+    <h2 class="titulo">Costos Por Proceso</h2>
+
+    <div class="scrollable">
+      <div *ngFor="let costo of costos; let i = index; trackBy: trackByIndex" class="input-group">
+        <label for="costo{{ i }}" class="etiqueta">Costo Proceso {{ i + 1 }}</label>
+        <input type="number" [(ngModel)]="costos[i]" id="costo{{ i }}" class="input" />
+      </div>
+
+      <button (click)="agregarProceso()" class="btn">Agregar Proceso</button>
+    </div>
+  </div>
+
+  <!-- Panel Derecho: Unidades, Operación y Resultados -->
+  <div class="panel resultados-container">
+    <div class="input-group unidades-group">
+      <label for="unidades" class="etiqueta">Unidades</label>
+      <input type="number" [(ngModel)]="unidades" id="unidades" class="input" />
+    </div>
+
+    <button (click)="calcular()" class="btn-operar">Operar</button>
+
+    <div class="resultados">
+      <div class="input-group">
+        <label class="etiqueta">Costo Total</label>
+        <input [value]="resultado?.costoTotal" readonly class="input" />
+      </div>
+      <div class="input-group">
+        <label class="etiqueta">Costo Unitario</label>
+        <input [value]="resultado?.costoUnitario" readonly class="input" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,8 +7,15 @@ footer {
 }
 
 .social-icons {
-  margin: 15px 0;
-  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  gap: 16px; /* separa automáticamente los íconos */
+  margin-top: 10px;
+}
+
+.social-icons fa-icon {
+    font-size: 1.5rem;
+    color: #000000;
 }
 a {
   color: #003366;
@@ -17,7 +24,7 @@ a {
 }
 
 a:hover {
+  color: #003366;
   text-decoration: underline;
   background-color: transparent;
-  color: #003366;
 }
