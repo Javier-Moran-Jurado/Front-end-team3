@@ -31,7 +31,11 @@ const routes: Routes = [
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
-      { path: 'lib-newton', component: LibLagrangeComponent }
+      { path: 'lib-newton', component: LibLagrangeComponent },
+      { path: 'lib-escitala', component:LibEscitalaComponent},
+      { path: 'lib-gitcmd', component: LibGitcmdComponent},
+      { path: 'lib-compiler', component: LibCompilerComponent},
+      {path: 'lib-costosxp', component: LibCostosXpComponent}
     ]
   },
   {
@@ -40,17 +44,13 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-escitala', component:LibEscitalaComponent},
-      { path: 'lib-gitcmd', component: LibGitcmdComponent},
-      { path: 'lib-compiler', component: LibCompilerComponent},
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
-      { path: '', redirectTo: '/facultad', pathMatch: 'full' },
       { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
       { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
-      {path: 'lib-costosxp', component: LibCostosXpComponent}
+
     ]
   },
       {path:'**', component: PageNoFoundComponent}
