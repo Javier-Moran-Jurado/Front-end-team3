@@ -12,19 +12,22 @@ import { FooterComponent } from './template/footer/footer.component';
 import {LoginComponent} from './login/login.component';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
-import { HomeOvaComponent } from './home-ova/home-ova.component';
+
+import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
+import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import {faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook
+} from '@fortawesome/free-brands-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { LibLagrangeComponent } from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
-import {FormsModule} from '@angular/forms';
-import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
+import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
+import {AcordeonComponent} from './template/acordeon/acordeon.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,11 @@ import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/li
     LoginComponent,
     InformacionComponent,
     LibLagrangeComponent,
-    LibMinimoscuadradosComponent
+    LibMinimoscuadradosComponent,
+    LoginComponent,
+    InformacionComponent,
+    OvaTemplateComponent,
+    AcordeonComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +55,9 @@ import { LibMinimoscuadradosComponent } from './librerias/costos-presupuestos/li
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+
   ],
   exports: [RouterModule],
   providers: [

@@ -78,51 +78,51 @@ export class FacultadesComponent implements OnInit {
   addFacultad(): void {
     // Cargar regiones desde el backend antes de mostrar el modal
 
-      // Mostrar el formulario en SweetAlert2
-      Swal.fire({
-        title: 'Añadir Facultad',
-        html: `
+    // Mostrar el formulario en SweetAlert2
+    Swal.fire({
+      title: 'Añadir Facultad',
+      html: `
           <input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
           <input type="text" id="descripcion" class="swal2-input" placeholder="Descripcion">
           <input type="number" id="id_curso" class="swal2-input" placeholder="Id curso">
         `,
-        focusConfirm: false,
-        preConfirm: () => {
-          const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
-          const descripcion = (document.getElementById('descripcion') as HTMLInputElement).value;
-          const id_curso = (document.getElementById('id_curso') as HTMLInputElement).value;
+      focusConfirm: false,
+      preConfirm: () => {
+        const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+        const descripcion = (document.getElementById('descripcion') as HTMLInputElement).value;
+        const id_curso = (document.getElementById('id_curso') as HTMLInputElement).value;
 
-          if (!nombre || !descripcion || !id_curso) {
-            Swal.showValidationMessage('Todos los campos son obligatorios');
-            return;
-          }
-
-          return {
-            nombre,
-            descripcion,
-            id_curso,
-          };
+        if (!nombre || !descripcion || !id_curso) {
+          Swal.showValidationMessage('Todos los campos son obligatorios');
+          return;
         }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const nuevoFacultad: Facultad = {
-            nombre: result.value!.nombre,
-            descripcion: result.value!.descripcion,
-            id_curso: result.value!.id_curso,
-          };
 
-          // Guardar el facultad usando el servicio
-          this.facultadService.createFacultad(nuevoFacultad).subscribe(() => {
-            this.loadFacultades(); // Recargar la lista de facultades
-            Swal.fire('¡Creado!', 'El facultad ha sido creado exitosamente.', 'success');
-          });
-        }
-      });
+        return {
+          nombre,
+          descripcion,
+          id_curso,
+        };
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const nuevoFacultad: Facultad = {
+          nombre: result.value!.nombre,
+          descripcion: result.value!.descripcion,
+          id_curso: result.value!.id_curso,
+        };
+
+        // Guardar el facultad usando el servicio
+        this.facultadService.createFacultad(nuevoFacultad).subscribe(() => {
+          this.loadFacultades(); // Recargar la lista de facultades
+          Swal.fire('¡Creado!', 'El facultad ha sido creado exitosamente.', 'success');
+        });
+      }
+    });
   }
 
 
   private loadFacultades() {
     console.log("cargando facultades");
-    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
+    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
   }
 }
