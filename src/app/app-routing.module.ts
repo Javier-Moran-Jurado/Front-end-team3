@@ -10,6 +10,7 @@ import {OvasComponent} from './ova/ovas/ovas.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
+import {LibCodigoCesarComponent} from './librerias/matematicas-discretas/lib-codigo-cesar/lib-codigo-cesar.component';
 
 const routes: Routes = [
 
@@ -27,6 +28,7 @@ const routes: Routes = [
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
+      { path: 'lib-codigo-cesar', component: LibCodigoCesarComponent},
       { path: 'lib-newton', component: LibLagrangeComponent }
     ]
   },

@@ -27,6 +27,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {AcordeonComponent} from './template/acordeon/acordeon.component';
+import {LibCodigoCesarComponent} from './librerias/matematicas-discretas/lib-codigo-cesar/lib-codigo-cesar.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {AcordeonComponent} from './template/acordeon/acordeon.component';
     FooterComponent,
     LoginComponent,
     LibLagrangeComponent,
+    LibCodigoCesarComponent,
     LoginComponent,
     InformacionComponent,
     OvaTemplateComponent,
