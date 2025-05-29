@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Operaciones entre Conjuntos</h2>
+
+  <div class="form-group">
+    <label for="conjuntoA">Conjunto A</label>
+    <input id="conjuntoA" [(ngModel)]="conjuntoA" type="text" class="input" placeholder="Ej: 1,2,3" />
+  </div>
+
+  <div class="form-group">
+    <label for="conjuntoB">Conjunto B</label>
+    <input id="conjuntoB" [(ngModel)]="conjuntoB" type="text" class="input" placeholder="Ej: 2,3,4" />
+  </div>
+
+  <div class="form-group">
+    <label for="operacion">Operación</label>
+    <select id="operacion" [(ngModel)]="operacion" class="input">
+      <option value="union">Unión</option>
+      <option value="interseccion">Intersección</option>
+      <option value="diferencia">Diferencia (A - B)</option>
+      <option value="diferenciaSimetrica">Diferencia Simétrica</option>
+    </select>
+  </div>
+
+  <div class="button-group">
+    <button (click)="calcular()" class="btn">Calcular</button>
+    <button (click)="limpiar()" class="btn">Limpiar</button>
+  </div>
+
+  <div *ngIf="resultado" style="margin-top: 10px; color: #2c3e50;">
+    <strong>Resultado:</strong> {{ '{' }} {{ resultado }} {{ '}' }}
+  </div>
+  <div *ngIf="error" style="color: red; margin-top: 10px;">
+    {{ error }}
+  </div>
+</div>

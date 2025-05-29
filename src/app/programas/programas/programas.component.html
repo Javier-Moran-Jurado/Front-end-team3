@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="programas-card">
+    <div class="programas-header">
+      <h2 class="programas-title">Programas</h2>
+    </div>
+
+    <div class="programas-content">
+      <div class="programas-content-header">
+        <span class="programas-registered">Programas Registrados</span>
+        <button class="btn-add-programa" (click)="addPrograma()">
+          <fa-icon [icon]="faUserPlus"></fa-icon>
+          Añadir Programa
+        </button>
+      </div>
+
+      <div class="programas-list">
+        <div class="programa-item" *ngFor="let programa of programas">
+          <div class="programa-info">
+            <div class="programa-name">
+              ID: {{ programa.id }} - {{ programa.nombre }}
+            </div>
+            <div class="programa-details text-muted">
+              {{ programa.descripcion }}<br>
+              Nivel Académico: {{ programa.nivelAcademico }} |
+              Créditos: {{ programa.numeroCreditos }} |
+              Perfil de Egreso: {{ programa.perfilEgreso }}<br>
+              Duración: {{ programa.duracion }} meses |
+              Coordinador: {{ programa.idCoordinador }} |
+              Facultad: {{ programa.idFacultad }} |
+              Estado: {{ programa.activo ? 'Activo' : 'Inactivo' }}
+            </div>
+          </div>
+          <div class="programa-actions">
+            <button class="btn-edit" (click)="editPrograma(programa)">
+              <fa-icon [icon]="faEdit"></fa-icon>
+              Editar
+            </button>
+            <button class="btn-delete" (click)="confirmDelete(programa)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

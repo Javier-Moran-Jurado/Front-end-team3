@@ -1,0 +1,182 @@
+.container-sjf {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-sjf {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.tabla-procesos {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabla-procesos th {
+  background-color: #393d45;
+  color: white;
+  text-align: center;
+}
+
+.tabla-procesos td {
+  vertical-align: middle;
+}
+
+.form-control {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+.resultado {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-agregar {
+  background-color: #198754;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-ejecutar {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.btn-agregar:hover, .btn-ejecutar:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.select-algoritmo {
+  max-width: 250px;
+}
+
+/* Contenedor principal */
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-diagrama {
+  padding: 10px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.diagrama-wrapper {
+  padding: 10px;
+  overflow: hidden; /* evita desbordes */
+}
+
+.diagrama-contenido {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 auto; /* esto centra todo el bloque (etiquetas + scroll) */
+  max-width: fit-content;
+}
+
+.etiquetas-y {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  height: 40px;
+  flex-shrink: 0; /* evita que se reduzca o mueva */
+}
+
+.contenedor-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.filas-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.fila {
+  display: flex;
+}
+
+.grid-item {
+  width: 40px;
+  height: 30px;
+  border: 1px solid #ddd;
+}
+
+.eje-x {
+  display: flex;
+}
+
+.etiqueta-x {
+  width: 40px;
+  text-align: center;
+}
+
+.etiqueta-x {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.informacion {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.info-item .etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cuadrito {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+/* Colores personalizados */
+.activo {
+  background-color: #4CAF50;
+}
+
+.espera {
+  background-color: #607D8B;
+}
+
+.inactivo {
+  background-color: #ECEFF1;
+}
+
+
+/* Colores dinámicos para cada tipo de proceso */
+.p0 {
+  background-color: #ECEFF1;
+}
+.p1 { background-color: #607D8B; }
+.p2 {
+  background-color: #4CAF50;
+}
+
