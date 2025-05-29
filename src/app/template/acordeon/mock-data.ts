@@ -35,7 +35,7 @@ export const FACULTADES: Facultad[] = [
             id: 1,
             nombre: 'Analisis numerico',
             ovas: [
-              { id: 1, nombre: 'Interpolacion de lagrange', url:'/lib-lagrange' },
+              { id: 1, nombre: 'Interpolación de Newton', url:'/lib-newton' },
             ]
           },
           {

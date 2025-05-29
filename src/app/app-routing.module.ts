@@ -30,7 +30,6 @@ const routes: Routes = [
     component: OvaTemplateComponent,  // MOVER ESTE BLOQUE ARRIBA DE FullLayoutComponent
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-newton', component: LibLagrangeComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
