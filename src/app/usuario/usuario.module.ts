@@ -5,7 +5,7 @@ import { UsuarioComponent } from './usuario.component';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 
 @NgModule({
-  declarations: [UsuarioComponent],
+
   imports: [
     CommonModule,
     UsuarioRoutingModule,

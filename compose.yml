@@ -16,6 +16,25 @@ services:
     networks:
       - mynetwork
 
+  programa-service:
+    image: kemelo/programa-service:latest
+    container_name: programa-app
+    ports:
+      - "8082:8082"
+      - "8083:8083"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Coincide exactamente con los nombres en application.properties
+      DB_HOST: jdbc:postgresql://postgres:5432/curso_springboot
+      DB_USER: devdb
+      DB_PASS: a1b2c3d4
+      JPA_DDL: create-drop
+    networks:
+      - red-backend-app
+    restart: unless-stopped
+
   db:
     image: postgres:latest
     container_name: db
@@ -34,3 +53,6 @@ services:
 networks:
   mynetwork:
     driver: bridge
+
+volumes:
+  pg_data:

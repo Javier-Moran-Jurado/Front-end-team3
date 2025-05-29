@@ -1,0 +1,8 @@
+<div *ngIf="programa">
+  <h3>Programa ID:{{ programa.id}</h3>
+  <p>Activo: {{ programa.activo ? 'Sí' : 'No' }}</p>
+  <p>Duración: {{ programa.duracion }} meses</p>
+  <p>Coordinador ID: {{ programa.idCoordinador }}</p>
+  <p>Facultad ID: {{ programa.idFacultad }}</p>
+  <button (click)="deletePrograma(programa)" class="btn btn-danger">Eliminar</button>
+</div>

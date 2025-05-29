@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FullLayoutComponent } from './template/full-layout/full-layout.component';
-import { HomeComponent } from './home/home.component';
+import {FullLayoutComponent} from './template/full-layout/full-layout.component';
+import {HomeComponent} from './home/home.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {LibGitcmdComponent} from './librerias/ambiente-web/lib-gitcmd/lib-gitcmd.component';
 import {LibCompilerComponent} from './librerias/arquitectura-computadores/lib-compiler/lib-compiler.component';
 import {InformacionComponent} from './informacion/informacion.component';
+import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
+import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import {OvasComponent} from './ova/ovas/ovas.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
@@ -18,7 +21,17 @@ const routes: Routes = [
     component: EmptyLayoutComponent,
     children: [
       {path: '', redirectTo: '/login', pathMatch: "full"},
-      {path: 'login', component: LoginComponent }
+      {path: 'login', component: LoginComponent },
+      {path: 'ova', component: OvasComponent }
+    ]
+  },
+  {
+    path: '',
+    component: OvaTemplateComponent,  // MOVER ESTE BLOQUE ARRIBA DE FullLayoutComponent
+    children: [
+      { path: 'home-ova', component: HomeOvaComponent },
+      { path: 'lib-lagrange', component: LibLagrangeComponent },
+      { path: 'lib-newton', component: LibLagrangeComponent }
     ]
   },
   {
@@ -40,11 +53,13 @@ const routes: Routes = [
       {path: 'lib-costosxp', component: LibCostosXpComponent}
     ]
   },
-  { path: '', component: PageNoFoundComponent}
-];
+      {path:'**', component: PageNoFoundComponent}
+
+    ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
