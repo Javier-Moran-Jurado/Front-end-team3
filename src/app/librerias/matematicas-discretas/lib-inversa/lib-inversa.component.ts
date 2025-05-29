@@ -15,7 +15,7 @@ export class LibInversaComponent {
   constructor(private http: HttpClient) {}
 
   calcularInverso() {
-    const url = `/api/inversojni-service/inverso/${this.numeroA}/${this.numeroB}`;
+    const url = `http://localhost:8082/api/inversojni-service/inverso/${this.numeroA}/${this.numeroB}`;
 
     this.http.get(url, { responseType: 'text' }).subscribe({
       next: (res) => {

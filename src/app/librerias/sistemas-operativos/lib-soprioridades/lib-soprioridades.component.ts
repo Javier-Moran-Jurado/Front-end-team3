@@ -58,7 +58,7 @@ export class LibSoprioridadesComponent {
       )
       .join('&');
 
-    const url = `/api/prioridades-service/prioridades?${params}`;
+    const url = `http://localhost:8081/api/prioridades-service/prioridades?${params}`;
 
     console.log("URL final construida:", url);
 
