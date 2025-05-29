@@ -17,19 +17,19 @@ export class InformacionComponent {
     ],
 
     team2: [
-      {name: 'NICOLAS', role: 'Scrum', img: 'assets/images/team2/nico.jpg'},
-      {name: 'SAAVEDRA', role: 'Software Architect', img: 'assets/images/team2/saavedra.jpg'},
-      {name: 'JUANES', role: 'Developer', img: 'assets/images/team2/juanes.jpg'},
-      {name: 'ARENAS', role: 'Developer', img: 'assets/images/team2/arenas.jpg'},
-      {name: 'MORALES', role: 'UX/UI Designer', img: 'assets/images/team2/morales.jpg'},
+      {name: 'NICOLAS', role: 'UX/UI Designer', img: 'assets/images/team2/nico.jpg'},
+      {name: 'SAAVEDRA', role: 'Scrum Master', img: 'assets/images/team2/saavedra.jpg'},
+      {name: 'JUANES', role: 'Software Architech', img: 'assets/images/team2/juanes.jpg'},
+      {name: 'ARENAS', role: 'UX/UI Designer', img: 'assets/images/team2/arenas.jpg'},
+      {name: 'MORALES', role: 'Software Architech', img: 'assets/images/team2/morales.jpg'},
     ],
     team3: [
-      {name: 'VALENTINA', role: 'Scrum', img: 'assets/images/team3/valentina.jpg'},
+      {name: 'VALENTINA', role: 'Developer', img: 'assets/images/team3/valentina.jpg'},
       {name: 'CAMILO', role: 'Software Architect', img: 'assets/images/team3/camilo.jpg'},
       {name: 'STIVEN', role: 'Developer', img: 'assets/images/team3/stiven.jpg'},
-      {name: 'GUEVARA', role: 'Developer', img: 'assets/images/team3/guevara.jpg'},
+      {name: 'GUEVARA', role: 'Scrum Master', img: 'assets/images/team3/guevara.jpg'},
       {name: 'ANGELA', role: 'UX/UI Designer', img: 'assets/images/team3/angela.jpg'},
-      {name: 'JAVIER', role: 'Project Manager', img: 'assets/images/team3/javier.jpg'}
+      {name: 'JAVIER', role: 'UX/UI Designer', img: 'assets/images/team3/javier.jpg'}
     ],
 
     team4: [
