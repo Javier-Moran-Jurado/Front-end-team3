@@ -15,6 +15,7 @@ import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
 import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
+import { LibBiseccionComponent } from './librerias/analisis-numerico/lib-biseccion/lib-biseccion.component';
 
 const routes: Routes = [
 
@@ -36,7 +37,8 @@ const routes: Routes = [
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
       { path: 'lib-compiler', component: LibCompilerComponent},
-      { path: 'lib-so-sjf', component:LibSoSJComponent}
+      { path: 'lib-so-sjf', component:LibSoSJComponent},
+      { path: 'lib-biseccion', component: LibBiseccionComponent}
     ]
   },
   {
