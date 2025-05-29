@@ -27,13 +27,13 @@
       <tbody>
       <tr *ngFor="let proceso of procesos; let i = index">
         <td>
-          <input type="number" class="form-control" [(ngModel)]="proceso.id" min="0">
+          <input type="number" class="form-control" [(ngModel)]="proceso.id" min="1">
         </td>
         <td>
           <input type="number" class="form-control" [(ngModel)]="proceso.llegada" min="0">
         </td>
         <td>
-          <input type="number" class="form-control" [(ngModel)]="proceso.rafaga" min="1">
+          <input type="number" class="form-control" [(ngModel)]="proceso.rafaga" [min]="1" required>
         </td>
         <td>
           <input type="number" class="form-control" [(ngModel)]="proceso.prioridad" min="0">
@@ -45,7 +45,7 @@
           <span class="resultado">{{proceso.tiempo_espera ?? '-'}}</span>
         </td>
         <td *ngIf="procesos.length > 1">
-          <button class="btn btn-sm btn-danger" (click)="eliminarProceso()">Eliminar</button>
+          <button class="btn btn-sm btn-danger" (click)="eliminarProceso(proceso.id)">Eliminar</button>
         </td>
       </tr>
       </tbody>
@@ -66,17 +66,49 @@
 <!--Grafico-->
 <div class="grid-container">
   <h3 class="titulo-diagrama">Diagrama</h3>
-  <div id="diagrama">
-    <div *ngFor="let fila of matrizDiagrama; let i = index;  trackBy: trackByIndex" class="fila">
-      <div class="eje-y">{{i+1}}</div>
-      <div
-        *ngFor="let valor of fila; trackBy: trackByIndex"
-        class="grid-item p{{valor}}">
+  <div class="informacion">
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito activo"></div>
+        <p class="texto-cuadrito">Activo</p>
       </div>
     </div>
-    <div class="eje-x">
-      <div *ngFor="let colIndex of matrizDiagrama[0]; let i = index" class="fila-eje-x">
-        {{ i }}
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito espera"></div>
+        <p>Espera</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito inactivo"></div>
+        <p>Inactivo</p>
+      </div>
+    </div>
+  </div>
+  <div class="diagrama-wrapper">
+    <div class="diagrama-contenido">
+      <!-- Columna fija: etiquetas de procesos -->
+      <div class="etiquetas-y">
+        <div *ngFor="let fila of matrizDiagrama.slice().reverse(); let i = index" class="etiqueta-y">
+          P{{matrizDiagrama.length - i}}
+        </div>
+      </div>
+
+      <!-- Diagrama scrollable -->
+      <div class="contenedor-scroll">
+        <div class="filas-container">
+          <div *ngFor="let fila of matrizDiagrama.slice().reverse()" class="fila">
+            <div *ngFor="let valor of fila" class="grid-item p{{valor}}"></div>
+          </div>
+        </div>
+
+        <!-- Eje X -->
+        <div class="eje-x">
+          <div *ngFor="let col of matrizDiagrama[0]; let i = index" class="etiqueta-x">
+            {{i}}
+          </div>
+        </div>
       </div>
     </div>
   </div>

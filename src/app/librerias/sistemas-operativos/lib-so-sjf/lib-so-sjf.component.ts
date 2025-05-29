@@ -2,6 +2,8 @@ import { Component, ElementRef, AfterViewInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+
 interface Proceso {
   id: number | null;
   llegada: number | null;
@@ -38,13 +40,21 @@ export class LibSoSJComponent {
     this.procesos.push({id: null, llegada: null, rafaga: null, prioridad: null});
   }
 
-  eliminarProceso(): void {
+  eliminarProceso(id: any) {
     if (this.procesos.length > 1) {
-      this.procesos.pop();
+      this.procesos = this.procesos.filter(proceso => proceso.id !== id);
     }
   }
 
   ejecutar(): void {
+    if (!this.validarProcesos()) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Datos inválidos',
+        text: 'Por favor corrige los campos inválidos antes de ejecutar.',
+      });
+      return;
+    }
     const payload = {
       procesos: this.procesos.map(p => ({
         id: p.id,
@@ -53,7 +63,7 @@ export class LibSoSJComponent {
         prioridad: p.prioridad
       }))
     };
-    const url = `http://localhost:8083/api/libProcesos/sjf?expulsivo=${this.expulsivo}`;
+    const url = `http://api.chacaleo.joptionpane.software/api/libProcesos/sjf?expulsivo=${this.expulsivo}`;
 
     this.http.post(url, payload).subscribe({
       next: (response) => {
@@ -67,6 +77,19 @@ export class LibSoSJComponent {
     });
   }
 
+  validarProcesos(): boolean {
+    for (const proceso of this.procesos) {
+      if (
+        proceso.id === null || proceso.id < 0 ||
+        proceso.llegada === null || proceso.llegada < 0 ||
+        proceso.rafaga === null || proceso.rafaga < 1 ||
+        (proceso.prioridad !== null && proceso.prioridad < 0)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   actualizarResultados(response: any) {
     try {

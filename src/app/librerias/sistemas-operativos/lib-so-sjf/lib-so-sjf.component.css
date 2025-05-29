@@ -62,61 +62,114 @@
   max-width: 250px;
 }
 
+/* Contenedor principal */
 .grid-container {
-  background-color: #ffffff;
-  width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-diagrama {
   padding: 10px;
-  border-radius: 5px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.diagrama-wrapper {
+  padding: 10px;
+  overflow: hidden; /* evita desbordes */
+}
+
+.diagrama-contenido {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 auto; /* esto centra todo el bloque (etiquetas + scroll) */
+  max-width: fit-content;
+}
+
+.etiquetas-y {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  height: 40px;
+  flex-shrink: 0; /* evita que se reduzca o mueva */
+}
+
+.contenedor-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.filas-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .fila {
   display: flex;
-  gap: 1px;
-}
-
-.titulo-diagrama {
-  text-align: center;
-  font-size: 20px;
-  justify-content:center;
-  font-weight: bold;
-}
-
-#diagrama {
-  background: #ffffff;
-  padding: 10px;
-  display: flex;
-  flex-direction: column; /* Cada "fila" va una debajo de la otra */
-  gap: 3px;
 }
 
 .grid-item {
-  width: 30px;
+  width: 40px;
   height: 30px;
+  border: 1px solid #ddd;
 }
 
 .eje-x {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 23px;
 }
 
-.fila-eje-x {
-  font-size: 14px;
-  font-weight: bold;
-  text-align: start;
+.etiqueta-x {
+  width: 40px;
+  text-align: center;
 }
-.eje-y {
+
+.etiqueta-x {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.informacion {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-right: 10px;
+  margin-bottom: 10px;
+  gap: 20px;
+  justify-content: center;
 }
+
+.info-item .etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cuadrito {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+
+/* Colores personalizados */
+.activo {
+  background-color: #4CAF50;
+}
+
+.espera {
+  background-color: #607D8B;
+}
+
+.inactivo {
+  background-color: #ECEFF1;
+}
+
 
 /* Colores dinámicos para cada tipo de proceso */
 .p0 {
