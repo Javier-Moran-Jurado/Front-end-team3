@@ -7,7 +7,7 @@ import {Ova} from '../model/ova';
   providedIn: 'root'
 })
 export class OvaService {
-  private apiUrl = '/api/v1/ova-service/ovas';
+  private apiUrl = 'http://api.chacaleo.joptionpane.software/api/v1/ova-service/ovas';
 
   constructor(private http: HttpClient) {}
 

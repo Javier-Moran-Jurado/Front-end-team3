@@ -1,0 +1,36 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="m-0">Facultades</h4>
+    <button class="btn btn-primary btn-sm" (click)="addFacultad()">
+      <i class="fas fa-plus me-1"></i> Añadir facultad
+    </button>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="text-center" style="background-color: #ffc107;">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre de Facultad</th>
+        <th scope="col">ID Usuario</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let facultad of facultadArr.facultades">
+        <td class="text-center">{{ facultad.id }}</td>
+        <td>{{ facultad.nombre }}</td>
+        <td class="text-center">{{ facultad.id_decano }}</td>
+        <td class="text-end">
+          <button class="btn btn-success btn-sm me-2" (click)="editFacultad(facultad)">
+            <i class="fas fa-pen-to-square me-1"></i> Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="confirmDelete(facultad)">
+            <i class="fas fa-trash-alt me-1"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
