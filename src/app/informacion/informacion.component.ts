@@ -55,7 +55,7 @@ export class InformacionComponent {
     {name: 'FABIAN CERQUERA MUNOZ', img: 'assets/images/profesor/cerquera.jpeg'},
     {name: 'EFRAIN VASQUEZ MILLAN', img: 'assets/images/profesor/efrain.jpg'},
     {name: 'ANDRES FERNANDO VELASCO', img: 'assets/images/profesor/velasco.jpg'},
-    {name: 'HAROLD MAURICIO LOPEZ SEPULVEDA', img: 'assets/images/profesor/profesor.jpg'},
+    {name: 'HAROLD MAURICIO LOPEZ SEPULVEDA', img: 'assets/images/profesor/harold.jpg'},
 
   ]
 
