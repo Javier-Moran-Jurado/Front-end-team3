@@ -12,13 +12,13 @@ import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.compone
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  {
-    path: '',
+
+  { path: '',
     component: EmptyLayoutComponent,
     children: [
-      { path: '', redirectTo: 'login', pathMatch: "full" },
-      { path: 'login', component: LoginComponent },
-      { path: 'ova', component: OvasComponent }
+      {path: '', redirectTo: '/login', pathMatch: "full"},
+      {path: 'login', component: LoginComponent },
+      {path: 'ova', component: OvasComponent }
     ]
   },
   {
@@ -36,12 +36,18 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'informacion', component: InformacionComponent },
+      { path: '', component: PageNoFoundComponent},
+      { path: '', redirectTo: '/facultad', pathMatch: 'full' },
       { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
-      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }
-    ]
-  },
-  { path: '**', component: PageNoFoundComponent } // SIEMPRE AL FINAL
-];
+      //{ path: '', redirectTo: '/home', pathMatch: 'full' }
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      { path: 'programa', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule) },
+      ]
+    },
+      {path:'**', component: PageNoFoundComponent}
+
+    ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
