@@ -42,4 +42,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region us-east-1 \
-             dist/clientes-app-frontend s3:// mewings.joptionpane.software
+             dist/clientes-app-frontend s3://mewings.joptionpane.software
