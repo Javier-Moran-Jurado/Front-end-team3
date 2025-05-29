@@ -31,7 +31,6 @@ const routes: Routes = [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-minimoscuadrados', component: LibMinimoscuadradosComponent},
-      { path: 'home-ova', component: HomeOvaComponent },
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
