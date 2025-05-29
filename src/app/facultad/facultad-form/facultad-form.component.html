@@ -1,0 +1,18 @@
+<form (ngSubmit)="saveFacultad()">
+  <div class="mb-3">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" [(ngModel)]="facultad.nombre" name="nombre" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="descripcion">Descripcion</label>
+    <input type="text" id="descripcion" [(ngModel)]="facultad.descripcion" name="descripcion" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="id_curso">Id curso</label>
+    <input type="id_curso" id="id_curso" [(ngModel)]="facultad.id_curso" name="id_curso" class="form-control" required />
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </div>
+</form>

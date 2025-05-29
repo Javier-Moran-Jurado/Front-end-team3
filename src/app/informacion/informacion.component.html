@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- Header con botón condicional -->
+  <div class="header">
+    <h2 style="display: block; width: 100%; text-align: center; margin: 0 auto;">Info de los desarrolladores</h2>
+    <button *ngIf="selectedTeam" (click)="resetView()" class="info-button">
+      ← Volver a Información
+    </button>
+  </div>
+
+  <!-- Selector de equipos (solo visible sin selección) -->
+  <div *ngIf="!selectedTeam" class="team-selector">
+    <button *ngFor="let team of teamKeys"
+            (click)="selectTeam(team)"
+            class="team-button">
+      {{ team | titlecase }}
+    </button>
+  </div>
+
+  <!-- Vista de equipo seleccionado -->
+  <div *ngIf="selectedTeam" class="team-view">
+    <div *ngFor="let dev of developers" class="dev-card">
+      <img [src]="dev.img" [alt]="dev.name" class="member-avatar">
+      <div class="member-info">
+        <h3>{{ dev.name }}</h3>
+        <p class="role">{{ dev.role }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vista de profesores (solo visible sin selección) -->
+  <div *ngIf="!selectedTeam" class="default-view">
+    <h3>Profesores 5to Semestre</h3>
+    <div class="professors-grid">
+      <div *ngFor="let prof of professors" class="professor-card">
+        <img [src]="prof.img" [alt]="prof.name" class="professor-avatar">
+        <p>{{ prof.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
-import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {LibEscitalaComponent} from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import {LibGitcmdComponent} from './librerias/ambiente-web/lib-gitcmd/lib-gitcmd.component';
 import {LibCompilerComponent} from './librerias/arquitectura-computadores/lib-compiler/lib-compiler.component';
+import {InformacionComponent} from './informacion/informacion.component';
+import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
+import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
+import {LoginComponent} from './login/login.component';
+import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
 
 const routes: Routes = [
 
@@ -27,8 +29,15 @@ const routes: Routes = [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
-      { path: 'lib-compiler', component: LibCompilerComponent}
+      { path: 'lib-compiler', component: LibCompilerComponent},
+      { path: 'home-ova', component: HomeOvaComponent },
+      { path: 'informacion', component: InformacionComponent },
+      { path: '', component: PageNoFoundComponent},
+      { path: '', redirectTo: '/facultad', pathMatch: 'full' },
+      { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      {path: 'lib-costosxp', component: LibCostosXpComponent}
     ]
   },
   { path: '', component: PageNoFoundComponent}
