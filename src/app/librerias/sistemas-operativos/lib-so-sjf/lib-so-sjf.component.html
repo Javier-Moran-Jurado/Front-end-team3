@@ -1,0 +1,115 @@
+<div class="container-sjf">
+  <h2 class="titulo-sjf">Simulador SJF</h2>
+
+  <!-- Selector expulsivo / no expulsivo -->
+  <div class="mb-3">
+    <label for="expulsivoSelect" class="form-label">Modo del algoritmo</label>
+    <select id="expulsivoSelect" class="form-select select-algoritmo" [(ngModel)]="expulsivo">
+      <option [ngValue]="false">No expulsivo</option>
+      <option [ngValue]="true">Expulsivo</option>
+    </select>
+  </div>
+
+  <!-- Tabla de procesos -->
+  <div class="table-responsive">
+    <table class="table tabla-procesos">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>T. Llegada</th>
+        <th>Ráfaga</th>
+        <th>Prioridad</th>
+        <th>T. Sistema</th>
+        <th>T. Espera</th>
+        <th *ngIf="procesos.length > 1">Acción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let proceso of procesos; let i = index">
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="proceso.id" min="1">
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="proceso.llegada" min="0">
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="proceso.rafaga" [min]="1" required>
+        </td>
+        <td>
+          <input type="number" class="form-control" [(ngModel)]="proceso.prioridad" min="0">
+        </td>
+        <td>
+          <span class="resultado">{{proceso.tiempo_sistema ?? '-'}}</span>
+        </td>
+        <td>
+          <span class="resultado">{{proceso.tiempo_espera ?? '-'}}</span>
+        </td>
+        <td *ngIf="procesos.length > 1">
+          <button class="btn btn-sm btn-danger" (click)="eliminarProceso(proceso.id)">Eliminar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Botones -->
+  <div class="mt-3">
+    <button class="btn btn-agregar btn-sjf" (click)="agregarProceso()">
+      <i class="bi bi-plus-circle"></i> Agregar Proceso
+    </button>
+    <button class="btn btn-ejecutar btn-sjf" (click)="ejecutar()">
+      <i class="bi bi-play-fill"></i> Ejecutar Simulación
+    </button>
+  </div>
+</div>
+
+<!--Grafico-->
+<div class="grid-container">
+  <h3 class="titulo-diagrama">Diagrama</h3>
+  <div class="informacion">
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito activo"></div>
+        <p class="texto-cuadrito">Activo</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito espera"></div>
+        <p>Espera</p>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="etiqueta">
+        <div class="cuadrito inactivo"></div>
+        <p>Inactivo</p>
+      </div>
+    </div>
+  </div>
+  <div class="diagrama-wrapper">
+    <div class="diagrama-contenido">
+      <!-- Columna fija: etiquetas de procesos -->
+      <div class="etiquetas-y">
+        <div *ngFor="let fila of matrizDiagrama.slice().reverse(); let i = index" class="etiqueta-y">
+          P{{matrizDiagrama.length - i}}
+        </div>
+      </div>
+
+      <!-- Diagrama scrollable -->
+      <div class="contenedor-scroll">
+        <div class="filas-container">
+          <div *ngFor="let fila of matrizDiagrama.slice().reverse()" class="fila">
+            <div *ngFor="let valor of fila" class="grid-item p{{valor}}"></div>
+          </div>
+        </div>
+
+        <!-- Eje X -->
+        <div class="eje-x">
+          <div *ngFor="let col of matrizDiagrama[0]; let i = index" class="etiqueta-x">
+            {{i}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

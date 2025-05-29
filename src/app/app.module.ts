@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import {HttpClientModule, provideHttpClient} from '@angular/common/http';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 import { FullLayoutComponent } from './template/full-layout/full-layout.component';
 import { EmptyLayoutComponent } from './template/empty-layout/empty-layout.component';
+import {HomeOvaComponent} from './home-ova/home-ova.component';
 import { LibEscitalaComponent } from './librerias/matematicas-discretas/lib-escitala/lib-escitala.component';
 import { LibGitcmdComponent } from './librerias/ambiente-web/lib-gitcmd/lib-gitcmd.component';
-import { HomeOvaComponent } from './home-ova/home-ova.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -26,6 +27,7 @@ import { LibCostosXpComponent } from './librerias/costos-presupuestos/lib-costos
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {AcordeonComponent} from './template/acordeon/acordeon.component';
+import { LibCostos5Component } from './librerias/costos-presupuestos/lib-costos5/lib-costos5.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import {AcordeonComponent} from './template/acordeon/acordeon.component';
     LibGitcmdComponent,
     LoginComponent,
     InformacionComponent,
-    LibCostosXpComponent
+    LibCostosXpComponent,
+    LibCostos5Component
   ],
   imports: [
     BrowserModule,
