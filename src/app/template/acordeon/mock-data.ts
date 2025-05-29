@@ -63,7 +63,8 @@ export const FACULTADES: Facultad[] = [
             id: 3,
             nombre: 'Matemáticas Discretas',
             ovas: [
-              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' }
+              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' },
+              { id: 2, nombre: 'Operaciones con Conjuntos', url: '/lib-operaciones-conjuntos' }
             ]
           }
         ]

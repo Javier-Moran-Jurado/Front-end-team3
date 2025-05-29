@@ -14,6 +14,7 @@ import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
 import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
+import {LibOperacionesConjuntosComponent} from './librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.component';
 
 const routes: Routes = [
 
@@ -34,7 +35,8 @@ const routes: Routes = [
       { path: 'lib-newton', component: LibLagrangeComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
-      { path: 'lib-compiler', component: LibCompilerComponent}
+      { path: 'lib-compiler', component: LibCompilerComponent},
+      { path: 'lib-operaciones-conjuntos', component: LibOperacionesConjuntosComponent},
     ]
   },
   {
