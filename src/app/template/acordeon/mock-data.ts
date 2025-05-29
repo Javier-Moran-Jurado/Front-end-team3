@@ -35,35 +35,35 @@ export const FACULTADES: Facultad[] = [
             id: 1,
             nombre: 'Analisis numerico',
             ovas: [
-              { id: 1, nombre: 'Interpolacion de newton', url:'/lib-newton' }
+              { id: 1, nombre: 'Interpolación de Newton', url:'/lib-newton' },
             ]
           },
           {
             id: 2,
-            nombre: 'Matematicas discretas',
+            nombre: 'Ambiente Web II',
             ovas: [
-              { id: 1, nombre: 'Escitala Espartana', url:'/lib-escitala' }
+              { id: 1, nombre: 'Git Commands', url:'/lib-gitcmd' },
             ]
           },
           {
             id: 3,
-            nombre: 'arquitectura de computadores',
+            nombre: 'Arquitectura de Computadores',
             ovas: [
-              { id: 1, nombre: 'Compilador Lenguaje C', url:'/lib-compiler' }
+              { id: 1, nombre: 'Compilador de Codigo', url: '/lib-compiler' }
             ]
           },
           {
             id: 4,
-            nombre: 'costos presupuestos',
+            nombre: 'Costos y presupuestos',
             ovas: [
-              { id: 1, nombre: 'Costos por proceso', url:'/lib-costosxp' }
+              { id: 1, nombre: 'Costos por Proceso', url: '/lib-costosxp' }
             ]
           },
           {
             id: 3,
-            nombre: 'ambiente web',
+            nombre: 'Matemáticas Discretas',
             ovas: [
-              { id: 1, nombre: 'Comandos git', url:'/lib-gitcmd' },
+              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' }
             ]
           }
         ]

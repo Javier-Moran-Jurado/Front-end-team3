@@ -30,13 +30,11 @@ const routes: Routes = [
     component: OvaTemplateComponent,  // MOVER ESTE BLOQUE ARRIBA DE FullLayoutComponent
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-lagrange', component: LibLagrangeComponent },
+      {path: 'lib-costosxp', component: LibCostosXpComponent},
       { path: 'lib-newton', component: LibLagrangeComponent },
-      { path: 'lib-costosxp', component: LibCostosXpComponent },
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
       { path: 'lib-compiler', component: LibCompilerComponent}
-
     ]
   },
   {
@@ -44,6 +42,8 @@ const routes: Routes = [
     component: FullLayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
+      { path: 'home-ova', component: HomeOvaComponent },
+      { path: 'home-ova', component: HomeOvaComponent },
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
