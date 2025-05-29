@@ -6,6 +6,7 @@ import { ProgramaDetalleComponent } from './programa-detalle/programa-detalle.co
 import { ProgramasComponent } from './programas/programas.component';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import { ProgramasFormComponent } from './programas-form/programas-form.component';
+import {provideHttpClient} from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { ProgramasFormComponent } from './programas-form/programas-form.componen
     FaIconComponent,
     ProgramaDetalleComponent,
     ProgramasFormComponent
+  ],
+  providers: [
+    provideHttpClient()
   ]
 })
 export class ProgramasModule { }

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import {HttpClientModule, provideHttpClient} from '@angular/common/http';
@@ -22,7 +20,6 @@ import { faYoutube, faLinkedin, faXTwitter, faTiktok, faInstagram, faFacebook } 
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LibCostosXpComponent } from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
