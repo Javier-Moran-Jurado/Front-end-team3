@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Facultad } from '../model/facultad';
-import { FacultadService } from '../service/facultad.service';
+import {Component, OnInit} from '@angular/core';
+import {Facultad} from '../model/facultad';
+import {FacultadService} from '../service/facultad.service';
 import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Usuario } from '../model/usuario';
 import Swal from 'sweetalert2';
+import { FacultadFormComponent } from '../facultad-form/facultad-form.component';
+
+
 
 @Component({
   selector: 'app-facultades',
@@ -42,6 +45,7 @@ export class FacultadesComponent implements OnInit {
       }
     });
   }
+
 
   editFacultad(facultad: Facultad): void {
     this.loadDecanos();
@@ -130,6 +134,7 @@ export class FacultadesComponent implements OnInit {
       }
     });
   }
+
 
   private loadFacultades() {
     this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);

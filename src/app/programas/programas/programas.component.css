@@ -1,0 +1,164 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.programas-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.programas-header {
+  background: #9ca3af;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.programas-title {
+  color: #374151;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.programas-content {
+  padding: 0;
+}
+
+.programas-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.programas-registered {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.btn-add-programa {
+  background: transparent;
+  border: 1px solid #6b7280;
+  color: #374151;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-programa:hover {
+  background: #f3f4f6;
+  border-color: #4b5563;
+}
+
+.programas-list {
+  background: white;
+}
+
+.programa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.programa-item:last-child {
+  border-bottom: none;
+}
+
+.programa-item:hover {
+  background: #f9fafb;
+}
+
+.programa-info {
+  flex: 1;
+}
+
+.programa-name {
+  font-weight: 500;
+  color: #111827;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.programa-details {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.programa-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-edit {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-edit:hover {
+  background: #059669;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .programas-content-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .programa-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .programa-actions {
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,19 @@
+
+/* El acordeón (sidebar) con ancho fijo */
+.sidebar-fixed {
+  width: 240px; /* ajusta este valor según tu diseño */
+  flex-shrink: 0;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  padding: 1rem;
+}
+
+/* Contenido principal que se adapta y centra */
+.content-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
