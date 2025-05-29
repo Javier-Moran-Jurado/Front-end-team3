@@ -47,6 +47,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
       { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
+      { path: '', redirectTo: '/programas', pathMatch: 'full' },
       { path: 'programas', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule) },
       { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
     ]
