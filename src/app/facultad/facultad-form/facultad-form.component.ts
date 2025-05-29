@@ -12,7 +12,7 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './facultad-form.component.html'
 })
 export class FacultadFormComponent {
-  @Input() facultad: Facultad = { id: 0, nombre: '', descripcion: '', id_curso: 0};
+  @Input() facultad: Facultad = { id: 0, nombre: '', id_decano: 0};
   @Output() onSave = new EventEmitter<Facultad>();
 
   constructor(public activeModal: NgbActiveModal) {}

@@ -26,21 +26,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: FullLayoutComponent,
-    children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'informacion', component: InformacionComponent },
-      { path: '', component: PageNoFoundComponent},
-      { path: '', redirectTo: '/facultad', pathMatch: 'full' },
-      { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
-      //{ path: '', redirectTo: '/home', pathMatch: 'full' }
-      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }
-
-    ]
-  },
-  {
-    path: '',
-    component: OvaTemplateComponent,
+    component: OvaTemplateComponent,  // MOVER ESTE BLOQUE ARRIBA DE FullLayoutComponent
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
@@ -57,8 +43,24 @@ const routes: Routes = [
       { path: 'lib-newton', component: LibLagrangeComponent }
     ]
   },
-  { path: '', component: PageNoFoundComponent}
-];
+  {
+    path: '',
+    component: FullLayoutComponent,
+    children: [
+      {path: 'home', component: HomeComponent},
+      {path: 'informacion', component: InformacionComponent},
+      {path: '', component: PageNoFoundComponent},
+      {path: '', redirectTo: '/facultad', pathMatch: 'full'},
+      {path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule)},
+      //{ path: '', redirectTo: '/home', pathMatch: 'full' }
+      {path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)},
+      {path: 'programas', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule)},
+    ]
+  },
+      {path:'**', component: PageNoFoundComponent}
+
+    ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

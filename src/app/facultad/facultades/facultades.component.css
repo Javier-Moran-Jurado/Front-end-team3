@@ -1,3 +1,4 @@
+/* Estilos base de la plantilla */
 .custom-card {
   border-radius: 10px;
   background-color: #f5f5f5;
@@ -34,4 +35,68 @@
 
 .ms-4 {
   margin-left: 2rem;
+}
+
+/* Estilos adicionales para el combo box */
+.form-select {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos para el modal */
+.modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+/* Estilos para la tabla */
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+/* Estilos para SweetAlert2 con combo box */
+.swal2-select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.swal2-popup {
+  width: 500px;
 }

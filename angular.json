@@ -1,5 +1,4 @@
 {
-
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -37,7 +36,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/public/favicon.ico"
             ],
             "styles": [
               "src/styles.css",
