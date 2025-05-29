@@ -36,7 +36,7 @@ const routes: Routes = [
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
       { path: 'lib-compiler', component: LibCompilerComponent},
-      { path: 'lib-operaciones-conjuntos', component: LibOperacionesConjuntosComponent},
+      { path: 'lib-operaciones-conjuntos', loadChildren: () => import('./librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.module').then(m => m.LibOperacionesConjuntosModule)},
     ]
   },
   {
