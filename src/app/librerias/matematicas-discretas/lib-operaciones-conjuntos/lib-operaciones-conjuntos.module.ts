@@ -6,6 +6,7 @@ import { LibOperacionesConjuntosRoutingModule } from './lib-operaciones-conjunto
 import { LibOperacionesConjuntosComponent } from './lib-operaciones-conjuntos.component';
 
 
+
 @NgModule({
   declarations: [
     LibOperacionesConjuntosComponent
