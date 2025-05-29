@@ -123,6 +123,6 @@ export class FacultadesComponent implements OnInit {
 
   private loadFacultades() {
     console.log("cargando facultades");
-    this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
+    this.facultadService.getFacultades().subscribe(data => this.facultadArr=data);
   }
 }
