@@ -16,7 +16,10 @@ import { LibBiseccionComponent } from './librerias/analisis-numerico/lib-bisecci
 import {LibCostos5Component} from './librerias/costos-presupuestos/lib-costos5/lib-costos5.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
+import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
+import {LibOperacionesConjuntosComponent} from './librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
+
 
 const routes: Routes = [
 
@@ -38,8 +41,10 @@ const routes: Routes = [
       { path: 'lib-escitala', component:LibEscitalaComponent},
       { path: 'lib-gitcmd', component: LibGitcmdComponent},
       { path: 'lib-compiler', component: LibCompilerComponent},
+      { path: 'lib-operaciones-conjuntos', loadChildren: () => import('./librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.module').then(m => m.LibOperacionesConjuntosModule)},
       { path: 'lib-so-sjf', component:LibSoSJComponent},
       { path: 'lib-biseccion', loadChildren: () => import('./librerias/analisis-numerico/lib-biseccion/lib-biseccion.module').then(m => m.LibBiseccionModule)}
+
     ]
   },
   {
