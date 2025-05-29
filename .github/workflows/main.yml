@@ -1,9 +1,9 @@
 name: S3 Deploy
+
 on:
   push:
     branches:
       - develop
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,4 +39,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region us-east-1 \
-            dist/ s3://chacaleo.joptionpane.software
+            dist/ s3://mewings.joptionpane.software
