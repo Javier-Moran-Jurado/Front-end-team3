@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Facultad } from '../model/facultad';
 import { FacultadService } from '../service/facultad.service';
 import { faUserPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Usuario } from '../model/usuario';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,11 +13,7 @@ import Swal from 'sweetalert2';
 export class FacultadesComponent implements OnInit {
   facultadArr: { facultades: Facultad[] } = { facultades: [] };
   // Lista hardcodeada de decanos (puedes cambiarla)
-  decanos = [
-    { id: 1, nombre: 'Juan', apellido: 'Pérez' },
-    { id: 2, nombre: 'María', apellido: 'Gómez' },
-    { id: 3, nombre: 'Carlos', apellido: 'López' }
-  ];
+  decanos: { usuarios: Usuario[]} = { usuarios: [] };
   faEdit = faEdit;
   faTrash = faTrash;
   faUserPlus = faUserPlus;
@@ -25,6 +22,7 @@ export class FacultadesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadFacultades();
+    this.loadDecanos();
   }
 
   confirmDelete(facultad: Facultad): void {
@@ -46,9 +44,10 @@ export class FacultadesComponent implements OnInit {
   }
 
   editFacultad(facultad: Facultad): void {
-    const options = this.decanos.map(d =>
+    this.loadDecanos();
+    const options = this.decanos.usuarios.map(d =>
       `<option value="${d.id}" ${d.id === facultad.id_decano ? 'selected' : ''}>
-        ${d.nombre} ${d.apellido} (ID: ${d.id})
+        ${d.nombreCompleto} (CC: ${d.cedula})
       </option>`
     ).join('');
 
@@ -86,8 +85,9 @@ export class FacultadesComponent implements OnInit {
   }
 
   addFacultad(): void {
-    const options = this.decanos.map(d =>
-      `<option value="${d.id}">${d.nombre} ${d.apellido} (ID: ${d.id})</option>`
+    this.loadDecanos();
+    const options = this.decanos.usuarios.map(d =>
+      `<option value="${d.id}">${d.nombreCompleto} (CC: ${d.cedula})</option>`
     ).join('');
 
     Swal.fire({
@@ -131,9 +131,11 @@ export class FacultadesComponent implements OnInit {
     });
   }
 
-
   private loadFacultades() {
-    console.log("Cargando facultades...");
     this.facultadService.getFacultades().subscribe(data => this.facultadArr = data);
+  }
+
+  private loadDecanos(){
+    this.facultadService.getDecanos().subscribe(data => this.decanos = data);
   }
 }
