@@ -1,0 +1,15 @@
+<h2>Detalle del Curso</h2>
+<div *ngIf="curso">
+  <p><strong>Nombre:</strong> {{curso.nombre}}</p>
+  <p><strong>Descripción:</strong> {{curso.descripcion}}</p>
+  <p><strong>Cupos Disponibles:</strong> {{curso.cuposDisponibles}}</p>
+  <p><strong>Horario:</strong> {{curso.horario}}</p>
+  <p><strong>Modalidad:</strong> {{curso.modalidad}}</p>
+  <p><strong>Número de Créditos:</strong> {{curso.numeroCreditos}}</p>
+  <p><strong>Duración:</strong> {{curso.duracion}}</p>
+  <p><strong>Fecha de Creación:</strong> {{curso.fechaCreacion}}</p>
+  <p><strong>ID Docente:</strong> {{curso.idDocente}}</p>
+  <p><strong>ID Semestre:</strong> {{curso.idSemestre}}</p>
+  <p><strong>Activo:</strong> {{curso.activo ? 'Sí' : 'No'}}</p>
+  <button class="btn btn-danger" (click)="deleteCurso(curso)">Eliminar</button>
+</div>

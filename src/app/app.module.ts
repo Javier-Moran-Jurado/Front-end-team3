@@ -55,6 +55,7 @@ import {AcordeonComponent} from './template/acordeon/acordeon.component';
     FaIconComponent,
     FontAwesomeModule,
     AppRoutingModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [

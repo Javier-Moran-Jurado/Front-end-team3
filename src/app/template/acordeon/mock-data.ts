@@ -53,6 +53,13 @@ export const FACULTADES: Facultad[] = [
             ]
           },
           {
+            id: 6,
+            nombre: 'Sistemas Operativos',
+            ovas: [
+              { id: 6, nombre: 'Algoritmo de gestion de procesos sjf', url: '/lib-so-sjf' }
+            ]
+          },
+          {
             id: 4,
             nombre: 'Costos y presupuestos',
             ovas: [
@@ -63,7 +70,7 @@ export const FACULTADES: Facultad[] = [
             id: 3,
             nombre: 'Matemáticas Discretas',
             ovas: [
-              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' }
+              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' },
             ]
           }
         ]

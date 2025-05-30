@@ -13,7 +13,6 @@ import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.compone
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-
   { path: '',
     component: EmptyLayoutComponent,
     children: [
@@ -46,12 +45,12 @@ const routes: Routes = [
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
       {path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)},
       {path: 'programas', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule)},
+      { path: '', redirectTo: '/programas', pathMatch: 'full' },
+      { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) },
     ]
   },
       {path:'**', component: PageNoFoundComponent}
-
     ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

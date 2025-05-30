@@ -1,0 +1,41 @@
+<h2>Lista de Cursos</h2>
+<button (click)="addCurso()" class="btn btn-success mb-2">
+  <fa-icon [icon]="faUserPlus"></fa-icon> Añadir Curso
+</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Cupos</th>
+      <th>Horario</th>
+      <th>Modalidad</th>
+      <th>Créditos</th>
+      <th>Duración</th>
+      <th>Fecha Creación</th>
+      <th>Docente</th>
+      <th>Semestre</th>
+      <th>Activo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let curso of cursos">
+      <td>{{curso.nombre}}</td>
+      <td>{{curso.descripcion}}</td>
+      <td>{{curso.cuposDisponibles}}</td>
+      <td>{{curso.horario}}</td>
+      <td>{{curso.modalidad}}</td>
+      <td>{{curso.numeroCreditos}}</td>
+      <td>{{curso.duracion}}</td>
+      <td>{{curso.fechaCreacion}}</td>
+      <td>{{curso.idDocente}}</td>
+      <td>{{curso.idSemestre}}</td>
+      <td>{{curso.activo ? 'Sí' : 'No'}}</td>
+      <td>
+        <a [routerLink]="['/cursos/detalle', curso.id]" class="btn btn-info btn-sm"><fa-icon [icon]="faEdit"></fa-icon></a>
+        <button class="btn btn-danger btn-sm" (click)="deleteCurso(curso)"><fa-icon [icon]="faTrash"></fa-icon></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
