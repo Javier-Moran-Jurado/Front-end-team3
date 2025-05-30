@@ -1,6 +1,5 @@
 /* El header queda fijo en la parte superior */
 .header-fixed {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -17,12 +16,10 @@
 /* Contenedor que agrupa el sidebar + contenido */
 .main-wrapper {
   display: flex;
-  margin-top: 109.6px; /* mismo alto del header */
   min-height: calc(100vh - 64px); /* altura visible restante */
 
 
 }
-
 /* El acordeón (sidebar) con ancho fijo */
 .sidebar-fixed {
   width: 240px; /* ajusta este valor según tu diseño */
@@ -30,6 +27,10 @@
   background-color: #fff;
   border-right: 1px solid #eee;
   padding: 1rem;
+}
+
+.main-wrapper{
+  display: flex;
 }
 
 /* Contenido principal que se adapta y centra */
@@ -40,4 +41,5 @@
   align-items: center;
   padding: 2rem;
   overflow-y: auto;
+
 }

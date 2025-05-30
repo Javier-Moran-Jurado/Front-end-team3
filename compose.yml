@@ -1,7 +1,7 @@
 services:
-  facultad-service:
-    image: angela011/facultad-service:latest
-    container_name: facultad-service
+  ova-service:
+    image: nicoguti0625/ova-service:latest
+    container_name: ova-service
     restart: unless-stopped
     depends_on:
       - db
@@ -35,6 +35,12 @@ services:
       - red-backend-app
     restart: unless-stopped
 
+  lib-costos5:
+        image: 'juandiiego2111/costos-jni:latest'
+        ports:
+          - '8083:8080'
+        networks:
+          - red-backend-app
   db:
     image: postgres:latest
     container_name: db

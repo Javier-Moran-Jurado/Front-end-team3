@@ -1,0 +1,48 @@
+<form (ngSubmit)="saveCurso()" #cursoForm="ngForm">
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="curso.nombre" name="nombre" required>
+  </div>
+  <div class="form-group">
+    <label>Descripción</label>
+    <input type="text" class="form-control" [(ngModel)]="curso.descripcion" name="descripcion">
+  </div>
+  <div class="form-group">
+    <label>Cupos Disponibles</label>
+    <input type="number" class="form-control" [(ngModel)]="curso.cuposDisponibles" name="cuposDisponibles">
+  </div>
+  <div class="form-group">
+    <label>Horario</label>
+    <input type="text" class="form-control" [(ngModel)]="curso.horario" name="horario">
+  </div>
+  <div class="form-group">
+    <label>Modalidad</label>
+    <input type="text" class="form-control" [(ngModel)]="curso.modalidad" name="modalidad">
+  </div>
+  <div class="form-group">
+    <label>Número de Créditos</label>
+    <input type="number" class="form-control" [(ngModel)]="curso.numeroCreditos" name="numeroCreditos">
+  </div>
+  <div class="form-group">
+    <label>Duración</label>
+    <input type="number" class="form-control" [(ngModel)]="curso.duracion" name="duracion">
+  </div>
+  <div class="form-group">
+    <label>Fecha de Creación</label>
+    <input type="date" class="form-control" [(ngModel)]="curso.fechaCreacion" name="fechaCreacion">
+  </div>
+  <div class="form-group">
+    <label>ID Docente</label>
+    <input type="number" class="form-control" [(ngModel)]="curso.idDocente" name="idDocente">
+  </div>
+  <div class="form-group">
+    <label>ID Semestre</label>
+    <input type="number" class="form-control" [(ngModel)]="curso.idSemestre" name="idSemestre">
+  </div>
+  <div class="form-group">
+    <label>Activo</label>
+    <input type="checkbox" [(ngModel)]="curso.activo" name="activo">
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+</form>

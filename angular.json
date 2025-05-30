@@ -36,7 +36,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/public/favicon.ico"
             ],
             "styles": [
               "src/styles.css",
@@ -52,7 +52,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -116,11 +116,7 @@
     }
   },
   "cli": {
-
     "analytics": "33bb4022-fafe-4495-ba31-f0c8561e1894"
-
-
-
   }
 }
 

@@ -8,7 +8,7 @@ import {LibLagrangeComponent} from './lib-lagrange.component';
 
 @NgModule({
   declarations: [
-
+    LibLagrangeComponent
   ],
   imports: [
     CommonModule,
