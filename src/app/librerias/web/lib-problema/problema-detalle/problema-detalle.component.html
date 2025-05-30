@@ -1,0 +1,26 @@
+<div *ngIf="problema" class="card container">
+  <h3 class="card-title">{{ problema.nombre }}   -   Tiempo: {{ problema.tiempo}} ms.</h3>
+  <div class="card-body" [innerHTML]="newLineToBr(problema.descripcion)"></div>
+  <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Entrada</h5>
+          <p style="max-height: 120px; min-height: 120px" class="card-text overflow-auto" [innerHTML]="firstCase(problema.inputs)"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Salida</h5>
+          <p style="max-height: 120px; min-height: 120px" class="card-text overflow-auto" [innerHTML]="firstCase(problema.outputs)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button style="margin: 20px auto 0" class="btn btn-outline-primary btn-sm" (click)="goToEvaluator(problema.id)">
+    Resolver
+  </button>
+</div>
+
