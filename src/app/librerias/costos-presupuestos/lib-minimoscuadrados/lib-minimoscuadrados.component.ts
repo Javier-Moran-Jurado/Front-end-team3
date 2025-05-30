@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import {FormsModule} from '@angular/forms';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-lib-minimoscuadrados',

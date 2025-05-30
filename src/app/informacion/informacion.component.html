@@ -19,7 +19,7 @@
   <!-- Vista de equipo seleccionado -->
   <div *ngIf="selectedTeam" class="team-view">
     <div *ngFor="let dev of developers" class="dev-card">
-      <img [src]="dev.img" [alt]="dev.name" class="member-avatar">
+      <img [alt]="dev.name" class="member-avatar">
       <div class="member-info">
         <h3>{{ dev.name }}</h3>
         <p class="role">{{ dev.role }}</p>

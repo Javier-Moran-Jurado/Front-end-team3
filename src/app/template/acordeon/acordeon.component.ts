@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FACULTADES } from './mock-data';
 import {Router} from '@angular/router';
 import {Ova} from '../../ova/model/ova';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-acordeon',

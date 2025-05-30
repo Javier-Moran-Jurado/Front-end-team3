@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
+import { NgIf, NgForOf } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-infomacion',

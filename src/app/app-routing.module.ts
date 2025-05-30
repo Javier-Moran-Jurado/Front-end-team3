@@ -12,9 +12,9 @@ import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
 import {EmptyLayoutComponent} from './template/empty-layout/empty-layout.component';
 import {LoginComponent} from './login/login.component';
 import {LibCodigoCesarComponent} from './librerias/matematicas-discretas/lib-codigo-cesar/lib-codigo-cesar.component';
+import {RoundRobinComponent} from './librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component';
 
 const routes: Routes = [
-
   { path: '',
     component: EmptyLayoutComponent,
     children: [
@@ -31,6 +31,7 @@ const routes: Routes = [
       { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-codigo-cesar', component: LibCodigoCesarComponent},
       { path: 'lib-newton', component: LibLagrangeComponent },
+      { path: 'lib-round-robin', component: RoundRobinComponent },
       { path: 'lib-minimoscuadrados', component: LibMinimoscuadradosComponent},
       { path: '', component: PageNoFoundComponent},
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
@@ -53,10 +54,8 @@ const routes: Routes = [
       { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) },
     ]
   },
-      {path:'**', component: PageNoFoundComponent}
-
-    ];
-
+  {path:'**', component: PageNoFoundComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

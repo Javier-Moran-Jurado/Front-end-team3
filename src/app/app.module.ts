@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
-import {Router, RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import {HttpClientModule, provideHttpClient} from '@angular/common/http';
 import { PageNoFoundComponent } from './page-no-found/page-no-found.component';
 import { HeaderComponent } from './template/header/header.component';
@@ -26,6 +26,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {AcordeonComponent} from './template/acordeon/acordeon.component';
+import {RoundRobinComponent} from './librerias/sistemas-operativos/lib-round-robin/lib-round-robin.component';
 import {LibCodigoCesarComponent} from './librerias/matematicas-discretas/lib-codigo-cesar/lib-codigo-cesar.component';
 
 @NgModule({
@@ -47,19 +48,20 @@ import {LibCodigoCesarComponent} from './librerias/matematicas-discretas/lib-cod
     OvaTemplateComponent,
     AcordeonComponent,
     UsuarioComponent,
+    RoundRobinComponent
+
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
     FaIconComponent,
     FontAwesomeModule,
     AppRoutingModule,
     FormsModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, HeaderComponent, FooterComponent, FooterComponent, FooterComponent],
   providers: [
     provideHttpClient()
   ],

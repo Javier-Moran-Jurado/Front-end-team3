@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Algoritmo Round Robin</h2>
+
+  <div class="form-group">
+    <label for="cantidadProcesos">Cantidad de Procesos</label>
+    <input
+      id="cantidadProcesos"
+      [(ngModel)]="cantidadProcesos"
+      type="number"
+      class="form-control"
+      placeholder="Ej: 5" />
+  </div>
+
+  <div class="form-group">
+    <label for="quantum">Quantum</label>
+    <input
+      id="quantum"
+      [(ngModel)]="quantum"
+      type="number"
+      class="form-control"
+      placeholder="Ej: 2" />
+  </div>
+
+  <div class="form-group">
+    <label for="tiempoLlegada">Tiempo de Llegada</label>
+    <input
+      id="tiempoLlegada"
+      [(ngModel)]="tiempoLlegada"
+      type="text"
+      class="form-control"
+      placeholder="Ej: 0,1,2,3,4" />
+  </div>
+
+  <div class="form-group">
+    <label for="tiempoRafaga">Tiempo de Ráfaga</label>
+    <input
+      id="tiempoRafaga"
+      [(ngModel)]="tiempoRafaga"
+      type="text"
+      class="form-control"
+      placeholder="Ej: 5,3,8,6,2" />
+  </div>
+
+  <div class="form-group">
+    <label for="idProcesos">ID de los Procesos</label>
+    <input
+      id="idProcesos"
+      [(ngModel)]="idProcesos"
+      type="text"
+      class="form-control"
+      placeholder="Ej: 1,2,3,4,5" />
+  </div>
+
+  <div class="form-group">
+    <label for="prioridad">Prioridad (opcional)</label>
+    <input
+      id="prioridad"
+      [(ngModel)]="prioridad"
+      type="text"
+      class="form-control"
+      placeholder="Ej: 1,2,3,4,5" />
+  </div>
+
+  <div class="button-group mt-3">
+    <button (click)="calcular()" class="btn btn-primary mr-2">Calcular</button>
+    <button (click)="limpiar()" class="btn btn-secondary">Limpiar</button>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger mt-3">
+    {{ error }}
+  </div>
+
+  <div *ngIf="procesos.length > 0" class="mt-4">
+    <button (click)="mostrarResultados()" class="btn btn-info mb-3">
+      Mostrar Resultados Detallados
+    </button>
+  </div>
+</div>
