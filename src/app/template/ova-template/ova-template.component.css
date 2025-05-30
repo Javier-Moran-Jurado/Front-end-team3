@@ -1,4 +1,25 @@
+/* El header queda fijo en la parte superior */
+.header-fixed {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
 
+  /* ✅ elimina height fijo y permite crecer */
+  display: flex;
+  flex-wrap: wrap;       /* Por si hay muchos ítems */
+  align-items: center;   /* Centrado vertical */
+}
+
+/* Contenedor que agrupa el sidebar + contenido */
+.main-wrapper {
+  display: flex;
+  min-height: calc(100vh - 64px); /* altura visible restante */
+
+
+}
 /* El acordeón (sidebar) con ancho fijo */
 .sidebar-fixed {
   width: 240px; /* ajusta este valor según tu diseño */

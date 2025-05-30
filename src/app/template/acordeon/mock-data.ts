@@ -36,7 +36,6 @@ export const FACULTADES: Facultad[] = [
             nombre: 'Analisis numerico',
             ovas: [
               { id: 1, nombre: 'Interpolación de Newton', url:'/lib-newton' },
-              { id: 2, nombre: 'Método de Bisección', url:'/lib-biseccion' },
             ]
           },
           {
@@ -72,7 +71,6 @@ export const FACULTADES: Facultad[] = [
             nombre: 'Matemáticas Discretas',
             ovas: [
               { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' },
-              { id: 2, nombre: 'Operaciones con Conjuntos', url: '/lib-operaciones-conjuntos' }
             ]
           }
         ]
