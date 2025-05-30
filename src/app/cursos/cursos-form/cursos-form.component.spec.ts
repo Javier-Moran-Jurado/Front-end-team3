@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CursosFormComponent } from './cursos-form.component';
 
-import { LibBiseccionComponent } from './lib-biseccion.component';
-
-describe('LibBiseccionComponent', () => {
-  let component: LibBiseccionComponent;
-  let fixture: ComponentFixture<LibBiseccionComponent>;
+describe('CursosFormComponent', () => {
+  let component: CursosFormComponent;
+  let fixture: ComponentFixture<CursosFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LibBiseccionComponent]
+      declarations: [ CursosFormComponent ]
     })
     .compileComponents();
+  });
 
-    fixture = TestBed.createComponent(LibBiseccionComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CursosFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

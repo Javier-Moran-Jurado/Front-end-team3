@@ -14,18 +14,11 @@ import {InformacionComponent} from './informacion/informacion.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
 import {OvasComponent} from './ova/ovas/ovas.component';
-import {LibCostosXpComponent} from './librerias/costos-presupuestos/lib-costos-xp/lib-costos-xp.component';
-import { LibBiseccionComponent } from './librerias/analisis-numerico/lib-biseccion/lib-biseccion.component';
 import {LibCostos5Component} from './librerias/costos-presupuestos/lib-costos5/lib-costos5.component';
-import {LibOperacionesConjuntosComponent} from './librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.component';
-
 import {LibInversaComponent} from './librerias/matematicas-discretas/lib-inversa/lib-inversa.component';
-import {
-  LibSoprioridadesComponent
-} from './librerias/sistemas-operativos/lib-soprioridades/lib-soprioridades.component';
+import {LibSoprioridadesComponent} from './librerias/sistemas-operativos/lib-soprioridades/lib-soprioridades.component';
 
 const routes: Routes = [
-
   { path: '',
     component: EmptyLayoutComponent,
     children: [
@@ -39,15 +32,12 @@ const routes: Routes = [
     component: OvaTemplateComponent,  // MOVER ESTE BLOQUE ARRIBA DE FullLayoutComponent
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
-      {path: 'lib-costosxp', component: LibCostosXpComponent},
+      { path: 'lib-costos5', component: LibCostos5Component },
       { path: 'lib-newton', component: LibLagrangeComponent },
-      { path: 'lib-escitala', component:LibEscitalaComponent},
-      { path: 'lib-gitcmd', component: LibGitcmdComponent},
-      { path: 'lib-compiler', component: LibCompilerComponent},
-      { path: 'lib-operaciones-conjuntos', loadChildren: () => import('./librerias/matematicas-discretas/lib-operaciones-conjuntos/lib-operaciones-conjuntos.module').then(m => m.LibOperacionesConjuntosModule)},
-      { path: 'lib-so-sjf', component:LibSoSJComponent},
-      { path: 'lib-biseccion', loadChildren: () => import('./librerias/analisis-numerico/lib-biseccion/lib-biseccion.module').then(m => m.LibBiseccionModule)}
-
+      { path: 'lib-escitala', component: LibEscitalaComponent },
+      { path: 'lib-gitcmd', component: LibGitcmdComponent },
+      { path: 'lib-compiler', component: LibCompilerComponent },
+      { path: 'lib-so-sjf', component: LibSoSJComponent },
     ]
   },
   {
@@ -69,13 +59,11 @@ const routes: Routes = [
       { path: '', redirectTo: '/programas', pathMatch: 'full' },
       { path: 'programas', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule) },
       { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) },
     ]
   },
       {path:'**', component: PageNoFoundComponent}
-
     ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

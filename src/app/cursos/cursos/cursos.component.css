@@ -1,0 +1,7 @@
+/* Puedes personalizar los estilos para la tabla y botones aquí */
+table {
+  width: 100%;
+}
+.btn {
+  margin-right: 5px;
+}
