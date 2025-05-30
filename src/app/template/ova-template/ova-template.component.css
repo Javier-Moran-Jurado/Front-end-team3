@@ -8,6 +8,10 @@
   padding: 1rem;
 }
 
+.main-wrapper{
+  display: flex;
+}
+
 /* Contenido principal que se adapta y centra */
 .content-area {
   flex: 1;
@@ -16,4 +20,5 @@
   align-items: center;
   padding: 2rem;
   overflow-y: auto;
+
 }
