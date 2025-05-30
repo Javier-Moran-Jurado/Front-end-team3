@@ -45,13 +45,7 @@ export const FACULTADES: Facultad[] = [
               { id: 1, nombre: 'Git Commands', url:'/lib-gitcmd' },
             ]
           },
-          {
-            id: 3,
-            nombre: 'Arquitectura de Computadores',
-            ovas: [
-              { id: 1, nombre: 'Compilador de Codigo', url: '/lib-compiler' }
-            ]
-          },
+
           {
             id: 6,
             nombre: 'Sistemas Operativos',
