@@ -11,6 +11,11 @@ import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/l
 import {
   LibMinimoscuadradosComponent
 } from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
+import { ProblemaFormComponent } from './librerias/web/lib-problema/problema/problema-form.component';
+import { SolucionesComponent } from './librerias/web/lib-evaluador/soluciones/soluciones.component';
+import {ProblemaDetalleComponent} from './librerias/web/lib-problema/problema-detalle/problema-detalle.component';
+import {ProblemasComponent} from './librerias/web/lib-problema/problemas/problemas.component';
+import {LibEvaluadorComponent} from './librerias/web/lib-evaluador/evaluador/lib-evaluador.component';
 
 const routes: Routes = [
 
@@ -30,13 +35,16 @@ const routes: Routes = [
       { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-minimoscuadrados', component: LibMinimoscuadradosComponent},
       { path: 'home-ova', component: HomeOvaComponent },
+      { path: 'problema-form', component:  ProblemaFormComponent},
       { path: 'informacion', component: InformacionComponent },
       { path: '', component: PageNoFoundComponent},
       { path: '', redirectTo: '/facultad', pathMatch: 'full' },
       { path: 'facultad', loadChildren: () => import('./facultad/facultad.module').then(m => m.FacultadModule) },
-      //{ path: '', redirectTo: '/home', pathMatch: 'full' }
-      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) }
-
+      { path: 'problemas', component: ProblemasComponent },
+      { path: 'problema/:id', component: ProblemaDetalleComponent },
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      { path: 'soluciones', component: SolucionesComponent },
+      { path: 'evaluar/:id', component: LibEvaluadorComponent}
     ]
   },
   { path: '', component: PageNoFoundComponent}
