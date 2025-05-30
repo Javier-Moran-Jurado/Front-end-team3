@@ -1,13 +1,15 @@
 /* Estilos generales */
 .cesar-container {
-  width: fit-content;
-  margin: 4rem auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #f4f4f4 0%, rgba(209, 239, 231, 0.53) 100%);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 30px;
+  box-sizing: border-box;
 }
 
 .cesar-card {
@@ -15,7 +17,7 @@
   max-width: 500px;
   background: white;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -26,21 +28,23 @@
 
 .cesar-title {
   color: #2c3e50;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
   margin-bottom: 0.5rem;
   text-align: center;
   font-weight: 600;
+  line-height: 1.3;
 }
 
 .cesar-description {
   color: #7f8c8d;
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  line-height: 1.5;
 }
 
 /* Iconos personalizados */
-.icon-lock, .icon-unlock, .icon-copy, .icon-error {
+.icon {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -56,7 +60,7 @@
 }
 
 .icon-unlock {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='white' d='M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='white' d='M423.5 0C369.4 0 320 39.8 320 96V160H176c-26.5 0-48 21.5-48 48V464c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48V208c0-26.5-21.5-48-48-48H368V96c0-27.7 28.7-48 55.5-48c18.5 0 35.9 8.4 47.2 23c5.5 7.1 15.8 8.5 23 .9l26.4-21.1c7.2-5.8 8.4-16.2 2.6-23.4C501.8 27.8 463.2 0 423.5 0z'/%3E%3C/svg%3E");
 }
 
 .icon-copy {
@@ -67,14 +71,8 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23d32f2f' d='M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
 }
 
-.btn:hover .icon-lock,
-.btn:hover .icon-unlock {
-  filter: brightness(1.2);
-}
-
-/* Resto de tus estilos permanecen igual */
 .input-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .input-label {
@@ -82,16 +80,17 @@
   margin-bottom: 0.5rem;
   color: #2c3e50;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: clamp(0.85rem, 3vw, 0.9rem);
 }
 
 .input-control {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.75rem 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  transition: all 0.3s;
+  box-sizing: border-box;
 }
 
 .input-control:focus {
@@ -104,18 +103,23 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
 }
 
 .btn {
-  padding: 0.8rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+  flex: 1 1 auto;
+  min-width: 120px;
 }
 
 .btn-encode {
@@ -139,8 +143,8 @@
 }
 
 .result-container {
-  margin-top: 2rem;
-  padding: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
   background-color: #f8f9fa;
   border-radius: 8px;
   border-left: 4px solid #3498db;
@@ -149,28 +153,31 @@
 
 .result-title {
   color: #2c3e50;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  margin-bottom: 0.75rem;
 }
 
 .result-box {
   background: white;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 6px;
   border: 1px solid #e0e0e0;
   word-break: break-word;
   font-family: 'Courier New', monospace;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  line-height: 1.5;
 }
 
 .btn-copy {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   background: none;
   border: none;
   color: #3498db;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
   display: inline-flex;
   align-items: center;
+  padding: 0.25rem 0;
 }
 
 .btn-copy:hover {
@@ -178,8 +185,8 @@
 }
 
 .error-message {
-  margin-top: 1.5rem;
-  padding: 1rem;
+  margin-top: 1.25rem;
+  padding: 0.75rem;
   background-color: #fdecea;
   color: #d32f2f;
   border-radius: 8px;
@@ -187,6 +194,7 @@
   display: flex;
   align-items: center;
   animation: fadeIn 0.5s ease;
+  font-size: clamp(0.85rem, 3vw, 1rem);
 }
 
 @keyframes fadeIn {
@@ -194,19 +202,66 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 600px) {
+/* Media Queries mejoradas */
+@media (max-width: 768px) {
+  .cesar-container {
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 20px;
+  }
+
   .cesar-card {
     padding: 1.5rem;
   }
 
   .button-group {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 0.75rem;
   }
 
   .btn {
-    justify-content: center;
+    padding: 0.65rem 1rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cesar-container {
+    width: 95%;
+    padding: 0.75rem;
+    border-radius: 15px;
   }
 
+  .cesar-card {
+    padding: 1.25rem;
+  }
 
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .input-control {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .result-container,
+  .error-message {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .cesar-card {
+    padding: 1rem;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
 }

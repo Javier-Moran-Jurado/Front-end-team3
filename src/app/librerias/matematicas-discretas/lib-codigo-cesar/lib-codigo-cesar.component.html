@@ -1,39 +1,46 @@
+
+
+<!-- El siguiente código es un componente de Angular que implementa el Cifrado César.-->
 <div class="cesar-container">
   <div class="cesar-card">
     <h2 class="cesar-title">Cifrado César</h2>
     <p class="cesar-description">Ingresa tu mensaje y el desplazamiento para codificar o decodificar</p>
 
+    <!-- Los siguientes campos permiten al usuario ingresar el mensaje y el desplazamiento.-->
     <div class="input-group">
       <label for="mensaje" class="input-label">Mensaje:</label>
       <input type="text" id="mensaje" class="input-control"
              placeholder="Escribe tu texto aquí" [(ngModel)]="mensaje">
     </div>
 
+    <!--Este campo permite al usuario ingresar el número de posiciones para el desplazamiento.-->
     <div class="input-group">
-      <label for="codigo" class="input-label">Desplazamiento:</label>
-      <input type="number" id="codigo" class="input-control"
-             placeholder="Número de posiciones" [(ngModel)]="codigo" min="1" max="26">
-    </div>
+       <label for="codigo" class="input-label">Desplazamiento:</label>
+       <input type="number" id="codigo" class="input-control"
+              placeholder="Número de posiciones" [(ngModel)]="codigo" min="1" max="26">
+     </div>
+<!-- Los siguientes botones permiten al usuario codificar o decodificar el mensaje ingresado.-->
+     <div class="button-group">
+       <button class="btn btn-encode" (click)="codificar()">
+         <span class="icon-lock"></span> Codificar
+       </button>
+       <button class="btn btn-decode" (click)="decodificar()">
+         <span class="icon-unlock"></span> Decodificar
+       </button>
+     </div>
 
-    <div class="button-group">
-      <button class="btn btn-encode" (click)="codificar()">
-        <span class="icon-lock"></span> Codificar
-      </button>
-      <button class="btn btn-decode" (click)="decodificar()">
-        <span class="icon-unlock"></span> Decodificar
-      </button>
-    </div>
-
-    <div *ngIf="resultado" class="result-container">
-      <h3 class="result-title">Resultado:</h3>
-      <div class="result-box">{{ resultado }}</div>
-      <button class="btn-copy" (click)="copiarResultado()">
-        <span class="icon-copy"></span> Copiar
-      </button>
-    </div>
-
-    <div *ngIf="error" class="error-message">
-      <span class="icon-error"></span> {{ error }}
-    </div>
-  </div>
-</div>
+<!--  Este contenedor muestra el resultado del cifrado o descifrado.-->
+     <div *ngIf="resultado" class="result-container">
+       <h3 class="result-title">Resultado:</h3>
+       <div class="result-box">{{ resultado }}</div>
+       <button class="btn-copy" (click)="copiarResultado()">
+         <span class="icon-copy"></span> Copiar
+       </button>
+     </div>
+      <!-- Este contenedor muestra un mensaje de error
+      si ocurre algún problema durante el proceso.-->
+     <div *ngIf="error" class="error-message">
+       <span class="icon-error"></span> {{ error }}
+     </div>
+   </div>
+ </div>
