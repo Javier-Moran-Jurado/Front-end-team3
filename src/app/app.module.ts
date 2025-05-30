@@ -64,7 +64,7 @@ import { LibCostos5Component } from './librerias/costos-presupuestos/lib-costos5
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [
