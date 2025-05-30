@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-lib-lagrange',
@@ -13,13 +12,8 @@ export class LibLagrangeComponent {
   yValues: string = '';
   evalPoint: string = '';
   error: string = '';
-  path: string = '';
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
-    this.route.url.subscribe(segments => {
-      this.path = segments[0]?.path;
-    });
-  }
+  constructor(private http: HttpClient) {}
 
   calcular() {
     this.error = '';
@@ -48,13 +42,13 @@ export class LibLagrangeComponent {
     const xParam = xArray.join(',');
     const yParam = yArray.join(',');
 
-    const url = `http://34.74.83.192/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}`;
+    const url = `http://api.mewings.joptionpane.software/api/analisis-numerico-service/interpolacion/${xParam}/${yParam}/${value}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {
         Swal.fire({
           icon: 'success',
-          title: `Interpolación de ${this.path === 'lib-lagrange' ? 'Lagrange' : 'Newton'}`,
+          title: 'Interpolación de Lagrange',
           text: `Resultado: ${res}`,
           confirmButtonText: 'Aceptar'
         });

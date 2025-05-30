@@ -5,14 +5,9 @@ import {FormsModule} from '@angular/forms';
 import {NgIf} from "@angular/common";
 
 @Component({
-  imports: [
-    FormsModule,
-    NgIf
-  ],
-  selector: `app-lib-minimoscuadrados`,
-  standalone: true,
-  styleUrls: ['./lib-minimoscuadrados.component.css'],
-  templateUrl: './lib-minimoscuadrados.component.html'
+  selector: 'app-lib-minimoscuadrados',
+  templateUrl: './lib-minimoscuadrados.component.html',
+  styleUrls: ['./lib-minimoscuadrados.component.css']
 })
 export class LibMinimoscuadradosComponent {
   xValues: string = '';
@@ -37,7 +32,7 @@ export class LibMinimoscuadradosComponent {
 
     const x = this.xValues.split(',').map(Number).join(',');
     const y = this.yValues.split(',').map(Number).join(',');
-    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/calcular-pendiente/${x}/${y}`;
+    const url = `http://api.mewings.joptionpane.software/api/costos/minimos-cuadrados/calcular-pendiente/${x}/${y}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {
@@ -56,7 +51,7 @@ export class LibMinimoscuadradosComponent {
 
     const x = this.xValues.split(',').map(Number).join(',');
     const y = this.yValues.split(',').map(Number).join(',');
-    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/calcular-ordenada/${x}/${y}/${this.pendiente}`;
+    const url = `http://api.mewings.joptionpane.software/api/costos/minimos-cuadrados/calcular-ordenada/${x}/${y}/${this.pendiente}`;
 
     this.http.get<number>(url).subscribe({
       next: res => {
@@ -78,7 +73,7 @@ export class LibMinimoscuadradosComponent {
     }
 
     const x = this.xForecast.split(',').map(Number).join(',');
-    const url = `http://34.74.83.192/api/costos/minimos-cuadrados/pronosticar/${x}/${this.pendiente}/${this.ordenada}`;
+    const url = `http://api.mewings.joptionpane.software/api/costos/minimos-cuadrados/pronosticar/${x}/${this.pendiente}/${this.ordenada}`;
 
     this.http.get<number[]>(url).subscribe({
       next: res => {
