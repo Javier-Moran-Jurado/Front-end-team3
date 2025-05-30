@@ -1,15 +1,4 @@
 <div class="container mt-4">
-  <!-- Alertas de éxito/error -->
-  <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
-    Problema creado correctamente. Redirigiendo...
-    <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
-  </div>
-
-  <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{ errorMessage }}
-    <button type="button" class="btn-close" (click)="closeAlert()" aria-label="Close"></button>
-  </div>
-
   <h2>Formulario de Problema</h2>
 
   <form [formGroup]="problemaForm" (ngSubmit)="onSubmit()" novalidate>
@@ -44,7 +33,7 @@
                 maxlength="15000"></textarea>
       <div *ngIf="submitted && f['inputs']?.errors" class="invalid-feedback">
         <div *ngIf="f['inputs'].errors?.['maxlength']">Los inputs no pueden exceder 15000 caracteres</div>
-        <div *ngIf="f['inputs'].errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
+        <div *ngIf="problemaForm.errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
       </div>
       <small class="text-muted">{{ (f['inputs']?.value?.length || 0) }}/15000 caracteres</small>
     </div>
@@ -59,7 +48,7 @@
         <div *ngIf="f['outputs'].errors?.['required']">Los outputs son requeridos</div>
         <div *ngIf="f['outputs'].errors?.['maxlength']">Los outputs no pueden exceder 15000 caracteres</div>
         <div *ngIf="f['outputs'].errors?.['minlength']">Debe haber al menos un output</div>
-        <div *ngIf="f['outputs'].errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
+        <div *ngIf="problemaForm.errors?.['inputsOutputsMismatch']">Debe haber la misma cantidad de inputs y outputs</div>
       </div>
       <small class="text-muted">{{ (f['outputs']?.value?.length || 0) }}/15000 caracteres</small>
     </div>

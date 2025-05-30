@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Problema} from '../model/problema';
 import {ProblemaService} from '../service/problema.service';
 import {ActivatedRoute, NavigationStart, Router} from '@angular/router';
-import {NgForOf, NgIf} from '@angular/common';
-import {ProblemaFormComponentModule} from '../problema-form.module';
+import { NgIf } from '@angular/common';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
@@ -34,5 +33,9 @@ export class ProblemaDetalleComponent implements OnInit{
 
   firstCase(line: string): SafeHtml{
     return this.sanitizer.bypassSecurityTrustHtml(line.split('\\n\\n')[0].replace(/\\n/g, '<br>'));
+  }
+
+  goToEvaluator(id: number | undefined) {
+    this.router.navigate(['/evaluar', id]);
   }
 }

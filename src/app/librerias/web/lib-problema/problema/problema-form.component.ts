@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+  ValidatorFn,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
-interface Problema {
-  nombre: string;
-  descripcion: string;
-  inputs: string;
-  outputs: string;
-  tiempo: number;
-}
+import { NgClass, NgIf } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-problema-form',
   templateUrl: './problema-form.component.html',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    NgIf
+  ],
   styleUrls: ['./problema-form.component.css']
 })
 export class ProblemaFormComponent implements OnInit {
   public problemaForm!: FormGroup;
   submitted = false;
   loading = false;
-  apiUrl = 'http://tu-api-url.com/api/problemas';
-  showSuccessAlert = false;
-  showErrorAlert = false;
-  errorMessage = '';
+  apiUrl = 'http://api.mewings.joptionpane.software/api/ovaweb-service/problemas';
 
   constructor(
     private fb: FormBuilder,
@@ -49,17 +54,30 @@ export class ProblemaFormComponent implements OnInit {
     }, { validators: this.validateInputsOutputsMatch() });
   }
 
-  // Cambiado para usar tipo explícito
   get f(): { [key: string]: AbstractControl } {
     return this.problemaForm.controls;
   }
 
   onSubmit(): void {
     this.submitted = true;
-    this.showSuccessAlert = false;
-    this.showErrorAlert = false;
 
     if (this.problemaForm.invalid) {
+      // Mostrar errores de validación con SweetAlert2
+      if (this.problemaForm.errors?.['inputsOutputsMismatch']) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de validación',
+          text: 'El número de entradas (inputs) debe coincidir con el número de salidas (outputs)',
+          confirmButtonColor: '#3085d6'
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de validación',
+          text: 'Por favor complete todos los campos requeridos correctamente',
+          confirmButtonColor: '#3085d6'
+        });
+      }
       return;
     }
 
@@ -68,16 +86,25 @@ export class ProblemaFormComponent implements OnInit {
 
     this.http.post(this.apiUrl, problemaData).subscribe({
       next: (response: any) => {
-        this.showSuccessAlert = true;
-        setTimeout(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Problema creado correctamente',
+          showConfirmButton: false,
+          timer: 2000
+        }).then(() => {
           this.router.navigate(['/problemas']);
-        }, 2000);
+        });
       },
       error: (error) => {
         this.loading = false;
         console.error('Error:', error);
-        this.errorMessage = error.error?.message || 'Error al crear el problema';
-        this.showErrorAlert = true;
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: error.error?.message || 'Error al crear el problema',
+          confirmButtonColor: '#3085d6'
+        });
       },
       complete: () => {
         this.loading = false;
@@ -92,24 +119,27 @@ export class ProblemaFormComponent implements OnInit {
       const inputs = formGroup.get('inputs')?.value || '';
       const outputs = formGroup.get('outputs')?.value || '';
 
+      // Si no hay outputs, dejamos que el validador required se encargue
+      if (!outputs.trim()) return null;
+
       const outputsArray = outputs.split('\n\n')
         .map((item: string) => item.trim())
         .filter((item: string) => item.length > 0);
 
-      if (outputsArray.length <= 1) return null;
+      // Si no hay inputs pero hay más de un output, es error
+      if (!inputs.trim() && outputsArray.length > 1) {
+        return { inputsOutputsMismatch: true };
+      }
 
       const inputsArray = inputs.split('\n\n')
         .map((item: string) => item.trim())
         .filter((item: string) => item.length > 0);
 
-      return inputsArray.length === outputsArray.length
-        ? null
-        : { inputsOutputsMismatch: true };
-    };
-  }
+      if (inputsArray.length > 0 && outputsArray.length > 0 && inputsArray.length !== outputsArray.length) {
+        return { inputsOutputsMismatch: true };
+      }
 
-  closeAlert(): void {
-    this.showSuccessAlert = false;
-    this.showErrorAlert = false;
+      return null;
+    };
   }
 }

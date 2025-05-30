@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="m-0">Problemas</h4>
+    </div>
+
+    <div class="card-body p-0">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let problema of problemasArr.problemas" class="list-group-item list-group-item-action py-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0Ij48cGF0aCBmaWxsPSIjNGY0NmU1IiBkPSJNNzA0IDEwMjRIMzIwTDAgNzA0VjMyMEwzMjAgMGgzODRsMzIwIDMyMHYzODR6TTQ0OCA1MTJMNjQgMzM1djM1NHpNMzM1IDk2MGgzNTRMNTEyIDU3NnptMTc3LTUxMkw2ODkgNjRIMzM1em02NCA2NGwzODQgMTc3VjMzNXoiLz48L3N2Zz4="
+                   alt="icono problema"
+                   style="width: 20px; height: 20px; margin-right: 12px;">
+              <span class="fw-medium">{{ problema.nombre }}</span>
+            </div>
+            <button class="btn btn-outline-primary btn-sm rounded-pill px-3" (click)="goToDetails(problema.id)">
+              Detalles
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-footer bg-light text-end small">
+      Mostrando {{problemasArr.problemas.length}} problemas
+    </div>
+  </div>
+</div>
