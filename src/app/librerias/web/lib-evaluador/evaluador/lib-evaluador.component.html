@@ -1,1 +1,18 @@
-<p>lib-evaluador works!</p>
+<form *ngIf="problema" class="card container">
+  <h3 class="card-title">{{ problema.nombre }}   -   Tiempo limite: {{ problema.tiempo}} ms.</h3>
+  <div class="mb-3">
+    <label for="content" class="form-label">Codigo Java:</label>
+    <textarea
+              [(ngModel)]="evaluadordto.content"
+              (keydown)="handleTab($event)"
+              class="form-control"
+              maxlength="5000"
+              rows="12"
+              style="min-height: 200px"
+              name="content"></textarea>
+  </div>
+  <button style="margin: 20px auto 0" class="btn btn-outline-primary btn-sm" (click)="subir()">
+    Subir Solucion
+  </button>
+</form>
+

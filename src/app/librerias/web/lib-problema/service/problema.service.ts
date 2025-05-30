@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Facultad} from '../model/facultad';
+import {Problema} from '../model/problema';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FacultadService {
-  private apiUrl = '/api/v1/facultad-service/facultades';
+export class ProblemaService {
+  private apiUrl = 'http://api.mewings.joptionpane.software/api/ovaweb-service/problemas';
 
   constructor(private http: HttpClient) {}
 
-  getFacultades(): Observable<{facultades: Facultad[]}> {
-    return this.http.get<{facultades: Facultad[]}>(this.apiUrl);
+  getProblemas(): Observable<{problemas: Problema[]}> {
+    return this.http.get<{problemas: Problema[]}>(this.apiUrl);
   }
 
-  getFacultad(id: string | null): Observable<Facultad> {
-    return this.http.get<Facultad>(`${this.apiUrl}/${id}`);
+  getProblema(id: string | null): Observable<{problema: Problema}> {
+    return this.http.get<{problema: Problema}>(`${this.apiUrl}/${id}`);
   }
 
-  // Crear un nuevo facultad
-  createFacultad(facultad: Facultad): Observable<Facultad> {
+  // Crear un nuevo problema
+  createProblema(problema: Problema): Observable<Problema> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<Facultad>(this.apiUrl, facultad, { headers });
+    return this.http.post<Problema>(this.apiUrl, problema, { headers });
   }
 
-  // Actualizar un facultad existente
-  updateFacultad(facultad: Facultad): Observable<Facultad> {
+  // Actualizar un problema existente
+  updateProblema(problema: Problema): Observable<Problema> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put<Facultad>(`${this.apiUrl}`, facultad, { headers });
+    return this.http.put<Problema>(`${this.apiUrl}`, problema, { headers });
   }
 
-  // Eliminar un facultad por ID
-  deleteFacultad(facultad: Facultad): Observable<Facultad> {
+  // Eliminar un problema por ID
+  deleteProblema(problema: Problema): Observable<Problema> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.delete<Facultad>(`${this.apiUrl}`, { body: facultad });
+    return this.http.delete<Problema>(`${this.apiUrl}`, { body: problema });
   }
 }

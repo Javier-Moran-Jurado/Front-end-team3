@@ -42,7 +42,9 @@ export const FACULTADES: Facultad[] = [
             id: 2,
             nombre: 'Ambiente Web II',
             ovas: [
-              { id: 1, nombre: 'Git Commands', url:'/lib-gitcmd' },
+              { id: 1, nombre: 'Listar Problemas', url:'/problemas' },
+              { id: 2, nombre: 'Crear Problemas', url:'/problema-form' },
+              { id: 3, nombre: 'Listar Soluciones', url:'/soluciones' },
             ]
           },
 
@@ -64,8 +66,7 @@ export const FACULTADES: Facultad[] = [
             id: 3,
             nombre: 'Matemáticas Discretas',
             ovas: [
-              { id: 1, nombre: 'Escítala Espartana', url: '/lib-escitala' },
-              { id: 2, nombre: 'Código César', url: '/lib-codigo-cesar' },
+              { id: 1, nombre: 'Código César', url: '/lib-codigo-cesar' },
             ]
           }
         ]

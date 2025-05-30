@@ -6,6 +6,11 @@ import {HomeOvaComponent} from './home-ova/home-ova.component';
 import {InformacionComponent} from './informacion/informacion.component';
 import {OvaTemplateComponent} from './template/ova-template/ova-template.component';
 import {LibLagrangeComponent} from './librerias/analisis-numerico/lib-lagrange/lib-lagrange.component';
+import { ProblemaFormComponent } from './librerias/web/lib-problema/problema/problema-form.component';
+import { SolucionesComponent } from './librerias/web/lib-evaluador/soluciones/soluciones.component';
+import {ProblemaDetalleComponent} from './librerias/web/lib-problema/problema-detalle/problema-detalle.component';
+import {ProblemasComponent} from './librerias/web/lib-problema/problemas/problemas.component';
+import {LibEvaluadorComponent} from './librerias/web/lib-evaluador/evaluador/lib-evaluador.component';
 import {LibMinimoscuadradosComponent} from './librerias/costos-presupuestos/lib-minimoscuadrados/lib-minimoscuadrados.component';
 import {OvasComponent} from './ova/ovas/ovas.component';
 import {PageNoFoundComponent} from './page-no-found/page-no-found.component';
@@ -36,6 +41,12 @@ const routes: Routes = [
       { path: '', component: PageNoFoundComponent},
       //{ path: '', redirectTo: '/home', pathMatch: 'full' }
       { path: 'lib-lagrange', component: LibLagrangeComponent },
+      { path: 'problemas', component: ProblemasComponent },
+      { path: 'problema/:id', component: ProblemaDetalleComponent },
+      { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+      { path: 'soluciones', component: SolucionesComponent },
+      { path: 'evaluar/:id', component: LibEvaluadorComponent},
+      { path: 'problema-form', component: ProblemaFormComponent }
     ]
   },
   {
@@ -51,7 +62,7 @@ const routes: Routes = [
       {path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule)},
       {path: 'programas', loadChildren: () => import('./programas/programas.module').then(m => m.ProgramasModule)},
       { path: '', redirectTo: '/programas', pathMatch: 'full' },
-      { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) },
+      { path: 'cursos', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule) }
     ]
   },
   {path:'**', component: PageNoFoundComponent}

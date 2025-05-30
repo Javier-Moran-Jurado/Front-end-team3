@@ -35,8 +35,6 @@
 
 /* Contenido principal que se adapta y centra */
 .content-area {
-  flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
