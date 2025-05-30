@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CursoService {
-  private apiUrl = '/api/v1/curso-service/cursos';
+  private apiUrl = 'http://api.mewings.joptionpane.software/api/v1/curso-service/cursos';
 
   constructor(private http: HttpClient) { }
 
