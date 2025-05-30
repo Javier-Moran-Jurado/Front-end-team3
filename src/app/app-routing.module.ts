@@ -50,7 +50,7 @@ const routes: Routes = [
     component: OvaTemplateComponent,
     children: [
       { path: 'home-ova', component: HomeOvaComponent },
-      { path: 'lib-round-robin', component : LibLagrangeComponent },
+      { path: 'lib-round-robin', component : RoundRobinComponent },
       { path: 'lib-lagrange', component: LibLagrangeComponent },
       { path: 'lib-newton', component: LibLagrangeComponent }
     ]
